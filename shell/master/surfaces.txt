@@ -1,42 +1,104 @@
+// ===================================================================
+// base setting
+// ===================================================================
+charset,UTF-8
+
 descript
 {
-	version,1
+version,1
 }
 
-//—————————————————————————————— Sakura surfaces ——————————————————————————————
-
-surface0
+// ===================================================================
+// surface base
+// ===================================================================
+surface0-9,25
 {
-	collision0,0,0,130,65,head
-	
-	//Example code for blink animation - uncomment if you want it
-	//animation0.interval,random,4
-	//animation0.pattern0,overlay,101,0,0,0
-	//animation0.pattern1,overlay,102,100,0,0
-	//animation0.pattern2,overlay,-1,50,0,0
-	
-	
-	//Example code for a talk animation - uncomment if you want it
-	// animation1.interval,talk,4
-	// animation1.pattern0,alternativestart,(2,3,4)
-	
-	// animation2.interval,never
-	// animation2.pattern0,overlay,103,0,0,0
-	// animation2.pattern1,overlay,104,200,0,0
-	// animation2.pattern2,overlay,-1,200,0,0
-	
-	// animation3.interval,never
-	// animation3.pattern0,overlay,103,0,0,0
-	// animation3.pattern1,overlay,-1,200,0,0
-	
-	// animation4.interval,never
-	// animation4.pattern0,overlay,104,0,0,0
-	// animation4.pattern1,overlay,105,200,0,0
-	// animation4.pattern2,overlay,-1,200,0,0
+//satolist.palette.offset,145,70
+//satolist.surface.scope,0
+element,base,surface0.png,0,0
 }
-
-//—————————————————————————————— Kero surfaces ——————————————————————————————
 
 surface10
 {
+}
+
+// ===================================================================
+// face
+// ===================================================================
+// eyeblow
+// -------------------------------------------------------------------
+// normal
+surface.append0,2,6,25
+{
+element3,overlay,eyeblow/eyeblow_normal.png,0,0
+}
+
+// sad
+surface.append1,3,4,8
+{
+element3,overlay,eyeblow/eyeblow_sad.png,0,0
+}
+
+// smile
+surface.append5,7,9
+{
+element3,overlay,eyeblow/eyeblow_smile.png,0,0
+}
+
+// eye
+// -------------------------------------------------------------------
+// normal
+surface.append0,2,3,5
+{
+element2,overlay,eye/eye_normal.png,0,0
+}
+
+// half
+surface.append9
+{
+element2,overlay,eye/eye_half.png,0,0
+}
+
+// close normal
+surface.append4,6,25
+{
+element2,overlay,eye/eye_close_normal.png,0,0
+}
+
+// close smile
+surface.append1,7,8
+{
+element2,overlay,eye/eye_close_smile.png,0,0
+}
+
+// mouth
+// -------------------------------------------------------------------
+// normal
+surface.append0,6,7,8
+{
+element1,overlay,mouth/mouth_normal.png,0,0
+}
+
+// sad
+surface.append3,4
+{
+element1,overlay,mouth/mouth_sad.png,0,0
+}
+
+// half normal
+surface.append25
+{
+element1,overlay,mouth/mouth_half_normal.png,0,0
+}
+
+// half smile
+surface.append1,5,9
+{
+element1,overlay,mouth/mouth_half_smile.png,0,0
+}
+
+// big
+surface.append2
+{
+element1,overlay,mouth/mouth_big.png,0,0
 }
