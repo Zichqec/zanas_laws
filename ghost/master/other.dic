@@ -83,6 +83,12 @@ newline
 	"\_l[,]"
 }
 
+br
+{
+	if SHIORI3FW.BalloonName == "Effortless Iridescence"; "\n"
+	else; " "
+}
+
 UniverseReady
 {
 	QuestionsAsked >= 5
