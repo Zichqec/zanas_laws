@@ -10,6 +10,22 @@ OnTranslate
 	
 	//If you want to add anything to OnTranslate, like text replacement, I would put it after this point, generally. Just make sure it's before the TOSTR(_talk)
 	
+	//Once you autopause you can never go back... and that means i write this from scratch, again and again...
+	if "\![no-autopause]" !_in_ _talk
+	{
+		_talk = REPLACE(_talk,"...? ",".\w4.\w4.\w4?\w8\w8 ")
+		_talk = REPLACE(_talk,"...! ",".\w4.\w4.\w4!\w8\w8 ")
+		_talk = REPLACE(_talk,"... ",".\w4.\w4.\w8\w8 ")
+		_talk = REPLACE(_talk,". ",".\w8\w8 ")
+		_talk = REPLACE(_talk,", ",",\w4 ")
+		_talk = REPLACE(_talk,"! ","!\w8\w8 ")
+		_talk = REPLACE(_talk,"? ","?\w8\w8 ")
+		//_talk = REPLACE(_talk,". ",".\w8\w8 ")
+		_talk = REPLACE(_talk,"\n\n ","\n\n\w8\w8")
+	}
+	//Simple autopause blocker per-character
+	_talk = REPLACE(_talk,"##","")
+	
 	TOSTR(_talk)
 }
 
@@ -43,6 +59,30 @@ On_homeurl
 {
 	""
 }
+
+shrink : all
+{
+	for _i = 100; _i > 50; _i--
+	{
+		"\![set,scaling,%(_i),%(_i)]\_w[20]"
+	}
+	"\![set,scaling,50,50]"
+}
+
+grow : all
+{
+	for _i = 50; _i < 100; _i++
+	{
+		"\![set,scaling,%(_i),%(_i)]\_w[20]"
+	}
+	"\![set,scaling,100,100]"
+}
+
+UniverseReady
+{
+	QuestionsAsked >= 5
+}
+
 
 
 //—————————————————————————————— Right click menu links ——————————————————————————————

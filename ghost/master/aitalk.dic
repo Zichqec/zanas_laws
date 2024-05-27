@@ -1,12 +1,50 @@
 OnAiTalk
 {
-	if CHAIN.IDName == ""
+	if CHAIN.IDName != ""
 	{
-		LastTalk = RandomTalk
+		LastTalk = ChainTalk
 	}
 	else
 	{
-		LastTalk = ChainTalk
+		if !UserAcceptedRole
+		{
+			LastTalk = MonologueTalk.Parallel
+		}
+		else
+		{
+			if UniverseReady
+			{
+				LastTalk = RandomTalk
+			}
+			else
+			{
+				if UniverseReady
+				{
+					LastTalk = RandomTalk
+				}
+				else
+				{
+					if ARRAYSIZE(DialogueDisperser) <= 0
+					{
+						for _i = 0; _i  < 3; _i++
+						{
+							DialogueDisperser ,= "Normal"
+						}
+						DialogueDisperser ,= "Question"
+					}
+					
+					_pick = ANY(DialogueDisperser)
+					DialogueDisperser[LSO] = IARRAY
+					
+					if _pick == "Question"
+					{
+						QuestionsAsked++
+						LastTalk = QuestionTalk
+					}
+					else; LastTalk = RandomTalk
+				}
+			}
+		}
 	}
 	LastTalk
 }
@@ -14,4 +52,22 @@ OnAiTalk
 RandomTalk : nonoverlap_pool
 {
 	"RandomTalk"
+	
+	parallel MonologueTalk
+}
+
+MonologueTalk : array
+{
+	"MonologueTalk"
+}
+
+QuestionTalk : array
+{
+	"QuestionTalk"
+}
+
+
+MonologueTalk.Parallel : nonoverlap
+{
+	parallel MonologueTalk
 }
