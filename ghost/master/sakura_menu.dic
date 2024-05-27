@@ -11,7 +11,7 @@ OnSakuraMenu : all
 	else; _lastgreeting = reference1
 	if SHIORI3FW.Eventid != "OnMouseDoubleClick"; "\C\![lock,balloonrepaint]\c"
 	
-	"\0\s[0]\b2\![set,autoscroll,disable]"
+	"\0\s[0]\b[0]\![set,autoscroll,disable]\f[anchorvisitedfontcolor,default.anchor]"
 	
 	"\n\n\_q"
 	
