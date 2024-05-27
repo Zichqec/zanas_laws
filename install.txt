@@ -3,3 +3,5 @@ type,ghost
 
 name,Zana's Laws
 directory,zana's_laws_gtz
+
+balloon.directory,effortless_iridescence_gtz

@@ -15,3 +15,6 @@ kero.name,blank
 icon,icon.ico
 
 sstp.allowunspecifiedsend,0
+
+balloon,Effortless Iridescence
+balloon,Angelbox (Biblically Accurate)
