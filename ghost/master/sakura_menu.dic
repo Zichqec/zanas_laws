@@ -41,7 +41,7 @@ OnSakuraMenu : all
 	
 	if SHIORI3FW.DebugMode
 	{
-		"\n\n\f[color,75,75,75]"
+		"\n\n"
 		
 		"UserAcceptedRole:  \![*]\q[(%(UserAcceptedRole)),OnDebug.UserAcceptedRole,""%(_lastgreeting)""]\n"
 		"QuestionsAsked: %(QuestionsAsked)\n"
