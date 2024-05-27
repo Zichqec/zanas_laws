@@ -8,3 +8,18 @@ craftmanurl,https://github.com/Zichqec/zanas_laws
 
 seriko.alignmenttodesktop,free
 seriko.use_self_alpha,1
+
+// menu
+menu.background.bitmap.filename,menu/menu_background.png
+menu.foreground.bitmap.filename,menu/menu_foreground.png
+
+menu.background.alignment,lefttop+repeat-x+repeat-y
+menu.foreground.alignment,lefttop+repeat-x+repeat-y
+
+menu.background.font.color.r,2
+menu.background.font.color.g,5
+menu.background.font.color.b,10
+
+menu.foreground.font.color.r,250
+menu.foreground.font.color.g,250
+menu.foreground.font.color.b,250
