@@ -51,6 +51,7 @@ OnNewUniverse
 {
 	QuestionsAsked = 0
 	TotalUniverses++
+	OnPickChoices
 	
 	if LastQuestions.MoreOrFewer.Animals != "";
 	{

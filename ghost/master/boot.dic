@@ -10,6 +10,8 @@ OnFirstBoot
 	IsFloating = 1
 	MovingSparklies = 1
 	
+	OnPickChoices
+	
 	OldQuestions.MoreOrFewer.Animals = IARRAY
 	LastQuestions.MoreOrFewer.Animals = ""
 	Questions.MoreOrFewer.Animals = ""
@@ -26,6 +28,7 @@ OnInitialize
 	if reference0 != "reload" //To reset EXCEPT when just reloading
 	{
 		LastTalk = ""
+		OnPickChoices
 	}
 }
 

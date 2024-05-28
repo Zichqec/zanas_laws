@@ -144,6 +144,26 @@ OnNotifyDressupInfo
 	}
 }
 
+//Picking the choices now so that they don't overlap later...
+OnPickChoices
+{
+	Choices.Animal_1 = animals
+	
+	Choices.Animal_2 = animals
+	while Choices.Animal_2 == Choices.Animal_1
+	{
+		Choices.Animal_2 = animals
+	}
+	
+	Choices.Animal_3 = animals
+	while Choices.Animal_3 == Choices.Animal_2 || Choices.Animal_3 == Choices.Animal_1
+	{
+		Choices.Animal_3 = animals
+	}
+	
+	
+}
+
 
 //—————————————————————————————— Right click menu links ——————————————————————————————
 

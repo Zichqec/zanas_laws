@@ -1,7 +1,7 @@
-animals
+animals : nonoverlap
 {
-	"snake,snakes"
-	"lion,lions"
-	"tiger,tigers"
-	"bear,bears"
+	"a snake,snakes"
+	"a lion,lions"
+	"a tiger,tigers"
+	"a bear,bears"
 }
