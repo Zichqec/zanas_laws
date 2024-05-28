@@ -44,8 +44,12 @@ OnAiTalk
 					
 					if _pick == "Question"
 					{
-						QuestionsAsked++
 						LastTalk = QuestionTalk
+						if LastTalk == "" //TODO this can be removed once we have 5 categories...
+						{
+							QuestionsAsked = 5
+							LastTalk = RandomTalk
+						}
 					}
 					else; LastTalk = RandomTalk
 				}
@@ -95,15 +99,18 @@ MonologueTalk : array
 
 QuestionTalk : nonoverlap_pool
 {
-	"QuestionTalk"
 	//More or fewer animals
 	if Questions.MoreOrFewer.Animals == ""
 	{
 		_pick = animals
 		_animal = _pick[0]
 		_animals = _pick[1]
-		"Do you think there should be more or fewer %(_animals)?\n\n\![*]\q[More,OnQuestions.MoreOrFewer.Animals,""%(_pick)"",more]    \![*]\q[Fewer,OnQuestions.MoreOrFewerAnimals,""%(_pick)"",fewer]"
-		"How do you feel about %(_animals)? More or fewer?\n\n\![*]\q[More,OnQuestions.MoreOrFewer.Animals,""%(_pick)"",more]    \![*]\q[Fewer,OnQuestions.MoreOrFewer.Animals,""%(_pick)"",fewer]"
+		
+		"Do you think there should be more or fewer %(_animals)?"
+		"How do you feel about %(_animals)? More or fewer?"
+		//If you were an %(_animal), would you like more or fewer of your kind around? ← problem with this is, a/an...
+		--
+		"\n\n\![*]\q[More,OnQuestions,MoreOrFewer.Animals,""%(_pick)"",more]    \![*]\q[Fewer,OnQuestions,MoreOrFewer.Animals,""%(_pick)"",fewer]"
 	}
 	
 	//This or that animal
@@ -120,23 +127,37 @@ QuestionTalk : nonoverlap_pool
 		_animal_2 = _pick2[0]
 		_animals_2 = _pick2[1]
 		
-		"Would you prefer %(_animals_1) or %(_animals_2)?\n\n\![*]\q[%(_animals_1),OnQuestions.ThisOrThat.Animals,""%(_pick1)"",""%(_pick2)""]    \![*]\q[%(_animals_2),OnQuestions.ThisOrThat.Animals,""%(_pick2)"",""%(_pick1)""]"
-		"Do you think it would be better to include %(_animals_1) or %(_animals_2)?\n\n\![*]\q[%(_animals_1),OnQuestions.ThisOrThat.Animals,""%(_pick1)"",""%(_pick2)""]    \![*]\q[%(_animals_2),OnQuestions.ThisOrThat.Animals,""%(_pick2)"",""%(_pick1)""]"
+		"Would you prefer %(_animals_1) or %(_animals_2)?"
+		"Do you think it would be better to include %(_animals_1) or %(_animals_2)?"
+		--
+		"\n\n\![*]\q[%(_animals_1),OnQuestions,ThisOrThat.Animals,""%(_pick1)"",""%(_pick2)""]    \![*]\q[%(_animals_2),OnQuestions,ThisOrThat.Animals,""%(_pick2)"",""%(_pick1)""]"
 	}
 }
 
-OnQuestions.MoreOrFewer.Animals
+OnQuestions
 {
-	Questions.MoreOrFewer.Animals = reference
-	"%(reference)\n\n Interesting."
+	_ref0 = reference[0]
+	reference[0] = IARRAY
+	NAMETOVALUE("Questions.%(_ref0) = reference")
+	QuestionsAsked++
+	
+	"%(Questions.ThisOrThat.Animals)\n%(Questions.MoreOrFewer.Animals)\n\n"
+	
+	--
+	if UniverseReady
+	{
+		"\0\b[0]\s[6]\tThen, that should do it for now. \n\n[half]\s[5]I have an idea of how this next universe will go, \s[1]as well as what I need to adjust for it to happen. \n\n[half]\s[7]Thank you for your contribution. \s[0]Let me know when you're ready and we can %(br)\_a[OnUniverseCreation.Begin]begin\_a.\x"
+	}
+	else
+	{
+		"Interesting..."
+	}
 }
 
-OnQuestions.ThisOrThat.Animals
+OnUniverseCreation.Begin
 {
-	Questions.ThisOrThat.Animals = reference
-	"%(reference)\n\n Interesting."
+	"\0\b[2]\s[5]\t'Begin', of course, means I'll be taking your feedback into account while I make the new universe for us. \n\n[half]\s[1]I'm afraid that you're not capable of doing it yourself, even if I were to let you try. \n\n[half]\s[8]Sorry about that. \n\n[half]\s[6]Still... \s[5]I'll do my best to honor each of your requests, \s[9]so please have faith in me. \n\n[half]\s[0]Let me know when you're ready. I won't rush you.\x"
 }
-
 
 MonologueTalk.Parallel : nonoverlap_pool
 {
