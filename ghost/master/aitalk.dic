@@ -108,8 +108,8 @@ QuestionTalk : nonoverlap_pool
 		_animal_2 = Choices.Animal_2[0]
 		_animals_2 = Choices.Animal_2[1]
 		
-		"Would you prefer %(_animals_1) or %(_animals_2)?"
-		"Do you think it would be better to include %(_animals_1) or %(_animals_2)?"
+		"\0\b[0]\s[0]I am contemplating what animals to include this iteration. Would you prefer %(_animals_1), or %(_animal_2)?"
+		"\0\b[0]\s[0]I would like your opinion on a matter related to animals. I can add either %(_animals_1) or %(_animal_2), but I do not wish to include both. Which would you prefer?"
 		--
 		"\n\n\![*]\q[%(_animals_1),OnQuestions,ThisOrThat.Animals,""%(Choices.Animal_1)"",""%(Choices.Animal_2)""]    \![*]\q[%(_animals_2),OnQuestions,ThisOrThat.Animals,""%(Choices.Animal_2)"",""%(Choices.Animal_1)""]"
 	}
