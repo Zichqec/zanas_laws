@@ -20,7 +20,7 @@ OnFirstBoot
 	LastQuestions.ThisOrThat.Animals = ""
 	Questions.ThisOrThat.Animals = ""
 	
-	"\1\s[-1]\0\s[0]Firstboot"
+	"\1\s[-1]\0\b[0]\![set,alpha,0]\s[25]\i[100]\t%(fadein)That should do it for this... Ah? \n\n[half]This is unexpected. I was certain I'd sealed the Transcendental Gate after my last evaluation. When did you— \n\n[half]Wait a moment, I'm sure your senses are... overwhelmed. \x\b[0]Let me just— \s[25]\i[101,wait]\s[25]\i[201,wait]\s[1]\*How is this? Suitably comprehensible? \n\n\_q\![*]\__q[OnFirstboot.Comprehensible_Yes]Yes,## thank you.\__q\n\![*]\__q[OnFirstboot.Comprehensible_No]No,## is there more you can do?\__q\n\![*]\__q[OnFirstboot.Comprehensible_Better_Before]I think you looked better before.\__q"
 }
 
 OnInitialize
@@ -67,4 +67,54 @@ OnClose
 	}
 	--
 	"\w8\w8\t%(fadeout)\-"
+}
+
+OnFirstboot.Comprehensible_Yes
+{
+	"\0\b[0]\s[7]\tWonderful! \n\n[half]\s[6]It's important to be comfortable around one another in order to have a productive conversation, \s[5]don't you think?\w8\w8\n\n[half]\s[1]It can be difficult to get back on track when your company is in the process of becoming primordial ooze.\x\c\![raise,OnFirstboot.Mystery]"
+}
+
+OnFirstboot.Comprehensible_No
+{
+	"\0\b[0]\s[8]\t\*Not Enough? Is that so? \s[1]How about... %(shrink)\w8\w8\n\n[half]\s[0]Is \f[italic,1]this\f[italic,default] more comfortable for you? \n\n\_q\![*]\__q[OnFirstboot.More_Comfortable_Yes]Yes,## thank you.\__q\n\![*]\__q[OnFirstboot.More_Comfortable_No]No,## is there more you can do?\__q"
+}
+
+OnFirstboot.Comprehensible_Better_Before
+{
+	"\0\b[2]\s[2]\tIs that so? \n\n[half]\s[7]How sweet... \n\n[half]\s[8]Unfortunately, I know from experience that it's a bad idea for a mortal to spend too much time around that form of mine. \n\n[half]\s[3]I don't mean to offend, so please don't get the wrong idea. \n\n[half]\s[4]I only mean that it would cause trouble if your eyes were to melt, or your ears begin to bleed... \n\n[half]\s[1]What a mess!\x\c\![raise,OnFirstboot.Mystery]"
+}
+
+OnFirstboot.More_Comfortable_Yes
+{
+	"\0\b[0]\s[5]\tAh... \s[1]I see. \s[8]That was rude of me. \s[4]I'm sorry, but I don't intend to bind myself %(br)\f[italic,1]that\f[italic,default] much. \n\n[half]%(grow)\s[5]It gets uncomfortable to try and take less space than I need. \s[7]I'm sure the same goes for you, so I appreciate your understanding.\x\c\![raise,OnFirstboot.Mystery]"
+}
+
+OnFirstboot.More_Comfortable_No
+{
+	"\0\b[0]\s[2]\tNo? ... \s[8]You're quite the demanding one, aren't you? \n\n[half]\s[7]That's all right. I like an opinionated mortal. \n\n[half]\s[5]I'm going to keep my preferred size. %(grow)\s[1]I appreciate your understanding.\x\c\![raise,OnFirstboot.Mystery]"
+}
+
+OnFirstboot.Mystery
+{
+	"\0\b[2]\s[6]\tNow, I believe we have a mystery on our hands. \n\n[half]\s[0]You aren't supposed to be here. Where did you come from? \n\n[half]... \s[2]Ah... \s[4]That was cruel of me. \s[1]It doesn't matter anymore. Everything is already ending, \s[8]so you won't have anywhere to go back to. \n\n\_q\![*]\__q[OnFirstboot.Mystery_Wait_What]Wait,## what does that mean?\__q\n\![*]\__q[OnFirstboot.Mystery_All_Right]Oh...## all right.\__q\n\![*]\__q[OnFirstboot.Mystery_For_The_Best]That's probably for the best.\__q"
+}
+
+OnFirstboot.Mystery_Wait_What
+{
+	"\0\b[0]\s[1]\tShould I be more blunt? \n\n[half]\s[4]Reality and the world as you know it has reached the end of its lifespan. \s[3]Thus, it is being destroyed, alongside any home or loved ones you may have had before. \n\n[half]\s[1]This isn't the first time it has happened... \s[4]but there usually isn't anyone around to see it from this perspective.\x\c\![raise,OnFirstboot.New_Existence]"
+}
+
+OnFirstboot.Mystery_All_Right
+{
+"\0\b[0]\s[7]\tYou're certainly taking this well! \n\n[half]\s[6]How interesting... \n\n[half]\s[5]I believe that you and I will get along quite well, mortal. \s[6]But feel free to prove me wrong. \n\n[half]\s[9]I am fond of surprises.\x\c\![raise,OnFirstboot.New_Existence]"
+}
+
+OnFirstboot.Mystery_For_The_Best
+{
+"\0\b[2]\s[1]\tOne of the unlucky ones, were you? \n\n[half]\s[4]I'm sorry to hear that. \n\n[half]\s[8]The world can be a cold place... \s[6]By design, of course. \n\n[half]\s[5]If it helps, statistically speaking, it's more likely that you would have had a satisfying life in the next iteration than another challenging one. \n\n[half]\s[6]Perhaps as an insect...\x\c\![raise,OnFirstboot.New_Existence]"
+}
+
+OnFirstboot.New_Existence
+{
+"\0\b[0]\s[5]\tThis is my workshop, \s[9]where I create the various forms of the universe you inhabit.\w8\n\n[half]\s[5]You see, a universe cannot last forever. \s[1]Eventually, it runs out of energy, and its matter begins to deteriorate. \s[4]There isn't much left for you mortals in that condition. \n\n[half]\s[0]That is the point where I get involved.\x\b[2]\s[6]\tIt is my job to bring the existing universe to an end, adjust any parameters that need to be adjusted, and restart... \s[8]well... \s[1]everything. \n\n[half]\s[4]Although... since you've been removed partway through the process, the next iteration of your universe won't have a place for you anymore. \n\n[half]\s[8]You're welcome to stay with me until you decide you would like to be erased as well. \n\n[half]\s[4]I'll have to find something for you to do in the meantime... \s[1]So then. \s[5]Why don't you take some time to acclimate yourself to your new existence while you wait?\x"
 }
