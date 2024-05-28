@@ -51,12 +51,26 @@ element3,overlay,eyeblow/eyeblow_smile.png,0,0
 surface.append0,2,3,5
 {
 element2,overlay,eye/eye_normal.png,0,0
+
+animation10.interval,rarely
+animation10.pattern0,overlay,12000,80,0,0
+animation10.pattern1,overlay,12001,80,0,0
+animation10.pattern2,overlay,12003,80,0,0
+animation10.pattern3,overlay,12001,80,0,0
+animation10.pattern4,overlay,-1,80,0,0
 }
 
 // half
 surface.append9
 {
 element2,overlay,eye/eye_half.png,0,0
+
+animation10.interval,rarely
+animation10.pattern0,overlay,12001,80,0,0
+animation10.pattern1,overlay,12002,80,0,0
+animation10.pattern2,overlay,12003,80,0,0
+animation10.pattern3,overlay,12002,80,0,0
+animation10.pattern4,overlay,-1,80,0,0
 }
 
 // close normal
@@ -77,30 +91,63 @@ element2,overlay,eye/eye_close_smile.png,0,0
 surface.append0,6,7,8
 {
 element1,overlay,mouth/mouth_normal.png,0,0
+
+animation20.interval,talk,3
+animation20.pattern0,overlay,13000,80,0,0
+animation20.pattern1,overlay,13002,80,0,0
+animation20.pattern2,overlay,13003,80,0,0
+animation20.pattern3,overlay,-1,80,0,0
 }
 
 // sad
 surface.append3,4
 {
 element1,overlay,mouth/mouth_sad.png,0,0
+
+
+animation20.interval,talk,3
+animation20.pattern0,overlay,13001,80,0,0
+animation20.pattern1,overlay,13002,80,0,0
+animation20.pattern2,overlay,13003,80,0,0
+animation20.pattern3,overlay,-1,80,0,0
 }
 
 // half normal
 surface.append25
 {
 element1,overlay,mouth/mouth_half_normal.png,0,0
+
+animation20.interval,talk,3
+animation20.pattern0,overlay,13002,80,0,0
+animation20.pattern1,overlay,13003,80,0,0
+animation20.pattern2,overlay,13000,80,0,0
+animation20.pattern3,overlay,-1,80,0,0
 }
 
 // half smile
 surface.append1,5,9
 {
 element1,overlay,mouth/mouth_half_smile.png,0,0
+
+
+animation20.interval,talk,3
+animation20.pattern0,overlay,13003,80,0,0
+animation20.pattern1,overlay,13002,80,0,0
+animation20.pattern2,overlay,13000,80,0,0
+animation20.pattern3,overlay,-1,80,0,0
+
 }
 
 // big
 surface.append2
 {
 element1,overlay,mouth/mouth_big.png,0,0
+
+animation20.interval,talk,3
+animation20.pattern0,overlay,13004,80,0,0
+animation20.pattern1,overlay,13002,80,0,0
+animation20.pattern2,overlay,13000,80,0,0
+animation20.pattern3,overlay,-1,80,0,0
 }
 
 // ===================================================================
@@ -198,4 +245,56 @@ collisionex0,orb,circle,165,298,20
 collisionex1,wings,region,collision.png,186,186,186
 collisionex2,pen,region,collision.png,153,153,153
 collisionex3,skirt,region,collision.png,112,112,112
+}
+
+// ===================================================================
+// parts
+// ===================================================================
+// eye
+// -------------------------------------------------------------------
+surface12000
+{
+element0,base,eye/eye_normal.png,0,0
+}
+
+surface12001
+{
+element0,base,eye/eye_half.png,0,0
+}
+
+surface12002
+{
+element0,base,eye/eye_quarter.png,0,0
+}
+
+surface12003
+{
+element0,base,eye/eye_close_normal.png,0,0
+}
+
+// mouth
+// -------------------------------------------------------------------
+surface13000
+{
+element0,base,mouth/mouth_normal.png,0,0
+}
+
+surface13001
+{
+element0,base,mouth/mouth_sad.png,0,0
+}
+
+surface13002
+{
+element0,base,mouth/mouth_half_normal.png,0,0
+}
+
+surface13003
+{
+element0,base,mouth/mouth_half_smile.png,0,0
+}
+
+surface13004
+{
+element0,base,mouth/mouth_big.png,0,0
 }
