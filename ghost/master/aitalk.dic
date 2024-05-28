@@ -10,9 +10,12 @@ OnAiTalk
 		{
 			if ghostupmin >= 60
 			{
-				"\t\*Have you acclimated yourself yet? We can begin our work if you have."
-				"\n\n\_q"
-				"\![*]\q[Yes,OnAcceptRole]  \![*]\q[No,OnNotAcceptRole]"
+				all : /
+				{
+					"\t\*Have you acclimated yourself yet? We can begin our work if you have."
+					"\n\n\_q"
+					"\![*]\q[Yes,OnAcceptRole]  \![*]\q[No,OnNotAcceptRole]"
+				}
 			}
 			else; LastTalk = MonologueTalk.Parallel
 		}
@@ -101,15 +104,15 @@ QuestionTalk : nonoverlap_pool
 {
 	//———————————————————— This or that ————————————————————
 	//————— animals —————
-	if Questions.ThisOrThat.Animals == ""
+	if Questions.ThisOrThat.Animals == ""; all : /
 	{
 		_animal_1 = Choices.Animal_1[0]
 		_animals_1 = Choices.Animal_1[1]
 		_animal_2 = Choices.Animal_2[0]
 		_animals_2 = Choices.Animal_2[1]
 		
-		"\0\b[0]\s[0]I am contemplating what animals to include this iteration. Would you prefer %(_animals_1), or %(_animal_2)?"
-		"\0\b[0]\s[0]I would like your opinion on a matter related to animals. I can add either %(_animals_1) or %(_animal_2), but I do not wish to include both. Which would you prefer?"
+		"\0\b[0]\s[0]I am contemplating what animals to include this iteration. Would you prefer %(_animals_1), or %(_animals_2)?"
+		"\0\b[0]\s[0]I would like your opinion on a matter related to animals. I can add either %(_animals_1) or %(_animals_2), but I do not wish to include both. Which would you prefer?"
 		--
 		"\n\n\![*]\q[%(_animals_1),OnQuestions,ThisOrThat.Animals,""%(Choices.Animal_1)"",""%(Choices.Animal_2)""]    \![*]\q[%(_animals_2),OnQuestions,ThisOrThat.Animals,""%(Choices.Animal_2)"",""%(Choices.Animal_1)""]"
 	}
@@ -118,7 +121,7 @@ QuestionTalk : nonoverlap_pool
 	
 	//———————————————————— More or fewer ————————————————————
 	//————— animals —————
-	if Questions.MoreOrFewer.Animals == ""
+	if Questions.MoreOrFewer.Animals == ""; all : /
 	{
 		_animal = Choices.Animal_3[0]
 		_animals = Choices.Animal_3[1]
