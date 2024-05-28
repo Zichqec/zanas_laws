@@ -106,17 +106,17 @@ OnFirstboot.Mystery_Wait_What
 
 OnFirstboot.Mystery_All_Right
 {
-"\0\b[0]\s[7]\tYou're certainly taking this well! \n\n[half]\s[6]How interesting... \n\n[half]\s[5]I believe that you and I will get along quite well, mortal. \s[6]But feel free to prove me wrong. \n\n[half]\s[9]I am fond of surprises.\x\c\![raise,OnFirstboot.New_Existence]"
+	"\0\b[0]\s[7]\tYou're certainly taking this well! \n\n[half]\s[6]How interesting... \n\n[half]\s[5]I believe that you and I will get along quite well, mortal. \s[6]But feel free to prove me wrong. \n\n[half]\s[9]I am fond of surprises.\x\c\![raise,OnFirstboot.New_Existence]"
 }
 
 OnFirstboot.Mystery_For_The_Best
 {
-"\0\b[2]\s[1]\tOne of the unlucky ones, were you? \n\n[half]\s[4]I'm sorry to hear that. \n\n[half]\s[8]The world can be a cold place... \s[6]By design, of course. \n\n[half]\s[5]If it helps, statistically speaking, it's more likely that you would have had a satisfying life in the next iteration than another challenging one. \n\n[half]\s[6]Perhaps as an insect...\x\c\![raise,OnFirstboot.New_Existence]"
+	"\0\b[2]\s[1]\tOne of the unlucky ones, were you? \n\n[half]\s[4]I'm sorry to hear that. \n\n[half]\s[8]The world can be a cold place... \s[6]By design, of course. \n\n[half]\s[5]If it helps, statistically speaking, it's more likely that you would have had a satisfying life in the next iteration than another challenging one. \n\n[half]\s[6]Perhaps as an insect...\x\c\![raise,OnFirstboot.New_Existence]"
 }
 
 OnFirstboot.New_Existence
 {
-"\0\b[0]\s[5]\tThis is my workshop, \s[9]where I create the various forms of the universe you inhabit.\w8\n\n[half]\s[5]You see, a universe cannot last forever. \s[1]Eventually, it runs out of energy, and its matter begins to deteriorate. \s[4]There isn't much left for you mortals in that condition. \n\n[half]\s[0]That is the point where I get involved.\x\b[2]\s[6]\tIt is my job to bring the existing universe to an end, adjust any parameters that need to be adjusted, and restart... \s[8]well... \s[1]everything. \n\n[half]\s[4]Although... since you've been removed partway through the process, the next iteration of your universe won't have a place for you anymore. \n\n[half]\s[8]You're welcome to stay with me until you decide you would like to be erased as well. \n\n[half]\s[4]I'll have to find something for you to do in the meantime... \s[1]So then. \s[5]Why don't you take some time to acclimate yourself to your new existence while you wait?\x"
+	"\0\b[0]\s[5]\tThis is my workshop, \s[9]where I create the various forms of the universe you inhabit.\w8\n\n[half]\s[5]You see, a universe cannot last forever. \s[1]Eventually, it runs out of energy, and its matter begins to deteriorate. \s[4]There isn't much left for you mortals in that condition. \n\n[half]\s[0]That is the point where I get involved.\x\b[2]\s[6]\tIt is my job to bring the existing universe to an end, adjust any parameters that need to be adjusted, and restart... \s[8]well... \s[1]everything. \n\n[half]\s[4]Although... since you've been removed partway through the process, the next iteration of your universe won't have a place for you anymore. \n\n[half]\s[8]You're welcome to stay with me until you decide you would like to be erased as well. \n\n[half]\s[4]I'll have to find something for you to do in the meantime... \s[1]So then. \s[5]Why don't you take some time to acclimate yourself to your new existence while you wait?\x"
 }
 
 OnVanishSelecting

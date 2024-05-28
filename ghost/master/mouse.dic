@@ -13,21 +13,22 @@ OnMouseDoubleClick : all
 				{
 					if UserFainted
 					{
-						"Are you sure you're ready? You can take time to recuperate if you need."
+						"\0\b[0]\s[3]Are you sure you're all right? You can take time to recuperate if you need. \n\n[half]\s[4]... Well. \s[1]I won't nag. "
 					}
 					else
 					{
-						"My, excited, aren't we?"
+						"\0\b[0]\b[5]My, excited, aren't we?"
 					}
 				}
 				elseif ghostupmin >= 60
 				{
-					"Ah, ready at last?"
+					"\0\b[0]\s[1]Ah, ready at last?"
 				}
 				else //Reasonable amount of time
 				{
-					"Are you ready to accept this role?"
+					"\0\b[0]\s[0]Ready to hear what I've come up with for you?\w8\w8\w8\w8"
 				}
+				"\n\n[half]\s[0]I'd like for you to become \_a[OnRole.Information]my assistant\_a. "
 				"\n\n\_q"
 				"\![*]\q[Yes,OnAcceptRole]  \![*]\q[No,OnNotAcceptRole]"
 			}
@@ -44,12 +45,17 @@ OnMouseDoubleClick : all
 OnAcceptRole
 {
 	UserAcceptedRole = 1
-	"great, you're my assistant now"
+	"\0\b[6]\s[7]Wonderful! \s[9]I look forward to working with you, my dear assistant."
 }
 
 OnNotAcceptRole
 {
-	"hmmmmmm..."
+	"\0\b[0]\s[4]Ah... of course, you need more time. \n\n[half]\s[8]Not to worry. \s[1]The offer will still be here when you change your mind... \n\n[half]\s[5]Or we can always erase you. \s[7]It's entirely your decision."
+}
+
+OnRole.Information
+{
+	"\0\b[2]\s[7]As my assistant, you would help me in making decisions that influence what the next interation of your universe will be like. \n\n[half]\s[6]Everything from what color a particular flower should be, to how many stars should be born and die. \n\n[half]\s[0]Each decision can have innumerable consequences on how things play out. \s[1]I'd like to have a second opinion now and then. \n\n[half]\s[5]So? Will you accept your role as my assistant? \n\n\_q\![*]\q[Yes,OnAcceptRole]  \![*]\q[No,OnNotAcceptRole]"
 }
 
 OnMouseMove
