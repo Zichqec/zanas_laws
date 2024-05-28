@@ -97,7 +97,13 @@ RandomTalk : nonoverlap_pool
 
 MonologueTalk : array
 {
-	"MonologueTalk"
+	"\0\b[6]\s[25]Start small and work your way up... \s[6]Having viruses now is important if we want to make primates later."
+	"\0\b[6]\s[2]Oh...! \s[1]I dripped some ink... \s[4]I suppose we're having %(blackhole) there."
+	"\0\b[6]\s[4]Food sources... We could always try adding something new this time... Maybe %(foodsource)...?"
+	"\0\b[6]\s[7]I'm sure everyone will love this one! \n\n[half]\s[6]... Except for everyone that dies, I suppose."
+	"\0\b[6]\s[4]Sometimes, I do think this would be easier with more hands... \s[1]Then I remember how much they always get in the way."
+	"\0\b[6]\s[6]I think, on average, predators should have more teeth."
+	"\0\b[6]\s[25]%(worms)..."
 }
 
 QuestionTalk : nonoverlap_pool
