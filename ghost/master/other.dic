@@ -164,6 +164,13 @@ OnPickChoices
 	
 }
 
+Capitalize
+{
+	_let = TOUPPER(SUBSTR(_argv[0],0,1))
+	_otherlets = SUBSTR(_argv[0],1,STRLEN(_argv[0]) - 1)
+	"%(_let)%(_otherlets)"
+}
+
 
 //—————————————————————————————— Right click menu links ——————————————————————————————
 
