@@ -171,3 +171,31 @@ animation202.pattern19,overlay,11001,100,0,0
 animation202.pattern20,overlay,11000,100,0,0
 
 }
+
+//Floating animation
+surface.append0-25
+{
+animation1000.interval,bind + always
+animation1000.pattern0,move,-1,0,0,0
+animation1000.pattern1,move,-1,500,0,1
+animation1000.pattern2,move,-1,250,0,2
+animation1000.pattern3,move,-1,200,0,3
+animation1000.pattern4,move,-1,250,0,4
+animation1000.pattern5,move,-1,500,0,3
+animation1000.pattern6,move,-1,250,0,2
+animation1000.pattern7,move,-1,200,0,1
+animation1000.pattern8,move,-1,250,0,0
+animation1000.option,shared-index
+}
+
+// ===================================================================
+// collisions
+// ===================================================================
+
+surface.append0-25
+{
+collisionex0,orb,circle,165,298,20
+collisionex1,wings,region,collision.png,186,186,186
+collisionex2,pen,region,collision.png,153,153,153
+collisionex3,skirt,region,collision.png,112,112,112
+}

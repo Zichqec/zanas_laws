@@ -23,3 +23,5 @@ menu.background.font.color.b,10
 menu.foreground.font.color.r,250
 menu.foreground.font.color.g,250
 menu.foreground.font.color.b,250
+
+sakura.bindgroup1000.name,Floating,On/Off
