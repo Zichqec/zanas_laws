@@ -4,6 +4,13 @@ animals : nonoverlap
 	"a lion,lions"
 	"a tiger,tigers"
 	"a bear,bears"
+	"a porcupine,porcupines"
+}
+
+bugs : nonoverlap
+{
+	"worm,worms"
+	"beetle,beetles"
 }
 
 blackhole
@@ -56,8 +63,10 @@ foodsource
 
 worms
 {
-	"worms"
-	"beetles"
+	"%(animals[0])"
+	"%(animals[1])"
+	"%(bugs[0])"
+	"%(bugs[1])"
 	"fingernails"
 	"toes"
 	"porcupines"
@@ -68,7 +77,6 @@ worms
 	"binary code"
 	"cat whiskers"
 	"automobiles"
-	"a bear"
 	"%(color) umbrella"
 	"mineral erosion"
 }

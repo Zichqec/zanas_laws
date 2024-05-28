@@ -98,19 +98,19 @@ RandomTalk : nonoverlap_pool
 MonologueTalk : array
 {
 	"\0\b[6]\s[25]Start small and work your way up... \s[6]Having viruses now is important if we want to make primates later."
-	"\0\b[6]\s[2]Oh...! \s[1]I dripped some ink... \s[4]I suppose we're having %(blackhole) there."
+	"\0\b[6]\s[2]Oh...! \s[1]I dripped some ink... \s[4]I suppose%(br)we're having %(blackhole) there."
 	"\0\b[6]\s[4]Food sources... We could always try adding something new this time... Maybe %(foodsource)...?"
 	"\0\b[6]\s[7]I'm sure everyone will love this one! \n\n[half]\s[6]... Except for everyone that dies, I suppose."
 	"\0\b[6]\s[4]Sometimes, I do think this would be easier with more hands... \s[1]Then I remember how much they always get in the way."
 	"\0\b[6]\s[6]I think, on average, predators should have more teeth."
-	"\0\b[6]\s[25]%(worms)..."
+	"\0\b[6]\s[25]%(Capitalize(worms))..."
 }
 
 QuestionTalk : nonoverlap_pool
 {
 	//———————————————————— This or that ————————————————————
-	//————— animals —————
-	if Questions.ThisOrThat.Animals == ""; all : /
+	//animals
+	if Questions.ThisOrThat.Animals == ""
 	{
 		_animal_1 = Choices.Animal_1[0]
 		_animals_1 = Choices.Animal_1[1]
@@ -120,14 +120,20 @@ QuestionTalk : nonoverlap_pool
 		"\0\b[0]\s[0]I am contemplating what animals to include this iteration. Would you prefer %(_animals_1), or %(_animals_2)?"
 		"\0\b[0]\s[0]I would like your opinion on a matter related to animals. I can add either %(_animals_1) or %(_animals_2), but I do not wish to include both. Which would you prefer?"
 		--
-		"\n\n\![*]\q[%(_animals_1),OnQuestions,ThisOrThat.Animals,""%(Choices.Animal_1)"",""%(Choices.Animal_2)""]    \![*]\q[%(_animals_2),OnQuestions,ThisOrThat.Animals,""%(Choices.Animal_2)"",""%(Choices.Animal_1)""]"
+		all : /
+		{
+			"\n\n\_q"
+			"\![*]\q[%(_animals_1),OnQuestions,ThisOrThat.Animals,""%(Choices.Animal_1)"",""%(Choices.Animal_2)""]"
+			"%(newline)\f[align,right]"
+			"\![*]\q[%(_animals_2),OnQuestions,ThisOrThat.Animals,""%(Choices.Animal_2)"",""%(Choices.Animal_1)""]"
+		}
 	}
 	
 	//———————————————————— Pick one ————————————————————
 	
 	//———————————————————— More or fewer ————————————————————
-	//————— animals —————
-	if Questions.MoreOrFewer.Animals == ""; all : /
+	//animals
+	if Questions.MoreOrFewer.Animals == ""
 	{
 		_animal = Choices.Animal_3[0]
 		_animals = Choices.Animal_3[1]
@@ -136,7 +142,13 @@ QuestionTalk : nonoverlap_pool
 		"How do you feel about %(_animals)? More or fewer?"
 		//If you were an %(_animal), would you like more or fewer of your kind around? ← problem with this is, a/an...
 		--
-		"\n\n\![*]\q[More,OnQuestions,MoreOrFewer.Animals,""%(Choices.Animal_3)"",more]    \![*]\q[Fewer,OnQuestions,MoreOrFewer.Animals,""%(Choices.Animal_3)"",fewer]"
+		all : /
+		{
+			"\n\n\_q"
+			"\![*]\q[More,OnQuestions,MoreOrFewer.Animals,""%(Choices.Animal_3)"",more]"
+			"%(newline)\f[align,right]"
+			"\![*]\q[Fewer,OnQuestions,MoreOrFewer.Animals,""%(Choices.Animal_3)"",fewer]"
+		}
 	}
 	
 	
