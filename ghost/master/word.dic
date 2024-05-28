@@ -5,3 +5,70 @@ animals
 	"tiger,tigers"
 	"bear,bears"
 }
+
+blackhole
+{
+	"a blackhole"
+	"abyssal chasms"
+	"more ants"
+	"mud flats"
+	"caves"
+	"a field of Nightrider lilies"
+	"another ice age"
+}
+
+color
+{
+	"pink"
+	"red"
+	"orange"
+	"yellow"
+	"green"
+	"cyan"
+	"blue"
+	"purple"
+	"brown"
+	"black"
+	"white"
+	"gray"
+	"iridescent"
+}
+
+foodsource
+{
+	"iron"
+	"copper"
+	"cobalt"
+	"plastic"
+	"rubber"
+	"dark matter"
+	"gamma waves"
+	"dreams"
+	"emotions"
+	"desires"
+	"fire"
+	"air"
+	"acid"
+	"bleach"
+	"feathers"
+	"gemstones"
+}
+
+worms
+{
+	"worms"
+	"beetles"
+	"fingernails"
+	"toes"
+	"porcupines"
+	"toothpaste"
+	"inversion"
+	"symmetry"
+	"multiplicative"
+	"binary code"
+	"cat whiskers"
+	"automobiles"
+	"a bear"
+	"%(color) umbrella"
+	"mineral erosion"
+}
