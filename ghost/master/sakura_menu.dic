@@ -75,7 +75,7 @@ OnNewUniverse
 OnConfigMenu : all
 {
 	"\C\![lock,balloonrepaint]\c"
-	"\0\b[0]\![set,autoscroll,disable]\_q\*\f[anchorvisitedfontcolor,default.anchor]\![no-autopause]"
+	"\0\b[2]\![set,autoscroll,disable]\_q\*\f[anchorvisitedfontcolor,default.anchor]\![no-autopause]"
 	
 	"Your name:\n"
 	"\_a[OnChangeName]%(username)\_a  \f[color,disable]\__q[OnSetName,""%(SHIORI3FW.UserNameFull)""](Reset)\__q\f[color,default]"
@@ -96,6 +96,10 @@ OnConfigMenu : all
 	_floating = "On"
 	if !IsFloating; _floating = "Off"
 	"Floating: \_a[OnToggleFloating]%(_floating)\_a"
+	"\n"
+	_sparkles = "Moving"
+	if !MovingSparklies; _sparkles = "Static"
+	"Sparkles: \_a[OnToggleSparklies]%(_sparkles)\_a"
 	
 	if SHIORI3FW.BalloonName == "Angelbox (Biblically Accurate)"
 	{
@@ -132,7 +136,12 @@ OnTalkRateChange
 
 OnToggleFloating
 {
-	"\C\![bind,floating,On/Off]\![raise,OnConfigMenu]"
+	"\C\![bind,Floating,On/Off]\![raise,OnConfigMenu]"
+}
+
+OnToggleSparklies
+{
+	"\C\![bind,Sparkles,Static]\![raise,OnConfigMenu]"
 }
 
 OnBalloonCustomization : all

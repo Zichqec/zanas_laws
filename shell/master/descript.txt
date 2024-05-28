@@ -26,3 +26,17 @@ menu.foreground.font.color.b,250
 
 sakura.bindgroup1000.name,Floating,On/Off
 sakura.bindgroup1000.default,1
+
+sakura.bindgroup10000.name,Sparkles,Moving
+sakura.bindgroup10000.addid,10001
+sakura.bindgroup10000.addid,10002
+sakura.bindgroup10000.addid,10003
+sakura.bindgroup10000.addid,10004
+sakura.bindgroup10000.addid,10010
+sakura.bindgroup10000.addid,10011
+sakura.bindgroup10000.addid,10012
+sakura.bindgroup10000.addid,10013
+sakura.bindgroup10000.addid,10014
+sakura.bindgroup10020.name,Sparkles,Static
+sakura.bindgroup10000.default,1
+sakura.bindoption10000.group,Sparkles,mustselect

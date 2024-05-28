@@ -136,9 +136,11 @@ username
 OnNotifyDressupInfo
 {
 	IsFloating = 0
+	MovingSparklies = 0
 	foreach reference; _ref
 	{
 		if _ref[1,C_BYTE1] == "Floating" && _ref[2,C_BYTE1] == "On/Off" && _ref[4,C_BYTE1] == "1"; IsFloating = 1
+		if _ref[1,C_BYTE1] == "Sparkles" && _ref[2,C_BYTE1] == "Moving" && _ref[4,C_BYTE1] == "1"; MovingSparklies = 1
 	}
 }
 

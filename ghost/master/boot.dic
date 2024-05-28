@@ -8,6 +8,7 @@ OnFirstBoot
 	LastOrbClick = (0,0)
 	CurrentAngelbox = "13,Blue"
 	IsFloating = 1
+	MovingSparklies = 1
 	
 	OldQuestions.MoreOrFewer.Animals = IARRAY
 	LastQuestions.MoreOrFewer.Animals = ""
