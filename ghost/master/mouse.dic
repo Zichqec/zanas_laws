@@ -9,13 +9,33 @@ OnMouseDoubleClick : all
 		{
 			if !UserAcceptedRole
 			{
-				"Are you ready to accept this role?"
+				if ghostupmin < 5
+				{
+					if UserFainted
+					{
+						"Are you sure you're ready? You can take time to recuperate if you need."
+					}
+					else
+					{
+						"My, excited, aren't we?"
+					}
+				}
+				elseif ghostupmin >= 60
+				{
+					"Ah, ready at last?"
+				}
+				else //Reasonable amount of time
+				{
+					"Are you ready to accept this role?"
+				}
 				"\n\n\_q"
 				"\![*]\q[Yes,OnAcceptRole]  \![*]\q[No,OnNotAcceptRole]"
 			}
 			else
 			{
-				OnSakuraMenu
+				if reference4 == "orb"; OrbCheck
+				elseif reference4 == "pen"; PenCheck
+				else; OnSakuraMenu
 			}
 		}
 	}
@@ -38,23 +58,65 @@ OnMouseMove
 	{
 		stroke++
 		
-		if stroke % 40 == 0
+		if reference4 == "wings"
 		{
-			if reference3 == 0; OnMouseMove.Sakura
-			else; OnMouseMove.Kero
+			if stroke % 40 == 0
+			{
+				"\0\s[0]Careful, they are quite sharp"
+			}
+		}
+		elseif reference4 == "skirt"
+		{
+			if stroke % 80 == 0
+			{
+				"\0\s[0]Hm? Oh, my legs? I only bring them out when I need them."
+			}
 		}
 	}
 }
 
 OnMouseMove.Sakura
 {
-	if reference4 == "head"
+	if reference4 == "wings"
 	{
 		"\0\s[0]Petting??"
+	}
+	elseif reference4 == "skirt"
+	{
+		
 	}
 }
 
 OnMouseLeaveAll
 {
 	stroke = 0
+}
+
+OrbCheck
+{
+	//LastOrbClick[0] - timestamp for last click within 5 minutes
+	//LastOrbClick[1] - number of times clicked in the last 5 minutes
+	if GETSECCOUNT - LastOrbClick[0] > 300
+	{
+		LastOrbClick[0] = GETSECCOUNT
+		LastOrbClick[1] = 1
+	}
+	else
+	{
+		LastOrbClick[1]++
+	}
+	
+	if LastOrbClick[1] >= 5
+	{
+		"Enough of that."
+	}
+	else
+	{
+		"Careful, it's hot, you'll melt!"
+	}
+}
+
+PenCheck
+{
+	"I write the laws of the universe with it."
 }

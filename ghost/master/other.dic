@@ -20,11 +20,26 @@ OnTranslate
 		_talk = REPLACE(_talk,", ",",\w4 ")
 		_talk = REPLACE(_talk,"! ","!\w8\w8 ")
 		_talk = REPLACE(_talk,"? ","?\w8\w8 ")
+		_talk = REPLACE(_talk,"— ","—\w8\w8 ")
 		//_talk = REPLACE(_talk,". ",".\w8\w8 ")
 		_talk = REPLACE(_talk,"\n\n ","\n\n\w8\w8")
 	}
 	//Simple autopause blocker per-character
 	_talk = REPLACE(_talk,"##","")
+	
+	if SHIORI3FW.BalloonName == "Angelbox (Biblically Accurate)"
+	{
+		_balloonnum = CurrentAngelbox[0]
+		_talk = REPLACE(_talk,"\0\b[0]","\0\b[%(_balloonnum)0]")
+		_talk = REPLACE(_talk,"\0\b[2]","\0\b[%(_balloonnum)2]")
+		_talk = REPLACE(_talk,"\0\b[4]","\0\b[%(_balloonnum)4]")
+		_talk = REPLACE(_talk,"\0\b[6]","\0\b[%(_balloonnum)6]")
+		_talk = REPLACE(_talk,"--INPUT_BALLOON","--balloon=%(_balloonnum)0")
+	}
+	else
+	{
+		_talk = REPLACE(_talk,"--INPUT_BALLOON","")
+	}
 	
 	TOSTR(_talk)
 }
@@ -46,7 +61,7 @@ OnKeyPress
 //Happens about 30 seconds after a script ends, by default, to bring them back to normal poses
 OnSurfaceRestore
 {
-	"\1\s[-1]\0\s[0]"
+	"\1\s[-1]\0\s[0]\![set,alpha,100]\![set,scaling,100,100]"
 }
 
 //Happens when the ghost is unminimized. You *can* include dialogue, but you don't *have* to. I have included this event because if you don't, it defaults to \0\s[0]\1\s[10], which you don't want in some cases, such as if your ghost uses different surfaces or has a different number of characters.
@@ -78,6 +93,24 @@ grow : all
 	"\![set,scaling,100,100]"
 }
 
+fadein : all
+{
+	for _i = 0; _i < 100; _i++
+	{
+		"\![set,alpha,%(_i)]\_w[20]"
+	}
+	"\![set,alpha,100]"
+}
+
+fadeout : all
+{
+	for _i = 100; _i > 0; _i--
+	{
+		"\![set,alpha,%(_i)]\_w[20]"
+	}
+	"\![set,alpha,0]"
+}
+
 newline
 {
 	"\_l[,]"
@@ -94,6 +127,20 @@ UniverseReady
 	QuestionsAsked >= 5
 }
 
+username
+{
+	if nickname != ""; nickname
+	else; SHIORI3FW.UserNameFull
+}
+
+OnNotifyDressupInfo
+{
+	IsFloating = 0
+	foreach reference; _ref
+	{
+		if _ref[1,C_BYTE1] == "Floating" && _ref[2,C_BYTE1] == "On/Off" && _ref[4,C_BYTE1] == "1"; IsFloating = 1
+	}
+}
 
 
 //—————————————————————————————— Right click menu links ——————————————————————————————
@@ -118,7 +165,9 @@ On_sakura.recommendsites
 //These are the websites linked in the top option of the sakura's right click menu. The format is simple; write the label of the link on the left followed by a semicolon, and then on the right, the url to link to. These should be separate strings.
 recommendsites_sakura : array
 {
-	"Link label";	"https://link.example.com/link/to/whatever/here/"
+	"Galla";						"https://gallathegalla.github.io/gtg-ghosts/"
+	"Zichqec";						"https://ukagaka.zichqec.com/"
+	"月波 清火 (Tsukinami Seika)";	"https://tukinami.github.io/"
 }
 
 On_sakura.portalsites 
@@ -129,85 +178,6 @@ On_sakura.portalsites
 //These are the websites linked in the second option of the sakura's right click menu. Same as above
 portalsites_sakura : array
 {
-	"Another link label";	"https://link.example.com/link/to/whatever/here/again/"
-	"A third link label";	"https://link.example.com/link/to/whatever/a/third/time/you/can/add/as/many/as/you/want/"
-}
-
-On_kero.recommendsites
-{
-	FormatLinks(recommendsites_kero)
-}
-
-//These are the websites linked in the first option of the kero's right click menu. Same as above
-recommendsites_kero : array
-{
-	"These labels can be anything you want";	"https://link.example.com/link/to/whatever/here/once/more/"
-}
-
-
-//—————————————————————————————— User pronoun related ——————————————————————————————
-
-they
-{
-	if SHIORI3FW.UserSex == "male"; "he"
-	elseif SHIORI3FW.UserSex == "female"; "she"
-	else; "they"
-}
-
-them
-{
-	if SHIORI3FW.UserSex == "male"; "him"
-	elseif SHIORI3FW.UserSex == "female"; "her"
-	else; "them"
-}
-
-their
-{
-	if SHIORI3FW.UserSex == "male"; "his"
-	elseif SHIORI3FW.UserSex == "female"; "her"
-	else; "their"
-}
-
-theirs
-{
-	if SHIORI3FW.UserSex == "male"; "his"
-	elseif SHIORI3FW.UserSex == "female"; "hers"
-	else; "theirs"
-}
-
-themself
-{
-	if SHIORI3FW.UserSex == "male"; "himself"
-	elseif SHIORI3FW.UserSex == "female"; "herself"
-	else; "themself"
-}
-
-//%(they) %(p('are','is'))
-//You can change the name of this function if you want! I kept it short so it's fast to type
-p
-{
-	if SHIORI3FW.UserSex == "undef"; _argv[0] //they are
-	else; _argv[1] //he is/she is
-}
-
-/*
-
-An example of the above setup:
-"%(they) %(p('were','was')) looking for that earlier, I'll ask if %(they)'%(p('ve','s')) found it."
-
-If using they, the %(p) functions will return the first word specified, resulting in:
-"they were looking for that earlier, I'll ask if they've found it."
-
-If not using they, for example if using she, it will return the second specified word instead, resulting in:
-"she was looking for that earlier, I'll ask if she's found it."
-
-With this function, you can quickly customize words that need to change based on whether it should be singular or plural. Just remember; the %(p) function is set up so that the first word you specify matches with the 'they' labels used on the pronoun functions. You can always switch that around if you like, too.
-
-*/
-
-//This just makes %(username) match with the username determined by the SSP prefs, rather than having to use the %username environment variable which is *not* the same and which you can't do things like TOUPPER to.
-//If you want to have the user be able to set a nickname or something, you may want to change username to a variable instead and get rid of this!
-username
-{
-	SHIORI3FW.UserName
+	"Wiki page";		"https://ukagakadreamteam.com/wiki/ghost/zanas_laws"
+	"Write a review!";	"TODO"
 }

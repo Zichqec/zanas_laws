@@ -8,7 +8,13 @@ OnAiTalk
 	{
 		if !UserAcceptedRole
 		{
-			LastTalk = MonologueTalk.Parallel
+			if ghostupmin >= 60
+			{
+				"\t\*Have you acclimated yourself yet? We can begin our work if you have."
+				"\n\n\_q"
+				"\![*]\q[Yes,OnAcceptRole]  \![*]\q[No,OnNotAcceptRole]"
+			}
+			else; LastTalk = MonologueTalk.Parallel
 		}
 		else
 		{
@@ -53,6 +59,32 @@ RandomTalk : nonoverlap_pool
 {
 	"RandomTalk"
 	
+	if LastQuestions.MoreOrFewer.Animals != ""
+	{
+		_animal = LastQuestions.MoreOrFewer.Animals[0][0]
+		_animals = LastQuestions.MoreOrFewer.Animals[0][1]
+		_amount = LastQuestions.MoreOrFewer.Animals[1]
+		
+		if _amount == "more"
+		{
+			"So, how was it with more %(_animals)? I imagine things were quite lively?"
+		}
+		else //fewer
+		{
+			"So, did you miss the %(_animals)? I didn't leave very many of them in."
+		}
+	}
+	
+	if LastQuestions.ThisOrThat.Animals != ""
+	{
+		_animal_1 = LastQuestions.ThisOrThat.Animals[0][0]
+		_animals_1 = LastQuestions.ThisOrThat.Animals[0][1]
+		_animal_2 = LastQuestions.ThisOrThat.Animals[1][0]
+		_animals_2 = LastQuestions.ThisOrThat.Animals[1][1]
+		
+		"So, did you enjoy the %(_animals_1)? Or would you rather have picked %(_animals_2) after all?"
+	}
+	
 	parallel MonologueTalk
 }
 
@@ -61,13 +93,52 @@ MonologueTalk : array
 	"MonologueTalk"
 }
 
-QuestionTalk : array
+QuestionTalk : nonoverlap_pool
 {
 	"QuestionTalk"
+	//More or fewer animals
+	if Questions.MoreOrFewer.Animals == ""
+	{
+		_pick = animals
+		_animal = _pick[0]
+		_animals = _pick[1]
+		"Do you think there should be more or fewer %(_animals)?\n\n\![*]\q[More,OnQuestions.MoreOrFewer.Animals,""%(_pick)"",more]    \![*]\q[Fewer,OnQuestions.MoreOrFewerAnimals,""%(_pick)"",fewer]"
+		"How do you feel about %(_animals)? More or fewer?\n\n\![*]\q[More,OnQuestions.MoreOrFewer.Animals,""%(_pick)"",more]    \![*]\q[Fewer,OnQuestions.MoreOrFewer.Animals,""%(_pick)"",fewer]"
+	}
+	
+	//This or that animal
+	if Questions.ThisOrThat.Animals == ""
+	{
+		_pick1 = animals
+		_pick2 = animals
+		while _pick2 == _pick1
+		{
+			_pick2 = animals
+		}
+		_animal_1 = _pick1[0]
+		_animals_1 = _pick1[1]
+		_animal_2 = _pick2[0]
+		_animals_2 = _pick2[1]
+		
+		"Would you prefer %(_animals_1) or %(_animals_2)?\n\n\![*]\q[%(_animals_1),OnQuestions.ThisOrThat.Animals,""%(_pick1)"",""%(_pick2)""]    \![*]\q[%(_animals_2),OnQuestions.ThisOrThat.Animals,""%(_pick2)"",""%(_pick1)""]"
+		"Do you think it would be better to include %(_animals_1) or %(_animals_2)?\n\n\![*]\q[%(_animals_1),OnQuestions.ThisOrThat.Animals,""%(_pick1)"",""%(_pick2)""]    \![*]\q[%(_animals_2),OnQuestions.ThisOrThat.Animals,""%(_pick2)"",""%(_pick1)""]"
+	}
+}
+
+OnQuestions.MoreOrFewer.Animals
+{
+	Questions.MoreOrFewer.Animals = reference
+	"%(reference)\n\n Interesting."
+}
+
+OnQuestions.ThisOrThat.Animals
+{
+	Questions.ThisOrThat.Animals = reference
+	"%(reference)\n\n Interesting."
 }
 
 
-MonologueTalk.Parallel : nonoverlap
+MonologueTalk.Parallel : nonoverlap_pool
 {
 	parallel MonologueTalk
 }

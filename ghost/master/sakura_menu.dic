@@ -6,12 +6,9 @@ SakuraMenuGreetings : nonoverlap
 
 OnSakuraMenu : all
 {
-	_lastgreeting = ""
-	if SHIORI3FW.Eventid == "OnMouseDoubleClick"; _lastgreeting = SakuraMenuGreetings
-	else; _lastgreeting = reference1
 	if SHIORI3FW.Eventid != "OnMouseDoubleClick"; "\C\![lock,balloonrepaint]\c"
 	
-	"\0\s[0]\b[0]\![set,autoscroll,disable]\f[anchorvisitedfontcolor,default.anchor]"
+	"\0\b[0]\s[0]\![set,autoscroll,disable]\![close,inputbox,OnSetName]\![set,scaling,100,100]\![set,alpha,100]"
 	
 	"\n\n\_q"
 	
@@ -19,23 +16,13 @@ OnSakuraMenu : all
 	if LastTalk != ""; "  \![*]\q[Say that again,OnLastTalk]"
 	"\n\n"
 	
-	_times = ("Off,0","30s,30","1m,60","3m,180","5m,300","10m,600")
-	foreach _times; _time
-	{
-		switch TOINT(_time[1]) == aitalkinterval
-		{
-			"\__q[OnTalkRateChange,%(_time[1]),""%(_lastgreeting)""]%(_time[0])\__q"
-			"\f[italic,1]\_a[OnTalkRateChange,%(_time[1]),""%(_lastgreeting)""]%(_time[0])\_a\f[italic,default]"
-		}
-		"  "
-	}
-	
 	if UniverseReady
 	{
-		"\n\n"
 		"\![*]\__q[OnNewUniverse]I'm ready,## send me to the new universe\__q"
+		"\n\n"
 	}
 	
+	"\![*]\__q[OnConfigMenu]Config\__q"
 	"\n\n"
 	"\![*]\q[Nevermind,blank]"
 	
@@ -47,14 +34,12 @@ OnSakuraMenu : all
 		"QuestionsAsked: %(QuestionsAsked)\n"
 		"TotalUniverses: %(TotalUniverses)\n"
 		
-		
 		"\f[color,default]"
 	}
 	
 	"\![unlock,balloonrepaint]"
 	"\_l[0,0]"
-	if SHIORI3FW.Eventid == "OnMouseDoubleClick"; "\![quicksection,false]"
-	"%(_lastgreeting)"
+	if SHIORI3FW.Eventid == "OnMouseDoubleClick"; "\![quicksection,false] %(SakuraMenuGreetings)"
 }
 
 OnLastTalk
@@ -62,18 +47,220 @@ OnLastTalk
 	LastTalk
 }
 
-OnTalkRateChange
-{
-	aitalkinterval = TOINT(reference0)
-	OnSakuraMenu
-}
-
 OnNewUniverse
 {
 	QuestionsAsked = 0
 	TotalUniverses++
 	
-	"At last.\n\n Fade out.\n\n Fade in.\n\n How was it?"
+	if LastQuestions.MoreOrFewer.Animals != "";
+	{
+		OldQuestions.MoreOrFewer.Animals ,= TOSTR(LastQuestions.MoreOrFewer.Animals)
+		if ARRAYSIZE(OldQuestions.MoreOrFewer.Animals) > 100; OldQuestions.MoreOrFewer.Animals[0] = IARRAY
+	}
+	LastQuestions.MoreOrFewer.Animals = Questions.MoreOrFewer.Animals
+	Questions.MoreOrFewer.Animals = ""
+	
+	
+	if LastQuestions.ThisOrThat.Animals != ""
+	{
+		OldQuestions.ThisOrThat.Animals ,= TOSTR(LastQuestions.ThisOrThat.Animals)
+		if ARRAYSIZE(OldQuestions.ThisOrThat.Animals) > 100; OldQuestions.ThisOrThat.Animals[0] = IARRAY
+	}
+	LastQuestions.ThisOrThat.Animals = Questions.ThisOrThat.Animals
+	Questions.ThisOrThat.Animals = ""
+	
+	"\tAt last.\n\n Fade out.\n\n Fade in.\n\n How was it?"
+}
+
+OnConfigMenu : all
+{
+	"\C\![lock,balloonrepaint]\c"
+	"\0\b[0]\![set,autoscroll,disable]\_q\*\f[anchorvisitedfontcolor,default.anchor]\![no-autopause]"
+	
+	"Your name:\n"
+	"\_a[OnChangeName]%(username)\_a  \f[color,disable]\__q[OnSetName,""%(SHIORI3FW.UserNameFull)""](Reset)\__q\f[color,default]"
+	"\n\n"
+	
+	"Talkrate:\n"
+	_times = ("Off,0","30s,30","1m,60","3m,180","5m,300","10m,600")
+	foreach _times; _time
+	{
+		switch TOINT(_time[1]) == aitalkinterval
+		{
+			"\__q[OnTalkRateChange,%(_time[1])]%(_time[0])\__q"
+			"\f[italic,1]\_a[OnTalkRateChange,%(_time[1])]%(_time[0])\_a\f[italic,default]"
+		}
+		"  "
+	}
+	"\n\n"
+	_floating = "On"
+	if !IsFloating; _floating = "Off"
+	"Floating: \_a[OnToggleFloating]%(_floating)\_a"
+	
+	if SHIORI3FW.BalloonName == "Angelbox (Biblically Accurate)"
+	{
+		"\n\n"
+		_ballooncolor = CurrentAngelbox[1]
+		"\![*]Balloon color: \__q[OnBalloonCustomization]%(_ballooncolor)\__q"
+	}
+	
+	"\n\n"
+	"\![*]\q[Back,OnSakuraMenu]  \![*]\q[Close menu,blank]"
+	"\![unlock,balloonrepaint]"
+}
+
+OnChangeName
+{
+	"\C\![open,inputbox,OnSetName,-1,""%(username)"",--INPUT_BALLOON]"
+}
+
+OnSetName
+{
+	_name = reference0
+	if CUTSPACE(_name) != ""
+	{
+		nickname = SHIORI3FW.EscapeAllTags(_name)
+	}
+	OnConfigMenu
+}
+
+OnTalkRateChange
+{
+	aitalkinterval = TOINT(reference0)
+	OnConfigMenu
+}
+
+OnToggleFloating
+{
+	"\C\![bind,floating,On/Off]\![raise,OnConfigMenu]"
+}
+
+OnBalloonCustomization : all
+{
+	"\C\![lock,balloonrepaint]\c"
+	"\0\b[4]\![set,autoscroll,disable]\_q\*\f[anchorvisitedfontcolor,default.anchor]\![no-autopause]"
+	"\f[align,center]\f[bold,1]Defaults\f[bold,default]\n\f[align,left]"
+	for _i = 0; _i < 4; _i++
+	{
+		_number = BalloonColors[_i][0]
+		_name = BalloonColors[_i][1]
+		
+		if TOINT(CurrentAngelbox[0]) == _i; "\![*]"
+		
+		"\__q[OnPickColor,%(_number)]%(_name)\__q"
+		
+		//:melting_face: why is it like this
+		if _i == 0; "\n"
+		if _i == 1; "%(newline)\f[align,right]"
+		elseif _i == 2; "\n[-100]\_l[0,]\f[align,right]"
+	}
+	"\n\n"
+	"\f[align,center]\f[bold,1]Basic\f[bold,default]\n\f[align,left]"
+	_col = 0
+	for _i = 4; _i < 25; _i++
+	{
+		_number = BalloonColors[_i][0]
+		_name = BalloonColors[_i][1]
+		
+		if TOINT(CurrentAngelbox[0]) == _i; "\![*]"
+		"\__q[OnPickColor,%(_number)]%(_name)\__q"
+		
+		switch _col % 3
+		{
+			"\_l[0,]%(newline)\f[align,center]"
+			"%(newline)\f[align,right]"
+			"\n"
+		}
+		_col++
+	}
+	"\n\n"
+	"\f[align,center]\f[bold,1]Unique\f[bold,default]\n\f[align,left]"
+	for _i = 25; _i < 37; _i++
+	{
+		_number = BalloonColors[_i][0]
+		_name = BalloonColors[_i][1]
+		
+		if TOINT(CurrentAngelbox[0]) == _i; "\![*]"
+		
+		"\__q[OnPickColor,%(_number)]%(_name)\__q"
+		
+		if _i % 2; "%(newline)\f[align,right]"
+		else; "\n"
+	}
+	
+	"\n"
+	"\f[align,center]\f[bold,1]Galaxy\f[bold,default]\n\f[align,left]"
+	for _i = 37; _i < 43; _i++
+	{
+		_number = BalloonColors[_i][0]
+		_name = BalloonColors[_i][1]
+		
+		if TOINT(CurrentAngelbox[0]) == _i; "\![*]"
+		
+		"\__q[OnPickColor,%(_number)]%(_name)\__q"
+		
+		if _i % 2; "%(newline)\f[align,right]"
+		else; "\n"
+	}
+	"\n"
+	"\f[align,center]"
+	"\![*]\__q[OnPickColor,%(RAND(ARRAYSIZE(BalloonColors)))]Random\__q"
+	"\n\f[color,default.anchor]Highlighted text\f[color,disable]  Dimmed text\f[color,default]\n\n"
+	"\![*]\q[Back,OnConfigMenu]  \![*]\q[Close menu,blank]"
+	"\![unlock,balloonrepaint]"
+}
+
+OnPickColor
+{
+	CurrentAngelbox = BalloonColors[reference0]
+	OnBalloonCustomization
+}
+
+BalloonColors : array
+{
+	"0,Wings"
+	"1,Angel"
+	"2,Pilot"
+	"3,Halo"
+	"4,Red"
+	"5,Orange"
+	"6,Gold"
+	"7,Yellow"
+	"8,Chartreuse"
+	"9,Green"
+	"10,Teal"
+	"11,Cyan"
+	"12,Sky"
+	"13,Blue"
+	"14,Indigo"
+	"15,Violet"
+	"16,Purple"
+	"17,Lilac"
+	"18,Magenta"
+	"19,Pink"
+	"20,Tawny"
+	"21,Brown"
+	"22,Black"
+	"23,Gray"
+	"24,White"
+	"25,Unicorn Fangs"
+	"26,Pirate Lich"
+	"27,Endless Dawn"
+	"28,Cat-tastrophe"
+	"29,Cursed"
+	"30,Therapy"
+	"31,Shortcake"
+	"32,Medicine"
+	"33,Butterfly"
+	"34,Catwitch"
+	"35,Ladybug"
+	"36,Bridge"
+	"37,Spiral Galaxy"
+	"38,Purple Nebula"
+	"39,Red Nebula"
+	"40,Blue Nebula"
+	"41,Green Nebula"
+	"42,Gray Nebula"
 }
 
 OnDebug.UserAcceptedRole

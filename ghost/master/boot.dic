@@ -4,6 +4,18 @@ OnFirstBoot
 	LastTalk = ""
 	UserAcceptedRole = 0
 	TotalUniverses = 0
+	UserFainted = 0
+	LastOrbClick = (0,0)
+	CurrentAngelbox = "13,Blue"
+	IsFloating = 1
+	
+	OldQuestions.MoreOrFewer.Animals = IARRAY
+	LastQuestions.MoreOrFewer.Animals = ""
+	Questions.MoreOrFewer.Animals = ""
+	
+	OldQuestions.ThisOrThat.Animals = IARRAY
+	LastQuestions.ThisOrThat.Animals = ""
+	Questions.ThisOrThat.Animals = ""
 	
 	"\1\s[-1]\0\s[0]Firstboot"
 }
@@ -22,27 +34,33 @@ OnBoot
 	_user_birthday = "%(_temp[1])/%(_temp[2])" //M/D, if you want it D/M you can switch it around
 	_today = "%(month)/%(day)" //Again, switch this around if using D/M
 	
-	"\1\s[-1]\0\s[0]"
+	"\1\s[-1]\0\![set,alpha,0]\s[0]\t%(fadein)"
 	--
-	"Boot"
-	// if _today == _user_birthday
-	// {
-		// "\0\s[0]It is %(username)'s birthday today.\w8 Happy birthday, %(username).\w8 Developer,\w4 you can add an interesting message here.\w8 It can be as long as you like.\w8 Or, you can remove it entirely."
-	// }
-	// elseif _today == "1/1" //You can add whatever cool dates you want with more elseifs here
-	// {
-		// "\0\s[0]It's new year's day.\w8 Happy %(year),\w4 %(username)."
-	// }
-	// else //Normal boot
-	// {
-		// "\0\s[0]Hello %(username).\w8 Good to see you."
-		// "\0\s[0]Hello.\w8 Ready to make something cool?"
-	// }
+	if !UserAcceptedRole
+	{
+		"Ah, you're awake again."
+	}
+	elseif _today == _user_birthday
+	{
+		"\0\s[0]Birthday."
+	}
+	else //Normal boot
+	{
+		"\0\s[0]Boot"
+	}
 }
 
 OnClose
 {
-	"\0\s[0]Close"
+	if !UserAcceptedRole
+	{
+		UserFainted = 1
+		"Oh, are you alright? You're looking a little faint..."
+	}
+	else
+	{
+		"\0\s[0]Close"
+	}
 	--
-	"\w8\w8\-"
+	"\w8\w8\t%(fadeout)\-"
 }
