@@ -81,18 +81,6 @@ OnMouseMove
 	}
 }
 
-OnMouseMove.Sakura
-{
-	if reference4 == "wings"
-	{
-		"\0\s[0]Petting??"
-	}
-	elseif reference4 == "skirt"
-	{
-		
-	}
-}
-
 OnMouseLeaveAll
 {
 	stroke = 0
