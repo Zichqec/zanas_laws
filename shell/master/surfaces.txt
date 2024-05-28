@@ -244,7 +244,11 @@ animation1000.pattern6,move,-1,250,0,2
 animation1000.pattern7,move,-1,200,0,1
 animation1000.pattern8,move,-1,250,0,0
 animation1000.option,shared-index
+}
 
+//Dynamic sparkles, with static sparkles at the bottom
+surface.append0-25
+{
 animation10000.interval,bind + always
 animation10000.pattern0 ,overlay,100000,20,262,72 
 animation10000.pattern1 ,overlay,100000,20,263,70 
@@ -298,7 +302,6 @@ animation10000.pattern48,overlay,100000,20,258,80
 animation10000.pattern49,overlay,100000,20,259,78 
 animation10000.pattern50,overlay,100000,20,260,76 
 animation10000.pattern51,overlay,100000,20,261,74 
-// animation10000.pattern52,overlay,-1,45-1500,0,0
 animation10000.option,shared-index
 
 animation10001.interval,bind + always
@@ -354,7 +357,6 @@ animation10001.pattern48,overlay,100010,20,360,85
 animation10001.pattern49,overlay,100010,20,364,83 
 animation10001.pattern50,overlay,100000,20,368,81 
 animation10001.pattern51,overlay,100000,20,372,79 
-// animation10001.pattern52,overlay,-1,45-1500,0,0
 animation10001.option,shared-index
 
 animation10002.interval,bind + always
@@ -410,7 +412,6 @@ animation10002.pattern48,overlay,100013,20,386,149
 animation10002.pattern49,overlay,100013,20,389,149
 animation10002.pattern50,overlay,100013,20,392,149
 animation10002.pattern51,overlay,-1,20,0,0
-// animation10002.pattern52,overlay,-1,45-1500,0,0
 animation10002.option,shared-index
 
 animation10003.interval,bind + always
@@ -466,7 +467,6 @@ animation10003.pattern48,overlay,100001,20,265,179
 animation10003.pattern49,overlay,100011,20,269,180
 animation10003.pattern50,overlay,100011,20,273,181
 animation10003.pattern51,overlay,100010,20,277,182
-// animation10003.pattern52,overlay,-1,45-1500,0,0
 animation10003.option,shared-index
 
 animation10004.interval,bind + always
@@ -522,10 +522,7 @@ animation10004.pattern48,overlay,100000,20,345,265
 animation10004.pattern49,overlay,100000,20,348,267
 animation10004.pattern50,overlay,100000,20,351,269
 animation10004.pattern51,overlay,100000,20,354,271
-// // animation10004.pattern52,overlay,-1,45-1500,0,0
-// animation10004.option,shared-index
-
-
+animation10004.option,shared-index
 
 animation10010.interval,bind + always
 animation10010.pattern0 ,overlay,100000,20,107,69 
@@ -580,7 +577,6 @@ animation10010.pattern48,overlay,100000,20,111,77
 animation10010.pattern49,overlay,100000,20,110,75 
 animation10010.pattern50,overlay,100000,20,109,73 
 animation10010.pattern51,overlay,100000,20,108,71 
-// animation10010.pattern52,overlay,-1,45-1500,0,0
 animation10010.option,shared-index
 
 animation10011.interval,bind + always
@@ -636,7 +632,6 @@ animation10011.pattern48,overlay,100002,20,125,161
 animation10011.pattern49,overlay,100001,20,123,158
 animation10011.pattern50,overlay,100011,20,121,155
 animation10011.pattern51,overlay,100011,20,119,152
-// animation10011.pattern52,overlay,-1,45-1500,0,0
 animation10011.option,shared-index
 
 animation10012.interval,bind + always
@@ -692,8 +687,6 @@ animation10012.pattern48,overlay,100001,20,46 ,129
 animation10012.pattern49,overlay,100001,20,44 ,128
 animation10012.pattern50,overlay,100011,20,42 ,127
 animation10012.pattern51,overlay,100012,20,40 ,126
-
-// animation10012.pattern52,overlay,-1,45-1500,0,0
 animation10012.option,shared-index
 
 animation10013.interval,bind + always
@@ -749,8 +742,6 @@ animation10013.pattern48,overlay,100010,20,91 ,170
 animation10013.pattern49,overlay,100000,20,89 ,171
 animation10013.pattern50,overlay,100000,20,87 ,171
 animation10013.pattern51,overlay,100000,20,85 ,172
-
-// animation10013.pattern52,overlay,-1,45-1500,0,0
 animation10013.option,shared-index
 
 animation10014.interval,bind + always
@@ -806,7 +797,6 @@ animation10014.pattern48,overlay,-1,20,0,0
 animation10014.pattern49,overlay,100003, 0,128,202
 animation10014.pattern50,overlay,100003,20,126,203
 animation10014.pattern51,overlay,100003,20,124,204
-//animation10014.pattern52,overlay,-1,45-1500,0,0
 animation10014.option,shared-index
 
 animation10020.interval,bind
@@ -817,22 +807,22 @@ animation10020.pattern0,overlay,100020,0,0,0
 surface.append0-9,25
 {
 animation50.interval,always
-animation50.pattern0,overlay,20000,0,0,200
-animation50.pattern1,overlay,20000,150,0,197
-animation50.pattern2,overlay,20000,150,0,195
+animation50.pattern0,overlay,20000,0,0,198
+animation50.pattern1,overlay,20000,200,0,197
+animation50.pattern2,overlay,20000,175,0,195
 animation50.pattern3,overlay,20000,150,0,192
 animation50.pattern4,overlay,20000,150,0,190
 animation50.pattern5,overlay,20000,150,0,187
 animation50.pattern6,overlay,20000,150,0,185
 animation50.pattern7,overlay,20000,150,0,183
-animation50.pattern8,overlay,20000,150,0,180
-animation50.pattern9,overlay,20000,150,0,183
-animation50.pattern10,overlay,20000,150,0,185
+animation50.pattern8,overlay,20000,175,0,181
+animation50.pattern9,overlay,20000,200,0,183
+animation50.pattern10,overlay,20000,175,0,185
 animation50.pattern11,overlay,20000,150,0,187
 animation50.pattern12,overlay,20000,150,0,190
 animation50.pattern13,overlay,20000,150,0,192
 animation50.pattern14,overlay,20000,150,0,195
-animation50.pattern15,overlay,20000,150,0,197
+animation50.pattern15,overlay,20000,175,0,197
 animation50.option,shared-index
 }
 
