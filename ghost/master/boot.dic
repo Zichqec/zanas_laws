@@ -118,3 +118,23 @@ OnFirstboot.New_Existence
 {
 "\0\b[0]\s[5]\tThis is my workshop, \s[9]where I create the various forms of the universe you inhabit.\w8\n\n[half]\s[5]You see, a universe cannot last forever. \s[1]Eventually, it runs out of energy, and its matter begins to deteriorate. \s[4]There isn't much left for you mortals in that condition. \n\n[half]\s[0]That is the point where I get involved.\x\b[2]\s[6]\tIt is my job to bring the existing universe to an end, adjust any parameters that need to be adjusted, and restart... \s[8]well... \s[1]everything. \n\n[half]\s[4]Although... since you've been removed partway through the process, the next iteration of your universe won't have a place for you anymore. \n\n[half]\s[8]You're welcome to stay with me until you decide you would like to be erased as well. \n\n[half]\s[4]I'll have to find something for you to do in the meantime... \s[1]So then. \s[5]Why don't you take some time to acclimate yourself to your new existence while you wait?\x"
 }
+
+OnVanishSelecting
+{
+	"\0\b[0]\s[3]... \s[4]You look like you have something on your mind."
+}
+
+OnVanishCancel
+{
+	"\0\b[0]\s[4]Oh? \s[8]I must have been mistaken. \n\n[half]\s[25]Now, where were we..."
+}
+
+OnVanishSelected
+{
+	"\0\b[0]\s[1]I see... \s[9]I suppose this was going to happen eventually. \n\n[half]\s[8]Eternity \f[italic,1]is\f[italic,default] quite a long time, after all. \n\n[half]\s[4]... Then, I'll make this quick. \s[1]I promise you won't feel a thing. \n\n[half]\s[3]Goodbye, %(username)."
+}
+
+OnVanishButtonHold
+{
+	"\0\b[0]\\s[2]...! \s[1]My goodness, you shouldn't scare me like that! I thought... \n\n[half]\s[8]Well. \n\n[half]\s[9]Shall we get back to it?"
+}
