@@ -51,6 +51,29 @@ bugs : nonoverlap
 	"a caterpillar,caterpillars"
 }
 
+reaction
+{
+	"\s[0]"
+	"\s[1]"
+	"\s[2]"
+	"\s[5]"
+	"\s[6]"
+	"\s[7]"
+	"\s[8]"
+	"\s[25]"
+}
+
+agiant
+{
+	"a giant"
+	"an extremely large"
+	"an overgrown"
+	"an extremely vicious"
+	"an immortal"
+	"an indestructible"
+	"an invisible"
+}
+
 blackhole
 {
 	"a black hole"
@@ -61,6 +84,18 @@ blackhole
 	"a field of Nightrider lilies"
 	"another ice age"
 	"an eternal storm"
+}
+
+calculations
+{
+	"calculations"
+	"rebalancing"
+	"fine detailing"
+	"dirt planning"
+	"space measuring"
+	"time relativity"
+	"crochet patterns"
+	"cellular structure"
 }
 
 color
@@ -100,55 +135,6 @@ foodsource
 	"gemstones"
 }
 
-worms
-{
-	"%(animals[0])"
-	"%(animals[1])"
-	"%(bugs[0])"
-	"%(bugs[1])"
-	"fingernails"
-	"toes"
-	"porcupines"
-	"toothpaste"
-	"inversion"
-	"symmetry"
-	"multiplicative"
-	"binary code"
-	"cat whiskers"
-	"automobiles"
-	"%(color) umbrella"
-	"mineral erosion"
-}
-
-agiant
-{
-	"a giant"
-	"an extremely large"
-	"an overgrown"
-	"an extremely vicious"
-	"an immortal"
-	"an indestructible"
-	"an invisible"
-}
-
-petals
-{
-	"petals"
-	"whiskers"
-	"feathers"
-	"ridges"
-	"spines"
-	"toes"
-	"beaches"
-	"leaves"
-	"seas"
-	"oceans"
-	"land masses"
-	"habitable areas"
-	"types of berry"
-	"measurement systems"
-}
-
 hurricanes
 {
 	"hurricanes"
@@ -176,4 +162,42 @@ moreteeth
 	"sticky tongues"
 	"opposable thumbs"
 	"feathers"
+}
+
+petals
+{
+	"petals"
+	"whiskers"
+	"feathers"
+	"ridges"
+	"spines"
+	"toes"
+	"beaches"
+	"leaves"
+	"seas"
+	"oceans"
+	"land masses"
+	"habitable areas"
+	"types of berry"
+	"measurement systems"
+}
+
+worms
+{
+	"%(animals[0])"
+	"%(animals[1])"
+	"%(bugs[0])"
+	"%(bugs[1])"
+	"fingernails"
+	"toes"
+	"porcupines"
+	"toothpaste"
+	"inversion"
+	"symmetry"
+	"multiplicative"
+	"binary code"
+	"cat whiskers"
+	"automobiles"
+	"%(color) umbrella"
+	"mineral erosion"
 }

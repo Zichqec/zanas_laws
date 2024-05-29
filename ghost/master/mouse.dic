@@ -17,7 +17,7 @@ OnMouseDoubleClick : all
 					}
 					else
 					{
-						"\0\b[0]\b[5]My, excited, aren't we?"
+						"\0\b[0]\s[5]My, excited, aren't we?"
 					}
 				}
 				elseif ghostupmin >= 60
@@ -55,7 +55,7 @@ OnNotAcceptRole
 
 OnRole.Information
 {
-	"\0\b[2]\s[7]As my assistant, you would help me in making decisions that influence what the next interation of your universe will be like. \n\n[half]\s[6]Everything from what color a particular flower should be, to how many stars should be born and die. \n\n[half]\s[0]Each decision can have innumerable consequences on how things play out. \s[1]I'd like to have a second opinion now and then. \n\n[half]\s[5]So? Will you accept your role as my assistant? \n\n\_q\![*]\q[Yes,OnAcceptRole]  \![*]\q[No,OnNotAcceptRole]"
+	"\0\b[2]\s[7]As my assistant, you would help me in making decisions that influence what the next interation of your universe will be like. \n\n[half]\s[6]Everything from what color a particular flower should be, to how many stars will be born and die. \n\n[half]\s[0]Each decision can have innumerable consequences on how things play out. \s[1]I'd like to have a second opinion now and then. \n\n[half]\s[5]So? Will you accept your role as my assistant? \n\n\_q\![*]\q[Yes,OnAcceptRole]  \![*]\q[No,OnNotAcceptRole]"
 }
 
 OnMouseMove
@@ -68,14 +68,22 @@ OnMouseMove
 		{
 			if stroke % 40 == 0
 			{
-				"\0\s[0]Careful, they are quite sharp"
+				"\0\b[6]\s[4]Careful, my wings can be sharp at times."
+				"\0\b[6]\s[3]Watch your fingers. When my feathers are brittle, the shards like to dig into whatever they touch."
+				"\0\b[6]\s[8]Mind them, they bite."
+				"\0\b[6]\s[6]That's nice... \s[1]Just don't cut yourself."
+				"\0\b[6]\s[7]It's interesting to see grooming instincts at work."
 			}
 		}
 		elseif reference4 == "skirt"
 		{
 			if stroke % 80 == 0
 			{
-				"\0\s[0]Hm? Oh, my legs? I only bring them out when I need them."
+				"\0\b[6]\s[2]Hm? Oh, my legs? \s[0]I only bring them out when I need them."
+				"\0\b[6]\s[8]...? There's only more dress under there, if that's what you're curious about."
+				"\0\b[6]\s[4]I understand the curiosity, but really..."
+				"\0\b[6]\s[6]I only walk when required. Floating is much easier."
+				"\0\b[6]\s[0]Sometimes, I try having a tail to see what it's like."
 			}
 		}
 	}
@@ -102,15 +110,23 @@ OrbCheck
 	
 	if LastOrbClick[1] >= 5
 	{
-		"Enough of that."
+		"\0\b[6]\s[25]\n\f[height,150%]\f[align,center]That is \f[bold,1]enough\f[bold,default]."
 	}
 	else
 	{
-		"Careful, it's hot, you'll melt!"
+		"\0\b[6]\s[2]Careful! It's hot! You don't want to melt, do you?"
+		"\0\b[6]\s[8]Watch your hands...! The slightest touch at this stage can have countless ramifications."
+		"\0\b[6]\s[4]No, no, the cosmic nucleus does \f[italic,1]not\f[italic,default] need to be groomed."
+		"\0\b[6]\s[25]%(username), you're throwing off my concentration."
+		"\0\b[6]\s[3]Please don't get carried away. I'd rather not clean up your remains if you dissolve on contact."
 	}
 }
 
 PenCheck
 {
-	"I write the laws of the universe with it."
+	"\0\b[6]\s[7]I write the laws of the universe with this."
+	"\0\b[6]\s[5]My quill pen is made from one of my feathers. \s[9]Only one of them should exist at a time."
+	"\0\b[6]\s[1]There's no erasing ink, so when I make a mistake, I have to embrace it."
+	"\0\b[6]\s[0]The ink never runs out, because it isn't really ink. \s[6]It's made from the energy I'm infusing back into the universe."
+	"\0\b[6]\s[8]I've actually lost pens before. Let me know if you find one."
 }

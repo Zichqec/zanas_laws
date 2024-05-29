@@ -178,6 +178,16 @@ animation102.pattern5,overlay,10002,100,0,0
 animation102.pattern6,overlay,10001,100,0,0
 animation102.pattern7,overlay,10000,100,0,0
 
+animation150.interval,never
+animation150.pattern0,overlay,10010,0,0,0
+
+animation151.interval,never
+animation151.pattern0,overlay,10010,0,0,0
+animation151.pattern1,overlay,10011,100,0,0
+animation151.pattern2,overlay,10002,100,0,0
+animation151.pattern3,overlay,10001,100,0,0
+animation151.pattern4,overlay,10000,100,0,0
+
 animation190.interval,never
 animation190.pattern0,overlay,20000,0,0,200
 
