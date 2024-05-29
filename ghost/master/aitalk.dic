@@ -48,11 +48,6 @@ OnAiTalk
 					if _pick == "Question"
 					{
 						LastTalk = QuestionTalk
-						if LastTalk == "" //TODO this can be removed once we have 5 categories...
-						{
-							QuestionsAsked = 5
-							LastTalk = RandomTalk
-						}
 					}
 					else; LastTalk = RandomTalk
 				}
@@ -68,9 +63,9 @@ RandomTalk : nonoverlap_pool
 	
 	if LastQuestions.MoreOrFewer.Animals != ""
 	{
-		_animal = LastQuestions.MoreOrFewer.Animals[0][0]
-		_animals = LastQuestions.MoreOrFewer.Animals[0][1]
-		_amount = LastQuestions.MoreOrFewer.Animals[1]
+		_animal = LastQuestions.MoreOrFewer.Animals[0]
+		_animals = LastQuestions.MoreOrFewer.Animals[1]
+		_amount = LastQuestions.MoreOrFewer.Animals[2]
 		
 		if _amount == "more"
 		{
@@ -84,10 +79,10 @@ RandomTalk : nonoverlap_pool
 	
 	if LastQuestions.ThisOrThat.Animals != ""
 	{
-		_animal_1 = LastQuestions.ThisOrThat.Animals[0][0]
-		_animals_1 = LastQuestions.ThisOrThat.Animals[0][1]
-		_animal_2 = LastQuestions.ThisOrThat.Animals[1][0]
-		_animals_2 = LastQuestions.ThisOrThat.Animals[1][1]
+		_animal_1 = LastQuestions.ThisOrThat.Animals[0]
+		_animals_1 = LastQuestions.ThisOrThat.Animals[1]
+		_animal_2 = LastQuestions.ThisOrThat.Animals[2]
+		_animals_2 = LastQuestions.ThisOrThat.Animals[3]
 		
 		"So, did you enjoy the %(_animals_1)? Or would you rather have picked %(_animals_2) after all?"
 	}
@@ -104,6 +99,15 @@ MonologueTalk : array
 	"\0\b[6]\s[4]Sometimes, I do think this would be easier with more hands... \s[1]Then I remember how much they always get in the way."
 	"\0\b[6]\s[6]I think, on average, predators should have more teeth."
 	"\0\b[6]\s[25]%(Capitalize(worms))..."
+	"\0\b[6]\s[4]It is in a delicate state of balance, I'll have to be careful not to disturb it..."
+	"\0\b[6]\s[4]Too many %(petals)... \s[6]I should cut back."
+	"\0\b[6]\s[4]I still need to make adjustments to the weather, the average number of %(hurricanes) in a year isn't quite right..."
+	"\0\b[6]\s[4]Hm, perhaps a more drastic change is needed..."
+	"\0\b[6]\s[6]It may be worth reconsidering some of the fundamentals..."
+	"\0\b[6]\s[6]Perhaps I could touch up the form of the %(animals[1]). How might their diets change if I gave them %(moreteeth)...?"
+	"\0\b[6]\s[1]I may have overdone it, perhaps I should revert %(animals[1]) to their previous form..."
+	"\0\b[6]\s[7]Language is always so interesting to watch develop. \s[6]A few carefully planted linguistic seeds grow into something unique and wonderful..."
+	"\0\b[6]\s[8]Oh my, I may need to recalibrate the gravity..."
 }
 
 QuestionTalk : nonoverlap_pool
@@ -112,51 +116,112 @@ QuestionTalk : nonoverlap_pool
 	//animals
 	if Questions.ThisOrThat.Animals == ""
 	{
-		_animal_1 = Choices.Animal_1[0]
-		_animals_1 = Choices.Animal_1[1]
-		_animal_2 = Choices.Animal_2[0]
-		_animals_2 = Choices.Animal_2[1]
+		_animal_1 = Choices.Animal[0][0]
+		_animals_1 = Choices.Animal[0][1]
+		_animal_2 = Choices.Animal[1][0]
+		_animals_2 = Choices.Animal[1][1]
 		
 		"\0\b[0]\s[0]I am contemplating what animals to include this iteration. Would you prefer %(_animals_1), or %(_animals_2)?"
 		"\0\b[0]\s[0]I would like your opinion on a matter related to animals. I can add either %(_animals_1) or %(_animals_2), but I do not wish to include both. Which would you prefer?"
+		"\0\b[0]\s[0]I have not yet decided whether I should include %(_animals_1) this iteration, or if it would be better to have %(_animals_2) instead. What is your preference?"
 		--
 		all : /
 		{
-			"\n\n\_q"
-			"\![*]\q[%(_animals_1),OnQuestions,ThisOrThat.Animals,""%(Choices.Animal_1)"",""%(Choices.Animal_2)""]"
+			"\n\n\_q\![set,choicetimeout,60000]"
+			"\![*]\__q[OnQuestions,ThisOrThat.Animals,""%(Choices.Animal[0])"",""%(Choices.Animal[1])""]%(Capitalize(_animals_1))\__q"
 			"%(newline)\f[align,right]"
-			"\![*]\q[%(_animals_2),OnQuestions,ThisOrThat.Animals,""%(Choices.Animal_2)"",""%(Choices.Animal_1)""]"
+			"\![*]\__q[OnQuestions,ThisOrThat.Animals,""%(Choices.Animal[1])"",""%(Choices.Animal[0])""]%(Capitalize(_animals_2))\__q"
 		}
 	}
 	
 	//———————————————————— Pick one ————————————————————
+	//animals
+	if Questions.PickOne.Animals == ""
+	{
+		_animal_1 = Choices.Animal[5][0]
+		_animals_1 = Choices.Animal[5][1]
+		_animal_2 = Choices.Animal[6][0]
+		_animals_2 = Choices.Animal[6][1]
+		_animal_3 = Choices.Animal[7][0]
+		_animals_3 = Choices.Animal[7][1]
+		
+		
+		"\0\b[0]\s[0]You have your pick: %(_animals_1), %(_animals_2), or %(_animals_3), which should be at the top of the food chain?"
+		--
+		all : /
+		{
+			"\n\n\_q\![set,choicetimeout,60000]"
+			"\![*]\__q[OnQuestions,PickOne.Animals,""%(Choices.Animal[5])"",yes]%(Capitalize(_animals_1))\__q"
+			"\n"
+			"\![*]\__q[OnQuestions,PickOne.Animals,""%(Choices.Animal[6])"",no]%(Capitalize(_animals_2))\__q"
+			"\n"
+			"\![*]\__q[OnQuestions,PickOne.Animals,""%(Choices.Animal[7])"",no]%(Capitalize(_animals_3))\__q"
+		}
+	}
 	
 	//———————————————————— More or fewer ————————————————————
 	//animals
 	if Questions.MoreOrFewer.Animals == ""
 	{
-		_animal = Choices.Animal_3[0]
-		_animals = Choices.Animal_3[1]
+		_animal = Choices.Animal[2][0]
+		_animals = Choices.Animal[2][1]
 		
-		"Do you think there should be more or fewer %(_animals)?"
-		"How do you feel about %(_animals)? More or fewer?"
-		//If you were an %(_animal), would you like more or fewer of your kind around? ← problem with this is, a/an...
+		"\0\b[0]\s[0]Regarding %(_animals), should we have more or fewer of them?"
+		"\0\b[0]\s[0]Do you think it is better to have more or fewer %(_animals) in the next iteration?"
+		"\0\b[0]\s[0]I am considering how many %(_animals) we want in the over all ecosystem. Do you think there should be more, or fewer?"
 		--
 		all : /
 		{
-			"\n\n\_q"
-			"\![*]\q[More,OnQuestions,MoreOrFewer.Animals,""%(Choices.Animal_3)"",more]"
+			"\n\n\_q\![set,choicetimeout,60000]"
+			"\![*]\__q[OnQuestions,MoreOrFewer.Animals,""%(Choices.Animal[2])"",more]More\__q"
 			"%(newline)\f[align,right]"
-			"\![*]\q[Fewer,OnQuestions,MoreOrFewer.Animals,""%(Choices.Animal_3)"",fewer]"
+			"\![*]\__q[OnQuestions,MoreOrFewer.Animals,""%(Choices.Animal[2])"",fewer]Fewer\__q"
 		}
 	}
 	
 	
 	//———————————————————— Yes or no ————————————————————
-	
+	//animals
+	if Questions.YesOrNo.Animals == ""
+	{
+		_animal = Choices.Animal[3][0]
+		_animals = Choices.Animal[3][1]
+		
+		"\0\b[0]\s[0]Do you think we should include %(_animals) this iteration?"
+		"\0\b[0]\s[0]I am considering whether %(_animals) should be present in the ecosystem this time. What do you think?"
+		"\0\b[0]\s[0]I was thinking I might leave out the %(_animals) this time, I think I would like to see how things fare without. What do you think?"
+		--
+		all : /
+		{
+			"\n\n\_q\![set,choicetimeout,60000]"
+			"\![*]\__q[OnQuestions,YesOrNo.Animals,""%(Choices.Animal[3])"",yes]Yes\__q"
+			"%(newline)\f[align,right]"
+			"\![*]\__q[OnQuestions,YesOrNo.Animals,""%(Choices.Animal[3])"",no]No\__q"
+		}
+	}
 	
 	//———————————————————— Good idea or bad idea ————————————————————
-	
+	//animals
+	if Questions.GoodOrBad.Animals == ""
+	{
+		_animal = Choices.Animal[4][0]
+		_animals = Choices.Animal[4][1]
+		_anim = _animal
+		_anim = REPLACE(_anim,"an ","")
+		_anim = REPLACE(_anim,"a ","")
+		
+		"\0\b[0]\s[0]I was thinking about adding %(agiant) %(_anim) to make things more interesting. What do you think?"
+		"\0\b[0]\s[0]I think it might be interesting if I change %(_animals) into predators. What are your thoughts?" //This might come across as weird... because lions are already predators. But theoretically, they may not have been in the last universe. but will people get that?
+		"\0\b[0]\s[0]I think I should add more eyes to the %(_animals). Wouldn't that be interesting?"
+		--
+		all : /
+		{
+			"\n\n\_q\![set,choicetimeout,60000]"
+			"\![*]\__q[OnQuestions,GoodOrBad.Animals,""%(Choices.Animal[4])"",yes]Good idea\__q"
+			"%(newline)\f[align,right]"
+			"\![*]\__q[OnQuestions,GoodOrBad.Animals,""%(Choices.Animal[4])"",no]Bad idea\__q"
+		}
+	}
 	
 	
 	
@@ -167,10 +232,10 @@ OnQuestions
 {
 	_ref0 = reference[0]
 	reference[0] = IARRAY
-	NAMETOVALUE("Questions.%(_ref0) = reference")
+	LETTONAME("Questions.%(_ref0)","%(reference)")
 	QuestionsAsked++
 	
-	"%(Questions.ThisOrThat.Animals)\n%(Questions.MoreOrFewer.Animals)\n\n"
+	//"%(Questions.ThisOrThat.Animals)\n%(Questions.MoreOrFewer.Animals)\n\n"
 	
 	--
 	if UniverseReady
@@ -186,6 +251,14 @@ OnQuestions
 OnUniverseCreation.Begin
 {
 	"\0\b[2]\s[5]\t'Begin', of course, means I'll be taking your feedback into account while I make the new universe for us. \n\n[half]\s[1]I'm afraid that you're not capable of doing it yourself, even if I were to let you try. \n\n[half]\s[8]Sorry about that. \n\n[half]\s[6]Still... \s[5]I'll do my best to honor each of your requests, \s[9]so please have faith in me. \n\n[half]\s[0]Let me know when you're ready. I won't rush you.\x"
+}
+
+OnChoiceTimeout
+{
+	if "\__q[OnQuestions," _in_ reference0
+	{
+		"Well, perhaps we'll return to that one later."
+	}
 }
 
 MonologueTalk.Parallel : nonoverlap_pool
