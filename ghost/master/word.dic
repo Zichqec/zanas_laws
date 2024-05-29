@@ -5,23 +5,62 @@ animals : nonoverlap
 	"a tiger,tigers"
 	"a bear,bears"
 	"a porcupine,porcupines"
+	"a badger,badgers"
+	"a skunk,skunks"
+	"a cat,cats"
+	"a giraffe,giraffes"
+	"an otter,otters"
+	"a beaver,beavers"
+	"a chicken,chickens"
+	"a lizard,lizards"
+	"an iguana,iguanas"
+	"a rat,rats"
+	"a chipmunk,chipmunks"
+	"a rabbit,rabbits"
+	"a kangaroo,kangaroos"
+	"a wolf,wolves"
+	"a coyote,cotoyes"
+	"a jackal,jackals"
+	"a prairie dog,prairie dogs"
+	"a boar,boars"
+	"an elephant,elephants"
+	"a gorilla,gorillas"
+	"a deer,deer"
+	"a panda,pandas"
+	"a mouse,mice"
 }
 
 bugs : nonoverlap
 {
-	"worm,worms"
-	"beetle,beetles"
+	"a worm,worms"
+	"a beetle,beetles"
+	"a locust,locusts"
+	"a cockroach,cockroaches"
+	"a spider,spiders"
+	"an ant,ants"
+	"a termite,termites"
+	"an aphid,aphids"
+	"a fly,flies"
+	"a mosquito,mosquitos"
+	"a grasshopper,grasshoppers"
+	"a flea,fleas"
+	"a leech,leeches" //ARE LEECHES BUGS??? (theyre not)
+	"a water skater,water skaters"
+	"a butterfly,butterflies"
+	"a moth,moths"
+	"a caterpillar,caterpillars"
 }
 
 blackhole
 {
-	"a blackhole"
+	"a black hole"
 	"abyssal chasms"
 	"more ants"
 	"mud flats"
 	"caves"
 	"a field of Nightrider lilies"
 	"another ice age"
+	"an eternal storm"
 }
 
 color
@@ -79,4 +118,62 @@ worms
 	"automobiles"
 	"%(color) umbrella"
 	"mineral erosion"
+}
+
+agiant
+{
+	"a giant"
+	"an extremely large"
+	"an overgrown"
+	"an extremely vicious"
+	"an immortal"
+	"an indestructible"
+	"an invisible"
+}
+
+petals
+{
+	"petals"
+	"whiskers"
+	"feathers"
+	"ridges"
+	"spines"
+	"toes"
+	"beaches"
+	"leaves"
+	"seas"
+	"oceans"
+	"land masses"
+	"habitable areas"
+	"types of berry"
+	"measurement systems"
+}
+
+hurricanes
+{
+	"hurricanes"
+	"tornadoes"
+	"droughts"
+	"severe thunderstorms"
+	"hailstorms"
+	"blizzards"
+	"floods"
+	"snowstorms"
+}
+
+moreteeth
+{
+	"more teeth"
+	"prehensile tails"
+	"large tusks"
+	"sharp spines"
+	"heavier claws"
+	"an additional set of legs"
+	"wings"
+	"an additional head"
+	"webbed feet"
+	"stronger legs"
+	"sticky tongues"
+	"opposable thumbs"
+	"feathers"
 }
