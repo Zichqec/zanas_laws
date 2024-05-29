@@ -2,13 +2,15 @@ SakuraMenuGreetings : nonoverlap_pool
 {
 	if UniverseReady
 	{
-		"Are you prepared to enter the new universe?"
-		"Shall we begin?"
+		"\s[7]Are you prepared to start the new universe?"
+		"\s[0]Shall we begin?"
+		"\s[5]You've done well. Ready to see the results?"
 	}
 	else
 	{
-		"Things are coming along rather nicely, don't you think?"
-		"I'm still preparing, there is much work to do."
+		"\s[6]Things are coming along rather nicely, don't you think?"
+		"\s[25]I'm still preparing... there is much work to do."
+		"\s[1]Don't forget to rest if you need to. The work will be here when you're ready."
 	}
 }
 
@@ -22,7 +24,7 @@ OnSakuraMenu : all
 	
 	if UniverseReady
 	{
-		"\![*]\__q[OnNewUniverse]Enter the new universe\__q"
+		"\![*]\__q[OnNewUniverse]Begin Iteration\__q"
 		"\n\n"
 	}
 	
@@ -47,7 +49,7 @@ OnSakuraMenu : all
 	
 	"\![unlock,balloonrepaint]"
 	"\_l[0,0]"
-	if SHIORI3FW.Eventid == "OnMouseDoubleClick"; "\![quicksection,false] %(SakuraMenuGreetings)"
+	if SHIORI3FW.Eventid == "OnMouseDoubleClick"; "\![quicksection,false]%(SakuraMenuGreetings)"
 }
 
 OnLastTalk

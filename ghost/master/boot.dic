@@ -20,7 +20,7 @@ OnFirstBoot
 	LastQuestions.ThisOrThat.Animals = ""
 	Questions.ThisOrThat.Animals = ""
 	
-	"\1\s[-1]\0\b[0]\![set,alpha,0]\s[25]\i[100]\t%(fadein)That should do it for this... Ah? \n\n[half]This is unexpected. I was certain I'd sealed the Transcendental Gate after my last evaluation. When did you— \n\n[half]Wait a moment, I'm sure your senses are... overwhelmed. \x\b[0]Let me just— \s[25]\i[101,wait]\s[25]\i[201,wait]\s[1]\*How is this? Suitably comprehensible? \n\n\_q\![*]\__q[OnFirstboot.Comprehensible_Yes]Yes,## thank you.\__q\n\![*]\__q[OnFirstboot.Comprehensible_No]No,## is there more you can do?\__q\n\![*]\__q[OnFirstboot.Comprehensible_Better_Before]I think you looked better before.\__q"
+	"\1\s[-1]\0\b[0]\![set,alpha,0]\s[25]\i[150]\t%(fadein)That should do it for this... \s[25]\i[151,wait]Ah? \n\n[half]\s[25]\i[100]This is unexpected. I was certain I'd sealed the Transcendental Gate after my last evaluation. When did you— \n\n[half]Wait a moment, I'm sure your senses are... overwhelmed. \x\b[0]Let me just— \s[25]\i[101,wait]\s[25]\i[201,wait]\s[1]\*How is this? Suitably comprehensible? \n\n\_q\![*]\__q[OnFirstboot.Comprehensible_Yes]Yes,## thank you.\__q\n\![*]\__q[OnFirstboot.Comprehensible_No]No,## is there more you can do?\__q\n\![*]\__q[OnFirstboot.Comprehensible_Better_Before]I think you looked better before.\__q"
 }
 
 OnInitialize
@@ -42,15 +42,15 @@ OnBoot
 	--
 	if !UserAcceptedRole
 	{
-		"Ah, you're awake again."
+		"\0\b[6]\s[2]Ah...! \s[5]You're awake again. \n\n[half]\s[8]I wasn't sure when I should start to worry."
 	}
 	elseif _today == _user_birthday
 	{
-		"\0\s[0]Birthday."
+		"\0\b[0]\s[25]\tIf my mathmatics are correct, then according to your perception of the space-time continuum within the interation of the universe you are most familiar with, today is the anniversary of your birth. \n\n[half]\s[7]So, as mortals say, 'Happy Birthday!'\x\b[0]\s[4]\tOf course, you share your birthday with approximately %(RAND(999) + 1) quattuordecillion other beings across the current reality, give or take... \n\n[half]\s[1]But I can hardly give well-wishes to all of them!\x"
 	}
 	else //Normal boot
 	{
-		"\0\s[0]Boot"
+		"\0\b[6]\s[2]Oh! \s[0]%(username). \s[7]I hope you had a nice break. \n\n[half]\s[6]Do let me know when you need another, \s[5]all right?"
 	}
 }
 
@@ -59,11 +59,11 @@ OnClose
 	if !UserAcceptedRole
 	{
 		UserFainted = 1
-		"Oh, are you alright? You're looking a little faint..."
+		"\0\b[6]\s[2]Oh my, are you all right? \s[3]You're looking a little faint..."
 	}
 	else
 	{
-		"\0\s[0]Close"
+		"\0\b[6]\s[8]Yes, I think this is a good time for a break... \s[7]Or, a break for you. I'll work on some %(calculations) while you rest."
 	}
 	--
 	"\w8\w8\t%(fadeout)\-"
