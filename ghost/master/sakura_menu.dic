@@ -1,7 +1,15 @@
-SakuraMenuGreetings : nonoverlap
+SakuraMenuGreetings : nonoverlap_pool
 {
-	"Hello."
-	"How can I help you?"
+	if UniverseReady
+	{
+		"Are you prepared to enter the new universe?"
+		"Shall we begin?"
+	}
+	else
+	{
+		"Things are coming along rather nicely, don't you think?"
+		"I'm still preparing, there is much work to do."
+	}
 }
 
 OnSakuraMenu : all
@@ -10,21 +18,21 @@ OnSakuraMenu : all
 	
 	"\0\b[0]\s[0]\![set,autoscroll,disable]\![close,inputbox,OnSetName]\![set,scaling,100,100]\![set,alpha,100]"
 	
-	"\n\n\_q"
-	
-	"\![*]\q[Talk to me,OnAiTalk]"
-	if LastTalk != ""; "  \![*]\q[Say that again,OnLastTalk]"
-	"\n\n"
+	"\n\n\n\_q"
 	
 	if UniverseReady
 	{
-		"\![*]\__q[OnNewUniverse]I'm ready,## send me to the new universe\__q"
+		"\![*]\__q[OnNewUniverse]Enter the new universe\__q"
 		"\n\n"
 	}
 	
-	"\![*]\__q[OnConfigMenu]Config\__q"
+	"\![*]\__q[OnAiTalk]Discuss\__q"
+	if LastTalk != ""; "  \![*]\__q[OnLastTalk]Repeat\__q"
 	"\n\n"
-	"\![*]\q[Nevermind,blank]"
+	
+	"\![*]\__q[OnConfigMenu]Config\__q"
+	"  "
+	"\![*]\q[Cancel,blank]"
 	
 	if SHIORI3FW.DebugMode
 	{
@@ -53,22 +61,18 @@ OnNewUniverse
 	TotalUniverses++
 	OnPickChoices
 	
-	if LastQuestions.MoreOrFewer.Animals != "";
-	{
-		OldQuestions.MoreOrFewer.Animals ,= TOSTR(LastQuestions.MoreOrFewer.Animals)
-		if ARRAYSIZE(OldQuestions.MoreOrFewer.Animals) > 100; OldQuestions.MoreOrFewer.Animals[0] = IARRAY
-	}
-	LastQuestions.MoreOrFewer.Animals = Questions.MoreOrFewer.Animals
-	Questions.MoreOrFewer.Animals = ""
+	_categories = ("MoreOrFewer.Animals","ThisOrThat.Animals","PickOne.Animals","YesOrNo.Animals","GoodOrBad.Animals")
 	
-	
-	if LastQuestions.ThisOrThat.Animals != ""
+	foreach _categories; _category
 	{
-		OldQuestions.ThisOrThat.Animals ,= TOSTR(LastQuestions.ThisOrThat.Animals)
-		if ARRAYSIZE(OldQuestions.ThisOrThat.Animals) > 100; OldQuestions.ThisOrThat.Animals[0] = IARRAY
+		if EVAL("LastQuestions.%(_category)") != ""
+		{
+			EVAL("OldQuestions.%(_category) ,= TOSTR(LastQuestions.%(_category))")
+			if ARRAYSIZE(EVAL("OldQuestions.%(_category)")) > 100; EVAL("OldQuestions.%(_category)[0] = IARRAY")
+		}
+		EVAL("LastQuestions.%(_category) = Questions.%(_category)")
+		EVAL("Questions.%(_category) = ''")
 	}
-	LastQuestions.ThisOrThat.Animals = Questions.ThisOrThat.Animals
-	Questions.ThisOrThat.Animals = ""
 	
 	"\tAt last.\n\n Fade out.\n\n Fade in.\n\n How was it?"
 }
