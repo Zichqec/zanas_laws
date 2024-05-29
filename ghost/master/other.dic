@@ -113,7 +113,7 @@ fadeout : all
 
 newline
 {
-	"\_l[,]"
+	"\n \n[-100]"
 }
 
 br
@@ -147,18 +147,15 @@ OnNotifyDressupInfo
 //Picking the choices now so that they don't overlap later...
 OnPickChoices
 {
-	Choices.Animal_1 = animals
-	
-	Choices.Animal_2 = animals
-	while Choices.Animal_2 == Choices.Animal_1
+	_done = 0
+	while !_done
 	{
-		Choices.Animal_2 = animals
-	}
-	
-	Choices.Animal_3 = animals
-	while Choices.Animal_3 == Choices.Animal_2 || Choices.Animal_3 == Choices.Animal_1
-	{
-		Choices.Animal_3 = animals
+		_animal_num = 8
+		for _i = 0; _i < _animal_num; _i++
+		{
+			Choices.Animal[_i] = animals
+		}
+		if ARRAYSIZE(ARRAYDEDUP(Choices.Animal)) == _animal_num; _done = 1
 	}
 	
 	
