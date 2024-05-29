@@ -168,6 +168,15 @@ animation101.pattern5,overlay,10005,100,0,0
 animation101.pattern6,overlay,10006,100,0,0
 animation101.pattern7,overlay,11000,100,0,0
 
+animation102.interval,never
+animation102.pattern0,overlay,11000,0,0,0
+animation102.pattern1,overlay,10006,100,0,0
+animation102.pattern2,overlay,10005,100,0,0
+animation102.pattern3,overlay,10004,100,0,0
+animation102.pattern4,overlay,10003,100,0,0
+animation102.pattern5,overlay,10002,100,0,0
+animation102.pattern6,overlay,10001,100,0,0
+animation102.pattern7,overlay,10000,100,0,0
 
 animation190.interval,never
 animation190.pattern0,overlay,20000,0,0,200
@@ -269,34 +278,34 @@ animation10000.pattern15,overlay,100010,20,245,106
 animation10000.pattern16,overlay,100010,20,246,104
 animation10000.pattern17,overlay,100010,20,247,102
 animation10000.pattern18,overlay,100000,20,248,100
-animation10000.pattern19,overlay,100000,20,249,98 
-animation10000.pattern20,overlay,100000,20,250,96 
-animation10000.pattern21,overlay,100000,20,251,94 
-animation10000.pattern22,overlay,100000,20,252,92 
-animation10000.pattern23,overlay,100010,20,253,90 
-animation10000.pattern24,overlay,100010,20,254,88 
-animation10000.pattern25,overlay,100010,20,255,86 
-animation10000.pattern26,overlay,100010,20,256,84 
-animation10000.pattern27,overlay,100010,20,257,82 
-animation10000.pattern28,overlay,100000,20,258,80 
-animation10000.pattern29,overlay,100000,20,259,78 
-animation10000.pattern30,overlay,100000,20,260,76 
-animation10000.pattern31,overlay,100000,20,261,74 
-animation10000.pattern32,overlay,100000,20,262,72 
-animation10000.pattern33,overlay,100000,20,263,70 
-animation10000.pattern34,overlay,100000,20,264,68 
-animation10000.pattern35,overlay,100000,20,265,66 
-animation10000.pattern36,overlay,100000,20,266,64 
-animation10000.pattern37,overlay,100000,20,267,62 
-animation10000.pattern38,overlay,100001,20,268,60 
-animation10000.pattern39,overlay,100001,20,269,58 
-animation10000.pattern40,overlay,100011,20,270,56 
-animation10000.pattern41,overlay,100012,20,271,54 
-animation10000.pattern42,overlay,100012,20,272,52 
-animation10000.pattern43,overlay,100012,20,273,50 
-animation10000.pattern44,overlay,100013,20,274,48 
-animation10000.pattern45,overlay,100013,20,275,46 
-animation10000.pattern46,overlay,100013,20,276,44 
+animation10000.pattern19,overlay,100000,20,249,98
+animation10000.pattern20,overlay,100000,20,250,96
+animation10000.pattern21,overlay,100000,20,251,94
+animation10000.pattern22,overlay,100000,20,252,92
+animation10000.pattern23,overlay,100010,20,253,90
+animation10000.pattern24,overlay,100010,20,254,88
+animation10000.pattern25,overlay,100010,20,255,86
+animation10000.pattern26,overlay,100010,20,256,84
+animation10000.pattern27,overlay,100010,20,257,82
+animation10000.pattern28,overlay,100000,20,258,80
+animation10000.pattern29,overlay,100000,20,259,78
+animation10000.pattern30,overlay,100000,20,260,76
+animation10000.pattern31,overlay,100000,20,261,74
+animation10000.pattern32,overlay,100000,20,262,72
+animation10000.pattern33,overlay,100000,20,263,70
+animation10000.pattern34,overlay,100000,20,264,68
+animation10000.pattern35,overlay,100000,20,265,66
+animation10000.pattern36,overlay,100000,20,266,64
+animation10000.pattern37,overlay,100000,20,267,62
+animation10000.pattern38,overlay,100001,20,268,60
+animation10000.pattern39,overlay,100001,20,269,58
+animation10000.pattern40,overlay,100011,20,270,56
+animation10000.pattern41,overlay,100012,20,271,54
+animation10000.pattern42,overlay,100012,20,272,52
+animation10000.pattern43,overlay,100012,20,273,50
+animation10000.pattern44,overlay,100013,20,274,48
+animation10000.pattern45,overlay,100013,20,275,46
+animation10000.pattern46,overlay,100013,20,276,44
 animation10000.pattern47,overlay,-1,20,0,0
 animation10000.pattern48,overlay,100003, 0,226,144
 animation10000.pattern49,overlay,100003,20,227,142
@@ -305,23 +314,23 @@ animation10000.pattern51,overlay,100002,20,229,138
 animation10000.option,shared-index
 
 animation10001.interval,bind + always
-animation10001.pattern0 ,overlay,100000,20,376,77 
-animation10001.pattern1 ,overlay,100000,20,380,75 
-animation10001.pattern2 ,overlay,100000,20,384,73 
-animation10001.pattern3 ,overlay,100000,20,388,71 
-animation10001.pattern4 ,overlay,100000,20,392,69 
-animation10001.pattern5 ,overlay,100000,20,396,67 
-animation10001.pattern6 ,overlay,100000,20,400,65 
-animation10001.pattern7 ,overlay,100000,20,404,63 
-animation10001.pattern8 ,overlay,100001,20,408,61 
-animation10001.pattern9 ,overlay,100001,20,412,59 
-animation10001.pattern10,overlay,100011,20,416,57 
-animation10001.pattern11,overlay,100012,20,420,55 
-animation10001.pattern12,overlay,100012,20,424,53 
-animation10001.pattern13,overlay,100012,20,428,51 
-animation10001.pattern14,overlay,100013,20,432,49 
-animation10001.pattern15,overlay,100013,20,436,47 
-animation10001.pattern16,overlay,100013,20,440,45 
+animation10001.pattern0 ,overlay,100000,20,376,77
+animation10001.pattern1 ,overlay,100000,20,380,75
+animation10001.pattern2 ,overlay,100000,20,384,73
+animation10001.pattern3 ,overlay,100000,20,388,71
+animation10001.pattern4 ,overlay,100000,20,392,69
+animation10001.pattern5 ,overlay,100000,20,396,67
+animation10001.pattern6 ,overlay,100000,20,400,65
+animation10001.pattern7 ,overlay,100000,20,404,63
+animation10001.pattern8 ,overlay,100001,20,408,61
+animation10001.pattern9 ,overlay,100001,20,412,59
+animation10001.pattern10,overlay,100011,20,416,57
+animation10001.pattern11,overlay,100012,20,420,55
+animation10001.pattern12,overlay,100012,20,424,53
+animation10001.pattern13,overlay,100012,20,428,51
+animation10001.pattern14,overlay,100013,20,432,49
+animation10001.pattern15,overlay,100013,20,436,47
+animation10001.pattern16,overlay,100013,20,440,45
 animation10001.pattern17,overlay,-1,20,0,0
 animation10001.pattern18,overlay,100003, 0,240,145
 animation10001.pattern19,overlay,100003,20,244,143
@@ -346,17 +355,17 @@ animation10001.pattern37,overlay,100010,20,316,107
 animation10001.pattern38,overlay,100010,20,320,105
 animation10001.pattern39,overlay,100010,20,324,103
 animation10001.pattern40,overlay,100000,20,328,101
-animation10001.pattern41,overlay,100000,20,332,99 
-animation10001.pattern42,overlay,100000,20,336,97 
-animation10001.pattern43,overlay,100000,20,340,95 
-animation10001.pattern44,overlay,100000,20,344,93 
-animation10001.pattern45,overlay,100010,20,348,91 
-animation10001.pattern46,overlay,100010,20,352,89 
-animation10001.pattern47,overlay,100010,20,356,87 
-animation10001.pattern48,overlay,100010,20,360,85 
-animation10001.pattern49,overlay,100010,20,364,83 
-animation10001.pattern50,overlay,100000,20,368,81 
-animation10001.pattern51,overlay,100000,20,372,79 
+animation10001.pattern41,overlay,100000,20,332,99
+animation10001.pattern42,overlay,100000,20,336,97
+animation10001.pattern43,overlay,100000,20,340,95
+animation10001.pattern44,overlay,100000,20,344,93
+animation10001.pattern45,overlay,100010,20,348,91
+animation10001.pattern46,overlay,100010,20,352,89
+animation10001.pattern47,overlay,100010,20,356,87
+animation10001.pattern48,overlay,100010,20,360,85
+animation10001.pattern49,overlay,100010,20,364,83
+animation10001.pattern50,overlay,100000,20,368,81
+animation10001.pattern51,overlay,100000,20,372,79
 animation10001.option,shared-index
 
 animation10002.interval,bind + always
@@ -526,33 +535,33 @@ animation10004.pattern51,overlay,100000,20,354,271
 animation10004.option,shared-index
 
 animation10010.interval,bind + always
-animation10010.pattern0 ,overlay,100000,20,122,99 
-animation10010.pattern1 ,overlay,100000,20,121,97 
-animation10010.pattern2 ,overlay,100000,20,120,95 
-animation10010.pattern3 ,overlay,100010,20,119,93 
-animation10010.pattern4 ,overlay,100010,20,118,91 
-animation10010.pattern5 ,overlay,100010,20,117,89 
-animation10010.pattern6 ,overlay,100010,20,116,87 
-animation10010.pattern7 ,overlay,100010,20,115,85 
-animation10010.pattern8 ,overlay,100000,20,114,83 
-animation10010.pattern9 ,overlay,100000,20,113,81 
-animation10010.pattern10,overlay,100000,20,112,79 
-animation10010.pattern11,overlay,100000,20,111,77 
-animation10010.pattern12,overlay,100000,20,110,75 
-animation10010.pattern13,overlay,100000,20,109,73 
-animation10010.pattern14,overlay,100000,20,108,71 
-animation10010.pattern15,overlay,100000,20,107,69 
-animation10010.pattern16,overlay,100000,20,106,67 
-animation10010.pattern17,overlay,100000,20,105,65 
-animation10010.pattern18,overlay,100001,20,104,63 
-animation10010.pattern19,overlay,100001,20,103,61 
-animation10010.pattern20,overlay,100011,20,102,59 
-animation10010.pattern21,overlay,100012,20,101,57 
-animation10010.pattern22,overlay,100012,20,100,55 
-animation10010.pattern23,overlay,100012,20,99 ,53 
-animation10010.pattern24,overlay,100013,20,98 ,51 
-animation10010.pattern25,overlay,100013,20,97 ,49 
-animation10010.pattern26,overlay,100013,20,96 ,47 
+animation10010.pattern0 ,overlay,100000,20,122,99
+animation10010.pattern1 ,overlay,100000,20,121,97
+animation10010.pattern2 ,overlay,100000,20,120,95
+animation10010.pattern3 ,overlay,100010,20,119,93
+animation10010.pattern4 ,overlay,100010,20,118,91
+animation10010.pattern5 ,overlay,100010,20,117,89
+animation10010.pattern6 ,overlay,100010,20,116,87
+animation10010.pattern7 ,overlay,100010,20,115,85
+animation10010.pattern8 ,overlay,100000,20,114,83
+animation10010.pattern9 ,overlay,100000,20,113,81
+animation10010.pattern10,overlay,100000,20,112,79
+animation10010.pattern11,overlay,100000,20,111,77
+animation10010.pattern12,overlay,100000,20,110,75
+animation10010.pattern13,overlay,100000,20,109,73
+animation10010.pattern14,overlay,100000,20,108,71
+animation10010.pattern15,overlay,100000,20,107,69
+animation10010.pattern16,overlay,100000,20,106,67
+animation10010.pattern17,overlay,100000,20,105,65
+animation10010.pattern18,overlay,100001,20,104,63
+animation10010.pattern19,overlay,100001,20,103,61
+animation10010.pattern20,overlay,100011,20,102,59
+animation10010.pattern21,overlay,100012,20,101,57
+animation10010.pattern22,overlay,100012,20,100,55
+animation10010.pattern23,overlay,100012,20,99 ,53
+animation10010.pattern24,overlay,100013,20,98 ,51
+animation10010.pattern25,overlay,100013,20,97 ,49
+animation10010.pattern26,overlay,100013,20,96 ,47
 animation10010.pattern27,overlay,-1,20,0,0
 animation10010.pattern28,overlay,100003, 0,146,147
 animation10010.pattern29,overlay,100003,20,145,145
@@ -594,35 +603,35 @@ animation10011.pattern9 ,overlay,100010,20,96 ,111
 animation10011.pattern10,overlay,100010,20,93 ,108
 animation10011.pattern11,overlay,100010,20,90 ,105
 animation10011.pattern12,overlay,100010,20,87 ,102
-animation10011.pattern13,overlay,100000,20,84 ,99 
-animation10011.pattern14,overlay,100000,20,81 ,96 
-animation10011.pattern15,overlay,100000,20,78 ,93 
-animation10011.pattern16,overlay,100000,20,75 ,90 
-animation10011.pattern17,overlay,100000,20,72 ,87 
-animation10011.pattern18,overlay,100010,20,69 ,84 
-animation10011.pattern19,overlay,100010,20,66 ,81 
-animation10011.pattern20,overlay,100010,20,63 ,78 
-animation10011.pattern21,overlay,100010,20,60 ,75 
-animation10011.pattern22,overlay,100010,20,57 ,72 
-animation10011.pattern23,overlay,100000,20,54 ,69 
-animation10011.pattern24,overlay,100000,20,51 ,66 
-animation10011.pattern25,overlay,100000,20,48 ,63 
-animation10011.pattern26,overlay,100000,20,45 ,60 
-animation10011.pattern27,overlay,100000,20,42 ,57 
-animation10011.pattern28,overlay,100000,20,39 ,54 
-animation10011.pattern29,overlay,100000,20,36 ,51 
-animation10011.pattern30,overlay,100000,20,33 ,48 
-animation10011.pattern31,overlay,100000,20,30 ,45 
-animation10011.pattern32,overlay,100000,20,27 ,42 
-animation10011.pattern33,overlay,100001,20,24 ,39 
-animation10011.pattern34,overlay,100001,20,21 ,36 
-animation10011.pattern35,overlay,100011,20,18 ,33 
-animation10011.pattern36,overlay,100012,20,15 ,30 
-animation10011.pattern37,overlay,100012,20,12 ,27 
-animation10011.pattern38,overlay,100012,20,9  ,24 
-animation10011.pattern39,overlay,100013,20,6  ,21 
-animation10011.pattern40,overlay,100013,20,3  ,18 
-animation10011.pattern41,overlay,100013,20,1  ,15 
+animation10011.pattern13,overlay,100000,20,84 ,99
+animation10011.pattern14,overlay,100000,20,81 ,96
+animation10011.pattern15,overlay,100000,20,78 ,93
+animation10011.pattern16,overlay,100000,20,75 ,90
+animation10011.pattern17,overlay,100000,20,72 ,87
+animation10011.pattern18,overlay,100010,20,69 ,84
+animation10011.pattern19,overlay,100010,20,66 ,81
+animation10011.pattern20,overlay,100010,20,63 ,78
+animation10011.pattern21,overlay,100010,20,60 ,75
+animation10011.pattern22,overlay,100010,20,57 ,72
+animation10011.pattern23,overlay,100000,20,54 ,69
+animation10011.pattern24,overlay,100000,20,51 ,66
+animation10011.pattern25,overlay,100000,20,48 ,63
+animation10011.pattern26,overlay,100000,20,45 ,60
+animation10011.pattern27,overlay,100000,20,42 ,57
+animation10011.pattern28,overlay,100000,20,39 ,54
+animation10011.pattern29,overlay,100000,20,36 ,51
+animation10011.pattern30,overlay,100000,20,33 ,48
+animation10011.pattern31,overlay,100000,20,30 ,45
+animation10011.pattern32,overlay,100000,20,27 ,42
+animation10011.pattern33,overlay,100001,20,24 ,39
+animation10011.pattern34,overlay,100001,20,21 ,36
+animation10011.pattern35,overlay,100011,20,18 ,33
+animation10011.pattern36,overlay,100012,20,15 ,30
+animation10011.pattern37,overlay,100012,20,12 ,27
+animation10011.pattern38,overlay,100012,20,9  ,24
+animation10011.pattern39,overlay,100013,20,6  ,21
+animation10011.pattern40,overlay,100013,20,3  ,18
+animation10011.pattern41,overlay,100013,20,1  ,15
 animation10011.pattern42,overlay,-1,20,0,0
 animation10011.pattern43,overlay,100003, 0,149,165
 animation10011.pattern44,overlay,100003,20,146,162
