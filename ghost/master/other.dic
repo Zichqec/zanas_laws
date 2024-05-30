@@ -102,11 +102,55 @@ fadein : all
 	"\![set,alpha,100]"
 }
 
+fadeinlong : all
+{
+	for _i = 0; _i < 100; _i++
+	{
+		"\![set,alpha,%(_i)]\_w[40]"
+	}
+	"\![set,alpha,100]"
+}
+
+fadeintext : all
+{
+    _text = _argv[0]
+    _len = STRLEN(_text)
+    _place = 0
+    "\![quicksection,true]"
+    for _i = 0; _i < 100; _i++
+    {
+        "\![set,alpha,%(_i)]"
+        if _i % 10 == 0 && _place < _len
+        {
+            SUBSTR(_text,_place,1)
+            _place++
+        }
+        "\_w[20]"
+    }
+    "\![set,alpha,100]"
+    while _place < _len
+    {
+        SUBSTR(_text,_place,1)
+        "\_w[100]"
+        _place++
+    }
+     "\![quicksection,false]"
+}
+
 fadeout : all
 {
 	for _i = 100; _i > 0; _i--
 	{
 		"\![set,alpha,%(_i)]\_w[20]"
+	}
+	"\![set,alpha,0]"
+}
+
+fadeoutlong : all
+{
+	for _i = 100; _i > 0; _i--
+	{
+		"\![set,alpha,%(_i)]\_w[40]"
 	}
 	"\![set,alpha,0]"
 }

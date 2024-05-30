@@ -81,6 +81,41 @@ ChatterTalk : array
 	"\0\b[0]\s[5]Did you know that there were still various species of fish, insects, and fungi that were left undiscovered on your home iteration when it ended? \n\n[half]\s[7]I made them quite good at hiding from humans!"
 	"\0\b[6]\s[8]Hum... I don't think this one is good for an assistant to solve... \s[1]Maybe after %(br)you've had a few thousand years of practice."
 	"\0\b[6]\s[0]When we have another break, you should tell me what %(gravity) feels like to you. \s[7]I'm quite curious."
+	"\0\b[6]\s[6]Don't be afraid to let your mind wander. Mind wanderings can produce many interesting new ideas."
+	"\0\b[0]\s[7]I like to spend a little extra time finessing the conditions for the %(bugs[1]). \n\n[half]\s[6]They're an important part of the ecosystem that makes all other survival possible."
+	"\0\b[6]\s[7]The proto-lifeforms are cute, aren't they? \s[6]I think so." //asking a question, but rhetorical, so maybe ok...
+	"\0\b[0]\s[8]I'll admit, I have previously been a little %(br)\f[italic,1]too\f[italic,default] generous with the %(bugs[1]), and they ended up dominating everything... \n\n[half]\s[1]But you live and learn, right? Now I have a better idea of how to adjust those parameters in a more controlled way."
+	"\0\b[6]\s[7]I enjoy putting interesting creatures deep at the bottom of the ocean. \s[0]Sometimes humanity discovers them, and sometimes they do not."
+	"\0\b[0]\s[6]Even the smallest microscopic lifeforms require careful balancing to ensure they do their part for the overall ecosystem. \n\n[half]\s[8]One creature balanced improperly can cause drastic and unexpected changes."
+	"\0\b[0]\s[0]Would it interest you to know that you have been many different kinds of creatures in the iterations before your departure from your universe? \n\n[half]You were very happy as %(usercreature)."
+	"\0\b[6]\s[0]You may explore the workshop while I work on some %(calculations), if you like. It should be safe, \s[1]just don't go outside or you'll dissolve in an instant."
+	"\0\b[0]\s[1]I wish I could describe to you how it feels to shape a world, but I believe it is beyond your comprehension... \n\n[half]\s[0]Perhaps one day I will think of a suitable metaphor."
+	"\0\b[0]\s[0]Even though it looks like I am simply drawing the universe into being, there is a shocking amount of math involved. \n\n[half]\s[6]Millions of careful calculations go into every stroke."
+	"\0\b[0]\s[0]I wish I could tell you all about your past lives. \s[8]But you've had so many of them, it would take millenia. \s[1]It may also be quite difficult for you, in your current form, to understand what it was like when you were a %(usercreature)."
+	"\0\b[0]\s[6]I wish you could understand each and every creature in your universe the way that I do. \n\n[half]\s[0]I never let them go, you know. Even though they die, they become a part of the next iteration and live again... \s[7]I couldn't possibly let them go to waste after the time I spent crafting them!"
+	
+	//——————————————— Universe Status ———————————————
+	if UniverseReady
+	{
+		"\0\b[6]\s[0]I think this iteration will be facinating to observe. I am quite interested to see how your choices play out."
+		"\0\b[0]\s[7]It is rather exciting, the moments before the new iteration begins, isn't it? \n\n[half]\s[6]The potential energy in the cosmic nucleus has become so strong that it energizes the air of the workshop, waiting to be released..."
+	}
+	else
+	{
+		"\0\b[6]\s[0]There are many details yet to be decided. \s[8]These things should not be rushed, I've learned that through experience."
+		"\0\b[6]\s[6]I think things are proceeding well. \s[0]I have a lot of the basic structure in place. It is just a matter of filling in a few %(million) details."
+	}
+	
+	if TotalUniverses > 5
+	{
+		"\0\b[6]\s[6]I think the archangel will be pleased with the work I've done lately. \s[0]I wonder if he would be interested to hear of your involvement."
+		"\0\b[6]\s[6]Your help in decision making has improved my workflow. \s[8]I wonder if the record-keepers will mind the additional volume..."
+	}
+
+	if TotalUniverses > 10
+	{
+		"\0\b[0]\s[0]I have to say, you're handling all of this remarkably well. \s[8]Truth be told, I didn't expect you'd last for this many iterations.\w8\n\n[half]\s[6]Not that I am complaining, mind you. \s[0]Having some company in my workshop has been pleasant."
+	}
 	
 	//——————————————— Lore responses ———————————————
 	_num = CheckChoices("yes lore")
@@ -130,7 +165,8 @@ ChatterTalk : array
 		_animals_1 = LastAnswers[_num][1]
 		_animals_2 = LastAnswers[_num][2]
 		
-		"%(Capitalize(_animals_1)) without %(_animals_2)... it made quite an impact, didn't it? Very intriguing."
+		"\0\b[6]\s[2]%(Capitalize(_animals_1)) without %(_animals_2)... \s[8]it made quite an impact, didn't it? Very intriguing."
+		"\0\b[6]\s[5]When we chose %(_animals_1) over %(_animals_2), I didn't expect it to alter the surrounding environment so much."
 	}
 	
 	_num = CheckChoices("top of food chain")
@@ -138,7 +174,8 @@ ChatterTalk : array
 	{
 		_animals = LastAnswers[_num][1]
 		
-		"%(Capitalize(_animals)) at the top of the food chain... I found it quite interesting."
+		"\0\b[6]\s[6]%(Capitalize(_animals)) at the top of the food chain... I found it quite interesting."
+		"\0\b[6]\s[0]Moving %(_animals) to apex predator status had an... impressive impact on the foliage."
 	}
 	
 	_num = CheckChoices("more animals")
@@ -146,7 +183,8 @@ ChatterTalk : array
 	{
 		_animals = LastAnswers[_num][1]
 		
-		"Things were quite lively with so many additional %(_animals). Perhaps I will keep it this way."
+		"\0\b[6]\s[7]Things were quite lively with so many additional %(_animals). Perhaps I will keep it this way."
+		"\0\b[6]\s[0]Quite a few of those %(_animals) we added more of became pets. \s[7]The domestication process was fascinating."
 	}
 	
 	_num = CheckChoices("fewer animals")
@@ -154,7 +192,8 @@ ChatterTalk : array
 	{
 		_animals = LastAnswers[_num][1]
 		
-		"It felt strangely empty without very many %(_animals), didn't it? I felt so, anyway."
+		"\0\b[6]\s[4]It felt strangely empty without very many %(_animals), didn't it? \s[3]I felt so, anyway."
+		"\0\b[6]\s[8]When we lessened the number of %(_animals), I didn't expect them to become the mascot for a %(shoe) company..."
 	}
 }
 
@@ -185,6 +224,8 @@ MonologueTalk : array
 	"\0\b[6]\s[7]%(Capitalize(bugs[1])) are truly delightful creatures..."
 	"\0\b[6]\s[6]Perhaps some parasites could be introduced to control their growth..."
 	"\0\b[6]\s[7]Mustn't forget the fungi! They need a space to inhabit, too."
+	"\0\b[6]\s[6]Every kind of creature deserves time and attention so ensure it fits well into the ecosystem."
+	"\0\b[6]\s[7]It might be nice to do %(atheme) theme sometime."
 }
 
 LoreQuestions : array
@@ -475,7 +516,7 @@ NotGuaranteedQuestions : array
 	}
 	
 	{
-		"\0\b[0]\s[6]I am thinking about tweaking certain parameters to make it more difficult for humans to build vertically. \s[0]This would cause population centers to be more horizontal, and I would be interested to see how it affects society. \s[7]What are your thoughts?" //TODO this scrolls and it's annoying
+		"\0\b[2]\s[6]I am thinking about tweaking certain parameters to make it more difficult for humans to build vertically without structural compromise. \n\n[half]\s[0]This would cause population centers to be more horizontal to compensate. I would be interested to see how it affects society across the long-term. \n\n[half]\s[7]What are your thoughts?"
 		--
 		Choices("Good idea","society is horizontal","Bad idea","society is vertical")
 	}

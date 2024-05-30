@@ -30,6 +30,19 @@ animals : nonoverlap
 	"a mouse,mice"
 }
 
+birds
+{
+    "an eagle,eagles"
+    "a raven,ravens"
+    "a crow,crows"
+    "a canary,canaries"
+    "a robin,robins"
+    "a chickadee,chickadees"
+    "a hummingbird,hummingbirds"
+    "a woodpecker,woodpeckers"
+    "a cardinal,cardinals"
+}
+
 bugs : nonoverlap
 {
 	"a worm,worms"
@@ -57,6 +70,21 @@ bugs : nonoverlap
 	"a gnat,gnats"
 	"a bedbug,bedbugs"
 	"an earwig,earwigs"
+}
+
+fishes
+{
+    "a tuna,tuna"
+    "a salmon,salmon"
+    "a perch,perches"
+    "a minnow,minnows"
+    "a clownfish,clownfishes"
+    "a bass,bass"
+    "a catfish,catfishes"
+    "a flounder,flounder"
+    "a neon tetra,neon tetras"
+    "a pufferfish,pufferfish"
+    "a trout,trouts"
 }
 
 flowers : nonoverlap
@@ -182,6 +210,16 @@ agiant
 	"an invisible"
 }
 
+atheme
+{
+	"an aquatic"
+	"a space"
+	"an animal"
+	"a celestial" //teehee
+	"an aerial"
+	"a musical"
+}
+
 blackhole
 {
 	"a black hole"
@@ -287,6 +325,22 @@ hurricanes
 	"snowstorms"
 }
 
+million
+{
+    switch ARRAYSIZE(QuestionsToAsk)
+    {
+        "hundred thousand" //this shouldn't appear, but as a fallback...
+        "million"
+        "billion"
+        "trillion"
+        "quintillion"
+        "quadrillion"
+        "sextillion"
+        "septillion"
+        "octillion"
+    }
+}
+
 moreteeth
 {
 	"more teeth"
@@ -320,6 +374,46 @@ petals
 	"habitable areas"
 	"types of berry"
 	"measurement systems"
+}
+
+shoe
+{
+	"shoe"
+	"hat"
+	"video game"
+	"television"
+	"renewable energy"
+	"recycling"
+	"toy"
+	"surfboard"
+	"cookware"
+	"button"
+	"fabric"
+	"sticker"
+	"computer"
+	"plumbing"
+	"paper"
+}
+
+strong
+{
+	"strong"
+	"brave"
+	"clever"
+	"wise"
+	"sly"
+	"cunning"
+	"fierce"
+	"kind"
+}
+
+usercreature
+{
+    animals[0]
+    bugs[0]
+    flowers[0]
+    birds[0]
+	fishes[0]
 }
 
 worms
