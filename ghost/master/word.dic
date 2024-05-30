@@ -59,6 +59,23 @@ bugs : nonoverlap
 	"an earwig,earwigs"
 }
 
+flowers : nonoverlap
+{
+	"a lily,lilies"
+	"a rose,roses"
+	"a tulip,tulips"
+	"a sunflower,sunflowers"
+	"a chamomile,chamomiles"
+	"a lavender,lavenders"
+	"a dandelion,dandelions"
+	"a crocus,crocuses"
+	"a marigold,marigolds"
+	"a marguerite,marguerites"
+	"a carnation,carnations"
+	"a jasmine,jasmines"
+	"a pansy,pansies"
+}
+
 climates : nonoverlap
 {
 	"arid"
