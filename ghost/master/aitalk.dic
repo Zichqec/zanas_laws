@@ -231,6 +231,68 @@ GuaranteedQuestions : array
 		--
 		Choices("More","more animals,%(_animals_6)","Fewer","fewer animals,%(_animals_6)")
 	}
+	{
+		_choices.climate = IARRAY
+		
+		_done = 0
+		while !_done
+		{
+			_climate_num = 3
+			for _i = 0; _i < _climate_num; _i++
+			{
+				_choices.climate[_i] = climates
+			}
+			if ARRAYSIZE(ARRAYDEDUP(_choices.climate)) == _climate_num; _done = 1
+		}
+		_climate_1 = _choices.climate[0]
+		_climate_2 = _choices.climate[1]
+		_climate_3 = _choices.climate[2]
+		
+		"\0\b[0]\s[6]I am making changes to the over all climate of the planet. \s[0]I'm curious, which would you prefer? %(_climate_1), %(_climate_2), or %(_climate_3)?"
+		--
+		Choices(/
+		Capitalize(_climate_1),"over all climate,%(_climate_1)",/
+		Capitalize(_climate_2),"over all climate,%(_climate_2)",/
+		Capitalize(_climate_3),"over all climate,%(_climate_3)")
+	}
+	{
+		_choices.biome = IARRAY
+		
+		_done = 0
+		while !_done
+		{
+			_biome_num = 3
+			for _i = 0; _i < _biome_num; _i++
+			{
+				_choices.biome[_i] = biomes
+			}
+			if ARRAYSIZE(ARRAYDEDUP(_choices.biome)) == _biome_num; _done = 1
+		}
+		_biome_1 = _choices.biome[0][0]
+		_biome_2 = _choices.biome[1][0]
+		_biome_3 = _choices.biome[2][0]
+		
+		"\0\b[0]\s[0]I am deciding on another biome to add to one of the main continents. Tell me, do you think %(_biome_1), %(_biome2), or %(_biome_3) would be best suited?"
+		--
+		Choices(/
+		Capitalize(_biome_1),"pick a biome,%(_biome_1)",/
+		Capitalize(_biome_2),"pick a biome,%(_biome_2)",/
+		Capitalize(_biome_3),"pick a biome,%(_biome_3)")
+	}
+	{
+		_celestial_objects_1 = celestialobjects[1]
+		_celestial_objects_2 = celestialobjects[1]
+		while _celestial_objects_2 == _celestial_objects_1
+		{
+			_celestial_objects_2 = celestialobjects[1]
+		}
+		
+		"\0\b[0]\s[7]I am currently working on filling in the heavens. \s[6]All of the things found far away in outer space, which humans will gaze upon and wonder about. \s[0]Tell me, would you prefer to see more %(_celestial_objects_1), or more %(_celestial_objects_2)?"
+		--
+		Choices(/
+		Capitalize(_celestial_objects_1),"this or that celestial object,%(_celestial_objects_1),%(_celestial_objects_2)",/
+		Capitalize(_celestial_objects_2),"this or that celestial object,%(_celestial_objects_2),%(_celestial_objects_1)")
+	}
 }
 
 NotGuaranteedQuestions : array

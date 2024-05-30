@@ -59,6 +59,42 @@ bugs : nonoverlap
 	"an earwig,earwigs"
 }
 
+climates : nonoverlap
+{
+	"arid"
+	"humid"
+	"cold"
+	"hot"
+	"temperate"
+}
+
+biomes : nonoverlap
+{
+	"a forest,forests"
+	"a beach,beaches"
+	"a grassland,grasslands"
+	"a mountain,mountains"
+	"a meadow,meadows"
+	"a valley,valleys"
+	"a hill,hills"
+	"a cliff,cliffs"
+	"a tundra,tundras"
+}
+
+celestialobjects : nonoverlap
+{
+	"a star,stars"
+	"a black hole,black holes"
+	"a wormhole,wormholes"
+	"an asteroid,asteroids"
+	"a planet,planets"
+	"a nebula,nebulas"
+	"a galaxy,galaxies"
+	"a gas giant,gas giants"
+	"a protostar,protostars"
+	"a red giant,red giants"
+}
+
 reaction
 {
 	"\s[0]"
