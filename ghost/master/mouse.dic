@@ -68,22 +68,14 @@ OnMouseMove
 		{
 			if stroke % 40 == 0
 			{
-				"\0\b[6]\s[4]Careful, my wings can be sharp at times."
-				"\0\b[6]\s[3]Watch your fingers. When my feathers are brittle, the shards like to dig into whatever they touch."
-				"\0\b[6]\s[8]Mind them, they bite."
-				"\0\b[6]\s[6]That's nice... \s[1]Just don't cut yourself."
-				"\0\b[6]\s[7]It's interesting to see grooming instincts at work."
+				WingsCheck
 			}
 		}
 		elseif reference4 == "skirt"
 		{
 			if stroke % 80 == 0
 			{
-				"\0\b[6]\s[2]Hm? Oh, my legs? \s[0]I only bring them out when I need them."
-				"\0\b[6]\s[8]...? There's only more dress under there, if that's what you're curious about."
-				"\0\b[6]\s[4]I understand the curiosity, but really..."
-				"\0\b[6]\s[6]I only walk when required. Floating is much easier."
-				"\0\b[6]\s[0]Sometimes, I try having a tail to see what it's like."
+				SkirtCheck
 			}
 		}
 	}
@@ -94,7 +86,25 @@ OnMouseLeaveAll
 	stroke = 0
 }
 
-OrbCheck
+WingsCheck : nonoverlap
+{
+	"\0\b[6]\s[4]Careful, my wings can be sharp at times."
+	"\0\b[6]\s[3]Watch your fingers. When my feathers are brittle, the shards like to dig into whatever they touch."
+	"\0\b[6]\s[8]Mind them, they bite."
+	"\0\b[6]\s[6]That's nice... \s[1]Just don't cut yourself."
+	"\0\b[6]\s[7]It's interesting to see grooming instincts at work."
+}
+
+SkirtCheck : nonoverlap
+{
+	"\0\b[6]\s[2]Hm? Oh, my legs? \s[0]I only bring them out when I need them."
+	"\0\b[6]\s[8]...? There's only more dress under there, if that's what you're curious about."
+	"\0\b[6]\s[4]I understand the curiosity, but really..."
+	"\0\b[6]\s[6]I only walk when required. Floating is much easier."
+	"\0\b[6]\s[0]Sometimes, I try having a tail to see what it's like."
+}
+
+OrbCheck : nonoverlap_pool
 {
 	//LastOrbClick[0] - timestamp for last click within 5 minutes
 	//LastOrbClick[1] - number of times clicked in the last 5 minutes
@@ -122,7 +132,7 @@ OrbCheck
 	}
 }
 
-PenCheck
+PenCheck : sequential
 {
 	"\0\b[6]\s[7]I write the laws of the universe with this."
 	"\0\b[6]\s[5]My quill pen is made from one of my feathers. \s[9]Only one of them should exist at a time."

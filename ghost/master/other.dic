@@ -124,7 +124,7 @@ br
 
 UniverseReady
 {
-	QuestionsAsked >= 5
+	ARRAYSIZE(QuestionsToAsk) <= 0
 }
 
 username
@@ -150,7 +150,7 @@ OnPickChoices
 	_done = 0
 	while !_done
 	{
-		_animal_num = 8
+		_animal_num = 11
 		for _i = 0; _i < _animal_num; _i++
 		{
 			Choices.Animal[_i] = animals
@@ -158,7 +158,31 @@ OnPickChoices
 		if ARRAYSIZE(ARRAYDEDUP(Choices.Animal)) == _animal_num; _done = 1
 	}
 	
+	_done = 0
+	while !_done
+	{
+		QuestionsToAsk = IARRAY
+		QuestionsToAsk ,= ANY(LoreQuestions)
+		QuestionsToAsk ,= ANY(GuaranteedQuestions)
+		QuestionsToAsk ,= ANY(OtherQuestions)
+		QuestionsToAsk ,= ANY(OtherQuestions)
+		QuestionsToAsk ,= ANY(OtherQuestions)
+		
+		if ARRAYSIZE(ARRAYDEDUP(QuestionsToAsk)) == ARRAYSIZE(QuestionsToAsk); _done = 1
+	}
+}
+
+CheckChoices
+{
+	_find = _argv[0]
+	_array = _argv[1,_argc - 1]
 	
+	for _i = 0; _i < ARRAYSIZE(LastAnswers); _i++
+	{
+		_element = LastAnswers[_i]
+		if _find _in_ _element; {_i; return}
+	}
+	-1
 }
 
 Capitalize
@@ -166,6 +190,24 @@ Capitalize
 	_let = TOUPPER(SUBSTR(_argv[0],0,1))
 	_otherlets = SUBSTR(_argv[0],1,STRLEN(_argv[0]) - 1)
 	"%(_let)%(_otherlets)"
+}
+
+Choices : all
+{
+	"\n\n\_q\![set,choicetimeout,60000]"
+	if _argc == 4
+	{
+		"\![*]\__q[OnQuestions,""%(_argv[1])""]%(_argv[0])\__q"
+		"%(newline)\f[align,right]"
+		"\![*]\__q[OnQuestions,""%(_argv[3])""]%(_argv[2])\__q"
+	}
+	else
+	{
+		for _i = 0; _i < _argc; _i += 2
+		{
+			"\![*]\__q[OnQuestions,""%(_argv[_i + 1])""]%(_argv[_i])\__q\n"
+		}
+	}
 }
 
 

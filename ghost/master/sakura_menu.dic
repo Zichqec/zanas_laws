@@ -61,6 +61,8 @@ OnNewUniverse
 {
 	QuestionsAsked = 0
 	TotalUniverses++
+	LastAnswers = AnsweredQuestions
+	AnsweredQuestions = IARRAY
 	OnPickChoices
 	
 	_categories = ("MoreOrFewer.Animals","ThisOrThat.Animals","PickOne.Animals","YesOrNo.Animals","GoodOrBad.Animals")

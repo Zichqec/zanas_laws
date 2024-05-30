@@ -47,7 +47,16 @@ OnAiTalk
 					
 					if _pick == "Question"
 					{
-						LastTalk = QuestionTalk
+						if ARRAYSIZE(QuestionsToAsk) == 1
+						{
+							LastTalk = QuestionsToAsk[0]
+							CurrentQuestion = 0
+						}
+						else
+						{
+							LastTalk = ANY(QuestionsToAsk)
+							CurrentQuestion = LSO
+						}
 					}
 					else; LastTalk = RandomTalk
 				}
@@ -61,30 +70,79 @@ RandomTalk : nonoverlap_pool
 {
 	"RandomTalk"
 	
-	if LastQuestions.MoreOrFewer.Animals != ""
+	//——————————————— Lore responses ———————————————
+	_num = CheckChoices("yes lore")
+	if _num != -1
 	{
-		_animal = LastQuestions.MoreOrFewer.Animals[0]
-		_animals = LastQuestions.MoreOrFewer.Animals[1]
-		_amount = LastQuestions.MoreOrFewer.Animals[2]
-		
-		if _amount == "more"
-		{
-			"So, how was it with more %(_animals)? I imagine things were quite lively?"
-		}
-		else //fewer
-		{
-			"So, did you miss the %(_animals)? I didn't leave very many of them in."
-		}
+		"I am glad you like lore."
 	}
 	
-	if LastQuestions.ThisOrThat.Animals != ""
+	_num = CheckChoices("no lore")
+	if _num != -1
 	{
-		_animal_1 = LastQuestions.ThisOrThat.Animals[0]
-		_animals_1 = LastQuestions.ThisOrThat.Animals[1]
-		_animal_2 = LastQuestions.ThisOrThat.Animals[2]
-		_animals_2 = LastQuestions.ThisOrThat.Animals[3]
+		"I am sad you don't like lore."
+	}
+	
+	_num = CheckChoices("fancy lore")
+	if _num != -1
+	{
+		"what fancy lore we have!"
+	}
+	
+	_num = CheckChoices("boring lore")
+	if _num != -1
+	{
+		"this lore is so boring."
+	}
+	
+	
+	
+	//——————————————— Other responses ———————————————
+	_num = CheckChoices("carnivorous mold")
+	if _num != -1
+	{	
+		"\0\b[0]\s[5]I think the carnivorous mold really added a lot to the last iteration. \s[7]It certainly made household chores a higher priority."
+	}
+	
+	_num = CheckChoices("treacherous whirlpools")
+	if _num != -1
+	{	
+		"\0\b[0]\s[0]Do you remember the islands we discussed adding whirlpools around? \s[5]Well, it turns out the inhabitants escaped and ended up... \s[1]pretty much everywhere! \s[8]I don't know if I should have expected this outcome or not... "
+	}
+	
+	
+	//——————————————— Guaranteed responses ———————————————
+	_num = CheckChoices("this or that animal")
+	if _num != -1
+	{
+		_animals_1 = LastAnswers[_num][1]
+		_animals_2 = LastAnswers[_num][2]
 		
-		"So, did you enjoy the %(_animals_1)? Or would you rather have picked %(_animals_2) after all?"
+		"%(Capitalize(_animals_1)) without %(_animals_2)... it made quite an impact, didn't it? Very intriguing."
+	}
+	
+	_num = CheckChoices("top of food chain")
+	if _num != -1
+	{
+		_animals = LastAnswers[_num][1]
+		
+		"%(Capitalize(_animals)) at the top of the food chain... I found it quite interesting."
+	}
+	
+	_num = CheckChoices("more animals")
+	if _num != -1
+	{
+		_animals = LastAnswers[_num][1]
+		
+		"Things were quite lively with so many additional %(_animals). Perhaps I will keep it this way."
+	}
+	
+	_num = CheckChoices("fewer animals")
+	if _num != -1
+	{
+		_animals = LastAnswers[_num][1]
+		
+		"It felt strangely empty without very many %(_animals), didn't it? I felt so, anyway."
 	}
 	
 	parallel MonologueTalk
@@ -108,145 +166,212 @@ MonologueTalk : array
 	"\0\b[6]\s[1]I may have overdone it, perhaps I should revert %(animals[1]) to their previous form..."
 	"\0\b[6]\s[7]Language is always so interesting to watch develop. \s[6]A few carefully planted linguistic seeds grow into something unique and wonderful..."
 	"\0\b[6]\s[8]Oh my, I may need to recalibrate the gravity..."
+	"\0\b[6]\s[6]I might change the makeup of the%(br)planet's core. It could be interesting to try %(foodsource)..."
 }
 
-QuestionTalk : nonoverlap_pool
+LoreQuestions : array
 {
-	//———————————————————— This or that ————————————————————
-	//animals
-	if Questions.ThisOrThat.Animals == ""
 	{
-		_animal_1 = Choices.Animal[0][0]
+		"\0\b[0]\s[0]Would you like lore or no lore?"
+		--
+		Choices("I would like lore","yes lore","No lore thanks","no lore")
+	}
+	{
+		"\0\b[0]\s[0]Would you like fancy lore or boring lore?"
+		--
+		Choices("Fancy lore","fancy lore","Boring lore","boring lore")
+	}
+}
+
+GuaranteedQuestions : array
+{
+	{
 		_animals_1 = Choices.Animal[0][1]
-		_animal_2 = Choices.Animal[1][0]
 		_animals_2 = Choices.Animal[1][1]
 		
-		"\0\b[0]\s[0]I am contemplating what animals to include this iteration. Would you prefer %(_animals_1), or %(_animals_2)?"
+		//"\0\b[0]\s[0]I am contemplating what animals to include this iteration. Would you prefer %(_animals_1), or %(_animals_2)?"
+		//"\0\b[0]\s[0]I have not yet decided whether I should include %(_animals_1) this iteration, or if it would be better to have %(_animals_2) instead. What is your preference?"
+		
 		"\0\b[0]\s[0]I would like your opinion on a matter related to animals. I can add either %(_animals_1) or %(_animals_2), but I do not wish to include both. Which would you prefer?"
-		"\0\b[0]\s[0]I have not yet decided whether I should include %(_animals_1) this iteration, or if it would be better to have %(_animals_2) instead. What is your preference?"
 		--
-		all : /
-		{
-			"\n\n\_q\![set,choicetimeout,60000]"
-			"\![*]\__q[OnQuestions,ThisOrThat.Animals,""%(Choices.Animal[0])"",""%(Choices.Animal[1])""]%(Capitalize(_animals_1))\__q"
-			"%(newline)\f[align,right]"
-			"\![*]\__q[OnQuestions,ThisOrThat.Animals,""%(Choices.Animal[1])"",""%(Choices.Animal[0])""]%(Capitalize(_animals_2))\__q"
-		}
+		Choices(/
+		Capitalize(_animals_1),"this or that animal,%(_animals_1),%(_animals_2)",/
+		Capitalize(_animals_2),"this or that animal,%(_animals_2),%(_animals_1)")
 	}
-	
-	//———————————————————— Pick one ————————————————————
-	//animals
-	if Questions.PickOne.Animals == ""
 	{
-		_animal_1 = Choices.Animal[5][0]
-		_animals_1 = Choices.Animal[5][1]
-		_animal_2 = Choices.Animal[6][0]
-		_animals_2 = Choices.Animal[6][1]
-		_animal_3 = Choices.Animal[7][0]
-		_animals_3 = Choices.Animal[7][1]
+		_animals_3 = Choices.Animal[2][1]
+		_animals_4 = Choices.Animal[3][1]
+		_animals_5 = Choices.Animal[4][1]
 		
-		
-		"\0\b[0]\s[0]You have your pick: %(_animals_1), %(_animals_2), or %(_animals_3), which should be at the top of the food chain?"
+		"\0\b[0]\s[0]You have your pick: %(_animals_3), %(_animals_4), or %(_animals_5). Which should be at the top of the food chain?"
 		--
-		all : /
-		{
-			"\n\n\_q\![set,choicetimeout,60000]"
-			"\![*]\__q[OnQuestions,PickOne.Animals,""%(Choices.Animal[5])"",yes]%(Capitalize(_animals_1))\__q"
-			"\n"
-			"\![*]\__q[OnQuestions,PickOne.Animals,""%(Choices.Animal[6])"",no]%(Capitalize(_animals_2))\__q"
-			"\n"
-			"\![*]\__q[OnQuestions,PickOne.Animals,""%(Choices.Animal[7])"",no]%(Capitalize(_animals_3))\__q"
-		}
+		Choices(/
+		Capitalize(_animals_3),"top of food chain,%(_animals_3)",/
+		Capitalize(_animals_4),"top of food chain,%(_animals_4)",/
+		Capitalize(_animals_5),"top of food chain,%(_animals_5)")
 	}
-	
-	//———————————————————— More or fewer ————————————————————
-	//animals
-	if Questions.MoreOrFewer.Animals == ""
 	{
-		_animal = Choices.Animal[2][0]
-		_animals = Choices.Animal[2][1]
+		_animals_6 = Choices.Animal[5][1]
 		
-		"\0\b[0]\s[0]Regarding %(_animals), should we have more or fewer of them?"
-		"\0\b[0]\s[0]Do you think it is better to have more or fewer %(_animals) in the next iteration?"
-		"\0\b[0]\s[0]I am considering how many %(_animals) we want in the over all ecosystem. Do you think there should be more, or fewer?"
+		"\0\b[0]\s[0]I am considering how many %(_animals_6) we want in the over all ecosystem. Do you think there should be more, or fewer?"
+		//"\0\b[0]\s[0]Regarding %(_animals), should we have more or fewer of them?"
+		//"\0\b[0]\s[0]Do you think it is better to have more or fewer %(_animals) in the next iteration?"
 		--
-		all : /
-		{
-			"\n\n\_q\![set,choicetimeout,60000]"
-			"\![*]\__q[OnQuestions,MoreOrFewer.Animals,""%(Choices.Animal[2])"",more]More\__q"
-			"%(newline)\f[align,right]"
-			"\![*]\__q[OnQuestions,MoreOrFewer.Animals,""%(Choices.Animal[2])"",fewer]Fewer\__q"
-		}
+		Choices("More","more animals,%(_animals_6)","Fewer","fewer animals,%(_animals_6)")
 	}
-	
-	
-	//———————————————————— Yes or no ————————————————————
-	//animals
-	if Questions.YesOrNo.Animals == ""
+}
+
+OtherQuestions : array
+{
 	{
-		_animal = Choices.Animal[3][0]
-		_animals = Choices.Animal[3][1]
-		
-		"\0\b[0]\s[0]Do you think we should include %(_animals) this iteration?"
-		"\0\b[0]\s[0]I am considering whether %(_animals) should be present in the ecosystem this time. What do you think?"
-		"\0\b[0]\s[0]I was thinking I might leave out the %(_animals) this time, I think I would like to see how things fare without. What do you think?"
-		--
-		all : /
-		{
-			"\n\n\_q\![set,choicetimeout,60000]"
-			"\![*]\__q[OnQuestions,YesOrNo.Animals,""%(Choices.Animal[3])"",yes]Yes\__q"
-			"%(newline)\f[align,right]"
-			"\![*]\__q[OnQuestions,YesOrNo.Animals,""%(Choices.Animal[3])"",no]No\__q"
-		}
-	}
-	
-	//———————————————————— Good idea or bad idea ————————————————————
-	//animals
-	if Questions.GoodOrBad.Animals == ""
-	{
-		_animal = Choices.Animal[4][0]
-		_animals = Choices.Animal[4][1]
-		_anim = _animal
+		_animal_7 = Choices.Animal[6][0]
+		_animals_7 = Choices.Animal[6][1]
+		_anim = _animal_7
 		_anim = REPLACE(_anim,"an ","")
 		_anim = REPLACE(_anim,"a ","")
-		
 		"\0\b[0]\s[0]I was thinking about adding %(agiant) %(_anim) to make things more interesting. What do you think?"
-		"\0\b[0]\s[0]I think it might be interesting if I change %(_animals) into predators. What are your thoughts?" //This might come across as weird... because lions are already predators. But theoretically, they may not have been in the last universe. but will people get that?
-		"\0\b[0]\s[0]I think I should add more eyes to the %(_animals). Wouldn't that be interesting?"
 		--
-		all : /
-		{
-			"\n\n\_q\![set,choicetimeout,60000]"
-			"\![*]\__q[OnQuestions,GoodOrBad.Animals,""%(Choices.Animal[4])"",yes]Good idea\__q"
-			"%(newline)\f[align,right]"
-			"\![*]\__q[OnQuestions,GoodOrBad.Animals,""%(Choices.Animal[4])"",no]Bad idea\__q"
-		}
+		Choices("Good idea","good idea adding a giant,%(_animals_7)","Bad idea","bad idea adding a giant,%(_animals_7)")
+	}
+	{
+		_animals_8 = Choices.Animal[7][1]
+		"\0\b[0]\s[0]I think I should add more eyes to the %(_animals_8). Wouldn't that be interesting?"
+		--
+		Choices("Yes","add more eyes to,%(_animals_8)","Not really","do not add more eyes to,%(_animals_8)")
+	}
+	{
+		_animals_9 = Choices.Animal[8][1]
+		//TODO this reads weird lol
+		"\0\b[0]\s[5]I'm considering splitting %(_animals_9) into two distinct species. What do you think?"
+		--
+		Choices("Good idea","split into two species,%(_animals_9)","Bad idea","do not split,%(_animals_9)")
+	}
+	{
+		"\0\b[0]\s[5]I've been thinking about making mold carnivorous. Thoughts?"
+		--
+		Choices("Good idea","carnivorous mold","Bad idea","no carnivorous mold")
+	}
+	{
+		"\0\b[0]\s[0]I've been thinking that I would like to change up the over all look of forests and other wooded areas. What do you think the average height of a tree should be?"
+		--
+		Choices("10 feet","average tree height,10","100 feet","average tree height,100","1000 feet","average tree height,1000")
+	}
+	{
+		"\0\b[0]\s[7]I am creating a series of islands. \s[0]Should I add treacherous whirlpools to keep the inhabitants from spreading to other landmasses?"
+		--
+		Choices("Yes","islands with treacherous whirlpools","No","islands without treacherous whirlpools")
+	}
+	{
+		_animals_10 = Choices.Animal[9][1]
+	
+		"\0\b[0]\s[5]I am considering the possibility of making %(_animals_10) aquatic. What do you think?"
+		--
+		Choices("Good idea","aquatic animal,%(_animals_10)","Bad idea","no aquatic animal,%(_animals_10)")
+	}
+	{
+		"\0\b[0]\s[6]I am thinking about changing the way that water flows, to make it more bouncy. \s[0]What are your thoughts?"
+		--
+		Choices("Good idea","bouncy water yes","Bad idea","bouncy water no")
+	}
+	{
+		"\0\b[0]\s[7]I would like to add mermaids this iteration. \s[5]Do you think they should prey on humans, or only fish?"
+		--
+		Choices("Humans","mermaids eat humans","Only fish","mermaids eat fish","What about seaweed?","mermaids eat seaweed")
+	}
+	{
+		_element = element
+		
+		"\0\b[0]\s[5]I am considering changing the element that primarily makes up the atmosphere. What do you think about %(_element) instead?"
+		--
+		Choices("Good idea","atmosphere is made of,%(_element)","Bad idea","atmosphere stays the same")
+	}
+	{
+		"\0\b[0]\s[0]I am considering doing away with the idea with spoken names. \s[5]What do you think, should I make it based on smell, or interpretive dance?"
+		--
+		Choices("Smell","names are based on smell","Interpretive dance","names are based on interpretive dance","They should stay how they are","names stay as they are")
+	}
+	{
+		"\0\b[0]\s[6]I am thinking about guiding humans towards becoming bug farmers in this next iteration, and doing away with most meat farming. \s[0]What do you think?"
+		--
+		Choices("Good idea","humans become bug farmers","Bad idea","humans remain meat farmers")
+	}
+	{
+		"\0\b[0]\s[7]I am considering turning clouds into animals that float across the sky, and prey on large birds. \s[5]What are your thoughts?"
+		--
+		Choices("Good idea","clouds are carnivorous","Bad idea","clouds are not carnivorous")
+	}
+	{
+		"\0\b[0]\s[6]I think it is time to overhaul the calendar. \s[0]How many days do you think should be in an Earth year?"
+		--
+		Choices("365","earth year length,365","100","earth year length,100","1000","earth year length,1000")
+	}
+	{
+		"\0\b[0]\s[0]I think it might be interesting to add an additional moon, or perhaps two. What do you think?"
+		--
+		Choices("One is better","number of moons,one","Two or three sounds good","number of moons,two or three","Four would be even better","number of moons,four")
+	}
+	{
+		"\0\b[0]\s[0]I am thinking about removing the concept of feathers entirely. \s[7]Your thoughts?"
+		--
+		Choices("Good idea","remove the concept of feathers","Bad idea","keep the concept of feathers")
+	}
+	{
+		"\0\b[0]\s[6]I am thinking about tweaking certain parameters to make it more difficult for humans to build vertically. \s[0]This would cause population centers to be more horizontal, and I would be interested to see how it affects society. \s[7]What are your thoughts?"
+		--
+		Choices("Good idea","society is horizontal","Bad idea","society is vertical")
+	}
+	{
+		_color1 = ANY("red,orange,yellow,green")
+		_color2 = ANY("cyan,blue,purple")
+		"\0\b[0]\s[5]I'm considering altering the visible light spectrum. Should I swap %(_color1) and %(_color2) in the order, or should I allow humans to see ultraviolet light?"
+		--
+		Choices("Swap %(_color1) and %(_color2)","swapping colors,%(_color1),%(_color2)","Ultraviolet light should be visible","ultraviolet light is visible","Light is good as it is already","light stays normal")
+	}
+	{
+		"\0\b[0]\s[7]I think it would be nice if volcanic eruptions were much more frequent on average. What do you think?"
+		--
+		Choices("Good idea","more frequent volcanic eruptions","Bad idea","normal frequency volcanic eruptions")
+	}
+	{
+		"\0\b[0]\s[6]I am debating making the sun much larger in the sky, while keeping its current power. What do you think?"
+		--
+		Choices("Good idea","large sun","Bad idea","normal size sun")
 	}
 	
+	/*
+	{
+		"\0\b[0]\s[0]Question?"
+		--
+		Choices("Answer 1","tag 1","Answer 2","tag 2")
+	}
+	*/
 	
-	
-	
+	parallel GuaranteedQuestions
 }
 
 OnQuestions
 {
-	_ref0 = reference[0]
-	reference[0] = IARRAY
-	LETTONAME("Questions.%(_ref0)","%(reference)")
-	QuestionsAsked++
+	AnsweredQuestions ,= reference0
+	QuestionsToAsk[CurrentQuestion] = IARRAY
 	
-	//"%(Questions.ThisOrThat.Animals)\n%(Questions.MoreOrFewer.Animals)\n\n"
-	
-	--
-	if UniverseReady
+	if reference0 == "mermaids eat seaweed"
 	{
-		"\0\b[0]\s[6]\tThen, that should do it for now. \n\n[half]\s[5]I have an idea of how this next universe will go, \s[1]as well as what I need to adjust for it to happen. \n\n[half]\s[7]Thank you for your contribution. \s[0]Let me know when you're ready and we can %(br)\_a[OnUniverseCreation.Begin]begin\_a.\x"
+		"\0\b[0]\s[2]Vegetarian mermaids... \s[6]What a fascinating idea. \s[7]I knew I kept you around for a reason!\n\n... \s[8]I am kidding, I find you to be a delight regardless of mermaid opinions."
 	}
 	else
 	{
 		"\0\b[6]%(reaction)Interesting..."
 		"\0\b[6]%(reaction)I see. I might have suspected that."
 		"\0\b[6]%(reaction)Oh? I'm glad I asked you."
+	}
+	--
+	if UniverseReady
+	{
+		"\x"
+		--
+		"\0\b[0]\s[6]\tThen, that should do it for now. \n\n[half]\s[5]I have an idea of how this next universe will go, \s[1]as well as what I need to adjust for it to happen. \n\n[half]\s[7]Thank you for your contribution. \s[0]Let me know when you're ready and we can %(br)\_a[OnUniverseCreation.Begin]begin\_a."
+		--
+		"\x"
 	}
 }
 

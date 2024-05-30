@@ -9,16 +9,11 @@ OnFirstBoot
 	CurrentAngelbox = "13,Blue"
 	IsFloating = 1
 	MovingSparklies = 1
+	LastAnswers = IARRAY
+	AnsweredQuestions = IARRAY
+	CurrentQuestion = -1
 	
 	OnPickChoices
-	
-	OldQuestions.MoreOrFewer.Animals = IARRAY
-	LastQuestions.MoreOrFewer.Animals = ""
-	Questions.MoreOrFewer.Animals = ""
-	
-	OldQuestions.ThisOrThat.Animals = IARRAY
-	LastQuestions.ThisOrThat.Animals = ""
-	Questions.ThisOrThat.Animals = ""
 	
 	"\1\s[-1]\0\b[0]\![set,alpha,0]\s[25]\i[150]\t%(fadein)That should do it for this... \s[25]\i[151,wait]Ah? \n\n[half]\s[25]\i[100]This is unexpected. I was certain I'd sealed the Transcendental Gate after my last evaluation. When did you— \n\n[half]Wait a moment, I'm sure your senses are... overwhelmed. \x\b[0]Let me just— \s[25]\i[101,wait]\s[25]\i[201,wait]\s[1]\*How is this? Suitably comprehensible? \n\n\_q\![*]\__q[OnFirstboot.Comprehensible_Yes]Yes,## thank you.\__q\n\![*]\__q[OnFirstboot.Comprehensible_No]No,## is there more you can do?\__q\n\![*]\__q[OnFirstboot.Comprehensible_Better_Before]I think you looked better before.\__q"
 }
@@ -50,7 +45,7 @@ OnBoot
 	}
 	else //Normal boot
 	{
-		"\0\b[6]\s[2]Oh! \s[0]%(username). \s[7]I hope you had a nice break. \n\n[half]\s[6]Do let me know when you need another, \s[5]all right?"
+		"\0\b[0]\s[2]Oh! \s[0]%(username). \s[7]I hope you had a nice break. \n\n[half]\s[6]Do let me know when you need another, \s[5]all right?"
 	}
 }
 
