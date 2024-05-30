@@ -171,6 +171,14 @@ MonologueTalk : array
 	"\0\b[6]\s[7]Language is always so interesting to watch develop. \s[6]A few carefully planted linguistic seeds grow into something unique and wonderful..."
 	"\0\b[6]\s[8]Oh my, I may need to recalibrate the gravity..."
 	"\0\b[6]\s[6]I might change the makeup of the%(br)planet's core. It could be interesting to try %(foodsource)..."
+	"\0\b[6]\s[3]%(Capitalize(worms)) are never a bad choice..."
+	"\0\b[6]\s[7]I think this next iteration is going to be rather enjoyable."
+	"\0\b[6]\s[6]Patience, take it slow... \s[8]We don't want wobbly lines, now do we...?"
+	"\0\b[6]\s[1]Ah, right, the %(animals[1])... I still need to decide how I am handling them this time."
+	"\0\b[6]\s[7]Perhaps more habitats for the %(bugs[1])..."
+	"\0\b[6]\s[7]%(Capitalize(bugs[1])) are truly delightful creatures..."
+	"\0\b[6]\s[6]Perhaps some parasites could be introduced to control their growth..."
+	"\0\b[6]\s[7]Mustn't forget the fungi! They need a space to inhabit too."
 }
 
 LoreQuestions : array
@@ -320,7 +328,7 @@ NotGuaranteedQuestions : array
 		Choices("Good idea","remove the concept of feathers","Bad idea","keep the concept of feathers")
 	}
 	{
-		"\0\b[0]\s[6]I am thinking about tweaking certain parameters to make it more difficult for humans to build vertically. \s[0]This would cause population centers to be more horizontal, and I would be interested to see how it affects society. \s[7]What are your thoughts?"
+		"\0\b[0]\s[6]I am thinking about tweaking certain parameters to make it more difficult for humans to build vertically. \s[0]This would cause population centers to be more horizontal, and I would be interested to see how it affects society. \s[7]What are your thoughts?" //TODO this scrolls and it's annoying
 		--
 		Choices("Good idea","society is horizontal","Bad idea","society is vertical")
 	}

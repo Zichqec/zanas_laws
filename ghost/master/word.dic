@@ -44,11 +44,19 @@ bugs : nonoverlap
 	"a mosquito,mosquitos"
 	"a grasshopper,grasshoppers"
 	"a flea,fleas"
-	"a leech,leeches" //ARE LEECHES BUGS??? (theyre not)
+	"a leech,leeches" //ARE LEECHES BUGS??? (theyre not) (i think)
 	"a water skater,water skaters"
 	"a butterfly,butterflies"
 	"a moth,moths"
 	"a caterpillar,caterpillars"
+	"a dragonfly,dragonflies"
+	"a horsefly,horseflies"
+	"a botfly,botflies"
+	"a maggot,maggots"
+	"a firefly,fireflies"
+	"a gnat,gnats"
+	"a bedbug,bedbugs"
+	"an earwig,earwigs"
 }
 
 reaction
@@ -200,4 +208,20 @@ worms
 	"automobiles"
 	"%(color) umbrella"
 	"mineral erosion"
+}
+
+element
+{
+	"helium"
+	"nitrogen"
+	"carbon monoxide"
+	"carbon dioxide"
+	"argon"
+	"methane "
+	"nitrous oxide"
+	"chlorine"
+	"radon"
+	"ammonia"
+	"dimethyl ether"
+	"isobutene"
 }
