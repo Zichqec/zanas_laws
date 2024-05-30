@@ -188,6 +188,13 @@ animation151.pattern2,overlay,10002,100,0,0
 animation151.pattern3,overlay,10001,100,0,0
 animation151.pattern4,overlay,10000,100,0,0
 
+animation152.interval,never
+animation152.pattern1,overlay,10000,0,0,0
+animation152.pattern2,overlay,10001,100,0,0
+animation152.pattern3,overlay,10002,100,0,0
+animation152.pattern4,overlay,10011,100,0,0
+animation152.pattern5,overlay,10010,100,0,0
+
 animation190.interval,never
 animation190.pattern0,overlay,20000,0,0,200
 
