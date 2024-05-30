@@ -716,7 +716,7 @@ animation10012.pattern52,overlay,100012,20,40 ,126
 animation10012.option,shared-index
 
 animation10013.interval,bind + always
-animation10013.pattern0 ,overlay,100010,20,95 ,175
+animation10013.pattern0 ,overlay,100010,0,95 ,175
 animation10013.pattern1 ,overlay,100010,20,93 ,175
 animation10013.pattern2 ,overlay,100010,20,91 ,174
 animation10013.pattern3 ,overlay,100000,20,89 ,174
