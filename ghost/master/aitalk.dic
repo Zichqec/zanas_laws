@@ -68,6 +68,12 @@ OnAiTalk
 
 RandomTalk : nonoverlap_pool
 {
+	parallel ChatterTalk
+	parallel MonologueTalk
+}
+
+ChatterTalk : array
+{
 	"RandomTalk"
 	
 	//——————————————— Lore responses ———————————————
@@ -101,7 +107,7 @@ RandomTalk : nonoverlap_pool
 	_num = CheckChoices("carnivorous mold")
 	if _num != -1
 	{	
-		"\0\b[0]\s[5]I think the carnivorous mold really added a lot to the last iteration. \s[7]It certainly made household chores a higher priority."
+		"\0\b[6]\s[5]I think the carnivorous mold really added a lot to the last iteration. \s[7]It certainly made household chores a higher priority."
 	}
 	
 	_num = CheckChoices("treacherous whirlpools")
@@ -144,8 +150,6 @@ RandomTalk : nonoverlap_pool
 		
 		"It felt strangely empty without very many %(_animals), didn't it? I felt so, anyway."
 	}
-	
-	parallel MonologueTalk
 }
 
 MonologueTalk : array
@@ -221,7 +225,7 @@ GuaranteedQuestions : array
 	}
 }
 
-OtherQuestions : array
+NotGuaranteedQuestions : array
 {
 	{
 		_animal_7 = Choices.Animal[6][0]
@@ -345,7 +349,11 @@ OtherQuestions : array
 		Choices("Answer 1","tag 1","Answer 2","tag 2")
 	}
 	*/
-	
+}
+
+OtherQuestions : array
+{
+	parallel NotGuaranteedQuestions
 	parallel GuaranteedQuestions
 }
 

@@ -210,6 +210,15 @@ Choices : all
 	}
 }
 
+On_getaistateex : all
+{
+	if reference0 == 0
+	{
+		"%(ARRAYSIZE(ChatterTalk)),%(ARRAYSIZE(MonologueTalk)),%(ARRAYSIZE(GuaranteedQuestions)),%(ARRAYSIZE(NotGuaranteedQuestions)),%(ARRAYSIZE(LoreQuestions))"
+		C_BYTE1
+		"Chatter,Monologue,GuaranteedQ's,NotGuaranteedQ's,LoreQ's"
+	}
+}
 
 //—————————————————————————————— Right click menu links ——————————————————————————————
 
