@@ -307,7 +307,7 @@ GuaranteedQuestions : array
 			_bugs_2 = bugs[1]
 		}
 		
-		"\0\b[0]\s[7]I haven't yet decided all of the bugs that will be present in this cycle. \s[0]Which would you prefer, %(_bugs_1) or %(_bugs_2)?"
+		"\0\b[0]\s[7]I haven't yet decided all of the bugs that will be present in this iteration. \s[0]Which would you prefer, %(_bugs_1) or %(_bugs_2)?"
 		--
 		Choices(/
 		Capitalize(_bugs_1),"this or that bug,%(_bugs_1),%(_bugs_2)",/
@@ -317,7 +317,7 @@ GuaranteedQuestions : array
 	{
 		_flowers = flowers
 		
-		"\0\b[0]\s[6]I am wondering, should I have more %(_flowers) in the next cycle, or fewer? \s[0]What do you think?"
+		"\0\b[0]\s[6]I am wondering, should I have more %(_flowers) in the next iteration, or fewer? \s[0]What do you think?"
 		--
 		Choices("More","more flowers,%(_flowers)","Fewer","fewer flowers,%(_flowers)")
 	}
