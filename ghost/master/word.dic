@@ -86,16 +86,40 @@ climates : nonoverlap
 }
 
 biomes : nonoverlap
+{	
+	"a tropical"
+	"a subtropical"
+	"a desert"
+	"an alpine"
+	"a subarctic"
+	"a polar"
+	"a swampy"
+}
+
+geographicalfeatures : nonoverlap
 {
-	"a forest,forests"
 	"a beach,beaches"
-	"a grassland,grasslands"
-	"a mountain,mountains"
-	"a meadow,meadows"
-	"a valley,valleys"
-	"a hill,hills"
+	"a cave,caves"
 	"a cliff,cliffs"
+	"a crag,crags"
+	"a drift,drifts"
+	"a forest,forests"
+	"a grassland,grasslands"
+	"a hill,hills"
+	"a lake,lakes"
+	"a meadow,meadows"
+	"a mountain,mountains"
+	"a plain,plains"
+	"a plateau,plateaus"
+	"a pond,ponds"
+	"a river,rivers"
+	"a stream,streams"
 	"a tundra,tundras"
+	"a valley,valleys"
+	"an ocean,oceans"
+	"a marsh,marshes"
+	"a fen,fens"
+	"a bog,bogs"
 }
 
 celestialobjects : nonoverlap
@@ -110,6 +134,29 @@ celestialobjects : nonoverlap
 	"a gas giant,gas giants"
 	"a protostar,protostars"
 	"a red giant,red giants"
+}
+
+culturalcornerstones : nonoverlap
+{
+	"art"
+	"dancing"
+	"music"
+	"oration"
+	"song"
+	"poetry"
+	"sculpture"
+	"architecture"
+	"cuisine"
+	"gaming"
+	"exploring"
+	"studying"
+	"science"
+	"martial combat"
+	"magic"
+	"alchemy"
+	"technology"
+	"philosophy"
+	"literature"
 }
 
 reaction

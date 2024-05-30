@@ -210,6 +210,7 @@ GuaranteedQuestions : array
 		Capitalize(_animals_1),"this or that animal,%(_animals_1),%(_animals_2)",/
 		Capitalize(_animals_2),"this or that animal,%(_animals_2),%(_animals_1)")
 	}
+	
 	{
 		_animals_3 = Choices.Animal[2][1]
 		_animals_4 = Choices.Animal[3][1]
@@ -222,6 +223,7 @@ GuaranteedQuestions : array
 		Capitalize(_animals_4),"top of food chain,%(_animals_4)",/
 		Capitalize(_animals_5),"top of food chain,%(_animals_5)")
 	}
+	
 	{
 		_animals_6 = Choices.Animal[5][1]
 		
@@ -231,6 +233,7 @@ GuaranteedQuestions : array
 		--
 		Choices("More","more animals,%(_animals_6)","Fewer","fewer animals,%(_animals_6)")
 	}
+	
 	{
 		_choices.climate = IARRAY
 		
@@ -255,6 +258,7 @@ GuaranteedQuestions : array
 		Capitalize(_climate_2),"over all climate,%(_climate_2)",/
 		Capitalize(_climate_3),"over all climate,%(_climate_3)")
 	}
+	
 	{
 		_choices.biome = IARRAY
 		
@@ -268,17 +272,18 @@ GuaranteedQuestions : array
 			}
 			if ARRAYSIZE(ARRAYDEDUP(_choices.biome)) == _biome_num; _done = 1
 		}
-		_biome_1 = _choices.biome[0][0]
-		_biome_2 = _choices.biome[1][0]
-		_biome_3 = _choices.biome[2][0]
+		_biome_1 = _choices.biome[0]
+		_biome_2 = _choices.biome[1]
+		_biome_3 = _choices.biome[2]
 		
-		"\0\b[0]\s[0]I am deciding on another biome to add to one of the main continents. Tell me, do you think %(_biome_1), %(_biome2), or %(_biome_3) would be best suited?"
+		"\0\b[0]\s[0]I am deciding on another biome to add to one of the main continents. Tell me, do you think %(_biome_1) region, %(_biome2) region, or %(_biome_3) region would be best suited?"
 		--
 		Choices(/
 		Capitalize(_biome_1),"pick a biome,%(_biome_1)",/
 		Capitalize(_biome_2),"pick a biome,%(_biome_2)",/
 		Capitalize(_biome_3),"pick a biome,%(_biome_3)")
 	}
+	
 	{
 		_celestial_objects_1 = celestialobjects[1]
 		_celestial_objects_2 = celestialobjects[1]
@@ -292,6 +297,64 @@ GuaranteedQuestions : array
 		Choices(/
 		Capitalize(_celestial_objects_1),"this or that celestial object,%(_celestial_objects_1),%(_celestial_objects_2)",/
 		Capitalize(_celestial_objects_2),"this or that celestial object,%(_celestial_objects_2),%(_celestial_objects_1)")
+	}
+	
+	{
+		_bugs_1 = bugs[1]
+		_bugs_2 = bugs[1]
+		while _bugs_2 == _bugs_1
+		{
+			_bugs_2 = bugs[1]
+		}
+		
+		"\0\b[0]\s[7]I haven't yet decided all of the bugs that will be present in this cycle. \s[0]Which would you prefer, %(_bugs_1) or %(_bugs_2)?"
+		--
+		Choices(/
+		Capitalize(_bugs_1),"this or that bug,%(_bugs_1),%(_bugs_2)",/
+		Capitalize(_bugs_2),"this or that bug,%(_bugs_2),%(_bugs_1)")
+	}
+	
+	{
+		_flowers = flowers
+		
+		"\0\b[0]\s[6]I am wondering, should I have more %(_flowers) in the next cycle, or fewer? \s[0]What do you think?"
+		--
+		Choices("More","more flowers,%(_flowers)","Fewer","fewer flowers,%(_flowers)")
+	}
+	
+	{
+		_geographical_features = geographicalfeatures
+		
+		"\0\b[0]\s[0]%(Capitalize(_geographical_features)) can add a lot of interest to the landscape, but at times I wonder if I am adding too many... Tell me, would you prefer more or fewer %(_geographical_features)?"
+		--
+		Choices("More","more geographical features,%(_geographical_features)","Fewer","fewer geographical features,%(_geographical_features)")
+	}
+	
+	{
+		_choices.cultural_cornerstone = IARRAY
+		
+		_done = 0
+		while !_done
+		{
+			_cornerstone_num = 4
+			for _i = 0; _i < _cornerstone_num; _i++
+			{
+				_choices.cultural_cornerstone[_i] = culturalcornerstones
+			}
+			if ARRAYSIZE(ARRAYDEDUP(_choices.cultural_cornerstone)) == _cornerstone_num; _done = 1
+		}
+		_cornerstone_1 = _choices.cultural_cornerstone[0]
+		_cornerstone_2 = _choices.cultural_cornerstone[1]
+		_cornerstone_3 = _choices.cultural_cornerstone[2]
+		_cornerstone_4 = _choices.cultural_cornerstone[3]
+		
+		"\0\b[2]\s[7]Picking a cultural cornerstore for each civilisation is always an interesting task. \s[6]It will shape many things about them, and deeply impact how they interact with the world.\n\n[half]I wonder, which would you like to see? I'll give you four options. %(Capitalize(_cornerstone_1)), %(_cornerstone_2), %(_cornerstone_3), or %(_cornerstone_4)."
+		--
+		Choices(/
+		Capitalize(_cornerstone_1),"pick a cultural cornerstone,%(_cornerstone_1)",/
+		Capitalize(_cornerstone_2),"pick a cultural cornerstone,%(_cornerstone_2)",/
+		Capitalize(_cornerstone_3),"pick a cultural cornerstone,%(_cornerstone_3)",/
+		Capitalize(_cornerstone_4),"pick a cultural cornerstone,%(_cornerstone_4)")
 	}
 }
 
@@ -307,12 +370,14 @@ NotGuaranteedQuestions : array
 		--
 		Choices("Good idea","good idea adding a giant,%(_animals_7)","Bad idea","bad idea adding a giant,%(_animals_7)")
 	}
+	
 	{
 		_animals_8 = Choices.Animal[7][1]
 		"\0\b[0]\s[0]I think I should add more eyes to the %(_animals_8). Wouldn't that be interesting?"
 		--
 		Choices("Yes","add more eyes to,%(_animals_8)","Not really","do not add more eyes to,%(_animals_8)")
 	}
+	
 	{
 		_animals_9 = Choices.Animal[8][1]
 		//TODO this reads weird lol
@@ -320,21 +385,25 @@ NotGuaranteedQuestions : array
 		--
 		Choices("Good idea","split into two species,%(_animals_9)","Bad idea","do not split,%(_animals_9)")
 	}
+	
 	{
 		"\0\b[0]\s[5]I've been thinking about making mold carnivorous. Thoughts?"
 		--
 		Choices("Good idea","carnivorous mold","Bad idea","no carnivorous mold")
 	}
+	
 	{
 		"\0\b[0]\s[0]I've been thinking that I would like to change up the over all look of forests and other wooded areas. What do you think the average height of a tree should be?"
 		--
 		Choices("10 feet","average tree height,10","100 feet","average tree height,100","1000 feet","average tree height,1000")
 	}
+	
 	{
 		"\0\b[0]\s[7]I am creating a series of islands. \s[0]Should I add treacherous whirlpools to keep the inhabitants from spreading to other landmasses?"
 		--
 		Choices("Yes","islands with treacherous whirlpools","No","islands without treacherous whirlpools")
 	}
+	
 	{
 		_animals_10 = Choices.Animal[9][1]
 	
@@ -342,16 +411,19 @@ NotGuaranteedQuestions : array
 		--
 		Choices("Good idea","aquatic animal,%(_animals_10)","Bad idea","no aquatic animal,%(_animals_10)")
 	}
+	
 	{
 		"\0\b[0]\s[6]I am thinking about changing the way that water flows, to make it more bouncy. \s[0]What are your thoughts?"
 		--
 		Choices("Good idea","bouncy water yes","Bad idea","bouncy water no")
 	}
+	
 	{
 		"\0\b[0]\s[7]I would like to add mermaids this iteration. \s[5]Do you think they should prey on humans, or only fish?"
 		--
 		Choices("Humans","mermaids eat humans","Only fish","mermaids eat fish","What about seaweed?","mermaids eat seaweed")
 	}
+	
 	{
 		_element = element
 		
@@ -359,41 +431,49 @@ NotGuaranteedQuestions : array
 		--
 		Choices("Good idea","atmosphere is made of,%(_element)","Bad idea","atmosphere stays the same")
 	}
+	
 	{
 		"\0\b[0]\s[0]I am considering doing away with the idea with spoken names. \s[5]What do you think, should I make it based on smell, or interpretive dance?"
 		--
 		Choices("Smell","names are based on smell","Interpretive dance","names are based on interpretive dance","They should stay how they are","names stay as they are")
 	}
+	
 	{
 		"\0\b[0]\s[6]I am thinking about guiding humans towards becoming bug farmers in this next iteration, and doing away with most meat farming. \s[0]What do you think?"
 		--
 		Choices("Good idea","humans become bug farmers","Bad idea","humans remain meat farmers")
 	}
+	
 	{
 		"\0\b[0]\s[7]I am considering turning clouds into animals that float across the sky, and prey on large birds. \s[5]What are your thoughts?"
 		--
 		Choices("Good idea","clouds are carnivorous","Bad idea","clouds are not carnivorous")
 	}
+	
 	{
 		"\0\b[0]\s[6]I think it is time to overhaul the calendar. \s[0]How many days do you think should be in an Earth year?"
 		--
 		Choices("365","earth year length,365","100","earth year length,100","1000","earth year length,1000")
 	}
+	
 	{
 		"\0\b[0]\s[0]I think it might be interesting to add an additional moon, or perhaps two. What do you think?"
 		--
 		Choices("One is better","number of moons,one","Two or three sounds good","number of moons,two or three","Four would be even better","number of moons,four")
 	}
+	
 	{
 		"\0\b[0]\s[0]I am thinking about removing the concept of feathers entirely. \s[7]Your thoughts?"
 		--
 		Choices("Good idea","remove the concept of feathers","Bad idea","keep the concept of feathers")
 	}
+	
 	{
 		"\0\b[0]\s[6]I am thinking about tweaking certain parameters to make it more difficult for humans to build vertically. \s[0]This would cause population centers to be more horizontal, and I would be interested to see how it affects society. \s[7]What are your thoughts?" //TODO this scrolls and it's annoying
 		--
 		Choices("Good idea","society is horizontal","Bad idea","society is vertical")
 	}
+	
 	{
 		_color1 = ANY("red,orange,yellow,green")
 		_color2 = ANY("cyan,blue,purple")
@@ -401,11 +481,13 @@ NotGuaranteedQuestions : array
 		--
 		Choices("Swap %(_color1) and %(_color2)","swapping colors,%(_color1),%(_color2)","Ultraviolet light should be visible","ultraviolet light is visible","Light is good as it is already","light stays normal")
 	}
+	
 	{
 		"\0\b[0]\s[7]I think it would be nice if volcanic eruptions were much more frequent on average. What do you think?"
 		--
 		Choices("Good idea","more frequent volcanic eruptions","Bad idea","normal frequency volcanic eruptions")
 	}
+	
 	{
 		"\0\b[0]\s[6]I am debating making the sun much larger in the sky, while keeping its current power. What do you think?"
 		--
