@@ -74,7 +74,13 @@ RandomTalk : nonoverlap_pool
 
 ChatterTalk : array
 {
-	"RandomTalk"
+	"\0\b[0]\s[0]I actually haven't had an assistant before. \n\n[half]\s[6]I have spoken with mortals, though. \s[7]%(br)That's how I learned how to keep you safe and sane despite our extended contact. \n\n[half]It just took a bit of trial and error!"
+	"\0\b[6]\s[4]I think a whiteboard might be beneficial to our workflow... Or, maybe a corkboard?"
+	"\0\b[0]\s[8]I would make you a quill like mine, but making my feathers safe for you to hold is proving somewhat challenging. \n\n[half]\s[1]Don't feel too badly. \s[5]It wouldn't work for you like it does for me regardless. \n\n[half]\s[7]I simply think it would be nice if we matched."
+	"\0\b[0]\s[4]Do you think anyone would notice if I took a throw rug from the current universe? \n\n[half]\s[3]... Never mind that. \s[1]I'll ask another angel for one the next time I see them."
+	"\0\b[0]\s[5]Did you know that there were still various species of fish, insects, and fungi that were left undiscovered on your home iteration when it ended? \n\n[half]\s[7]I made them quite good at hiding from humans!"
+	"\0\b[6]\s[8]Hum... I don't think this one is good for an assistant to solve... \s[1]Maybe after %(br)you've had a few thousand years of practice."
+	"\0\b[6]\s[0]When we have another break, you should tell me what %(gravity) feels like to you. \s[7]I'm quite curious."
 	
 	//——————————————— Lore responses ———————————————
 	_num = CheckChoices("yes lore")
@@ -178,7 +184,7 @@ MonologueTalk : array
 	"\0\b[6]\s[7]Perhaps more habitats for the %(bugs[1])..."
 	"\0\b[6]\s[7]%(Capitalize(bugs[1])) are truly delightful creatures..."
 	"\0\b[6]\s[6]Perhaps some parasites could be introduced to control their growth..."
-	"\0\b[6]\s[7]Mustn't forget the fungi! They need a space to inhabit too."
+	"\0\b[6]\s[7]Mustn't forget the fungi! They need a space to inhabit, too."
 }
 
 LoreQuestions : array

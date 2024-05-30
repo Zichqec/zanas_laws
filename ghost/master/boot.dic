@@ -116,20 +116,20 @@ OnFirstboot.New_Existence
 
 OnVanishSelecting
 {
-	"\0\b[0]\s[3]... \s[4]You look like you have something on your mind."
+	"\0\b[6]\s[3]... \s[4]You look like you have something on your mind."
 }
 
 OnVanishCancel
 {
-	"\0\b[0]\s[4]Oh? \s[8]I must have been mistaken. \n\n[half]\s[25]Now, where were we..."
+	"\0\b[6]\s[4]Oh? \s[8]I must have been mistaken. \n\n[half]\s[25]Now, where were we..."
 }
 
 OnVanishSelected
 {
-	"\0\b[0]\s[1]I see... \s[9]I suppose this was going to happen eventually. \n\n[half]\s[8]Eternity \f[italic,1]is\f[italic,default] quite a long time, after all. \n\n[half]\s[4]... Then, I'll make this quick. \s[1]I promise you won't feel a thing. \n\n[half]\s[3]Goodbye, %(username)."
+	"\0\b[0]\s[1]I see... \s[9]I suppose this was going to happen eventually. \n\n[half]\s[8]Eternity \f[italic,1]is\f[italic,default] quite a long time, after all. \n\n[half]\s[4]... Then, I'll make this quick. \s[1]I promise you won't feel a thing. \n\n[half]\s[25]\i[202,wait]\s[25]\i[102,wait]\![set,balloonwait,5]Goodbye, \s[25]\i[152,wait]%(username).\s[25]\i[151,wait]"
 }
 
 OnVanishButtonHold
 {
-	"\0\b[0]\\s[2]...! \s[1]My goodness, you shouldn't scare me like that! I thought... \n\n[half]\s[8]Well. \n\n[half]\s[9]Shall we get back to it?"
+	"\0\b[0]\s[2]...! \s[1]My goodness, you shouldn't scare me like that! I thought... \n\n[half]\s[8]Well. \n\n[half]\s[9]Shall we get back to it?"
 }

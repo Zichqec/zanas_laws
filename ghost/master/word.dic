@@ -223,6 +223,22 @@ color
 	"iridescent"
 }
 
+element
+{
+	"helium"
+	"nitrogen"
+	"carbon monoxide"
+	"carbon dioxide"
+	"argon"
+	"methane "
+	"nitrous oxide"
+	"chlorine"
+	"radon"
+	"ammonia"
+	"dimethyl ether"
+	"isobutene"
+}
+
 foodsource
 {
 	"iron"
@@ -241,6 +257,22 @@ foodsource
 	"bleach"
 	"feathers"
 	"gemstones"
+}
+
+gravity
+{
+	"gravity"
+	"zero-gravity"
+	"digestion"
+	"growing"
+	"sleep"
+	"dreaming"
+	"hunger"
+	"thirst"
+	"breathing"
+	"having an itch"
+	"muscle cramps"
+	"having a cold"
 }
 
 hurricanes
@@ -308,20 +340,4 @@ worms
 	"automobiles"
 	"%(color) umbrella"
 	"mineral erosion"
-}
-
-element
-{
-	"helium"
-	"nitrogen"
-	"carbon monoxide"
-	"carbon dioxide"
-	"argon"
-	"methane "
-	"nitrous oxide"
-	"chlorine"
-	"radon"
-	"ammonia"
-	"dimethyl ether"
-	"isobutene"
 }
