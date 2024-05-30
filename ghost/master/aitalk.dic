@@ -195,6 +195,92 @@ ChatterTalk : array
 		"\0\b[6]\s[4]It felt strangely empty without very many %(_animals), didn't it? \s[3]I felt so, anyway."
 		"\0\b[6]\s[8]When we lessened the number of %(_animals), I didn't expect them to become the mascot for a %(shoe) company..."
 	}
+	
+	_num = CheckChoices("pick an overall climate")
+	if _num != -1
+	{
+		_climate = LastAnswers[_num][1]
+		
+		"\0\b[6]\s[0]Placeholder."
+	}
+	
+	_num = CheckChoices("pick a biome")
+	if _num != -1
+	{
+		_biome = LastAnswers[_num][1]
+		
+		"\0\b[6]\s[0]Placeholder."
+	}
+	
+	_num = CheckChoices("this or that celestial object")
+	if _num != -1
+	{
+		_object_1 = LastAnswers[_num][1]
+		_object_2 = LastAnswers[_num][2]
+		
+		"\0\b[6]\s[0]Placeholder."
+	}
+	
+	_num = CheckChoices("this or that bug")
+	if _num != -1
+	{
+		_bugs_1 = LastAnswers[_num][1]
+		_bugs_2 = LastAnswers[_num][2]
+		
+		"\0\b[6]\s[0]Placeholder."
+	}
+	
+	_num = CheckChoices("more flowers")
+	if _num != -1
+	{
+		_flowers = LastAnswers[_num][1]
+		
+		"\0\b[6]\s[0]Placeholder."
+	}
+	
+	_num = CheckChoices("fewer flowers")
+	if _num != -1
+	{
+		_flowers = LastAnswers[_num][1]
+		
+		"\0\b[6]\s[0]Placeholder."
+	}
+	
+	_num = CheckChoices("more geographical features")
+	if _num != -1
+	{
+		_features = LastAnswers[_num][1]
+		
+		"\0\b[6]\s[0]Placeholder."
+	}
+	
+	_num = CheckChoices("fewer geographical features")
+	if _num != -1
+	{
+		_features = LastAnswers[_num][1]
+		
+		"\0\b[6]\s[0]Placeholder."
+	}
+	
+	_num = CheckChoices("pick a cultural cornerstone")
+	if _num != -1
+	{
+		_cornerstone = LastAnswers[_num]
+		
+		"\0\b[6]\s[0]Placeholder."
+	}
+	
+	/*
+	
+	_num = CheckChoices("pick an overall climate")
+	if _num != -1
+	{
+		_climate = LastAnswers[_num][1]
+		
+		"\0\b[6]\s[0]Placeholder."
+	}
+	
+	*/
 }
 
 MonologueTalk : array
@@ -274,7 +360,7 @@ GuaranteedQuestions : array
 	{
 		_animals_6 = Choices.Animal[5][1]
 		
-		"\0\b[0]\s[0]I am considering how many %(_animals_6) we want in the over all ecosystem. Do you think there should be more, or fewer?"
+		"\0\b[0]\s[0]I am considering how many %(_animals_6) we want in the overall ecosystem. Do you think there should be more, or fewer?"
 		//"\0\b[0]\s[0]Regarding %(_animals), should we have more or fewer of them?"
 		//"\0\b[0]\s[0]Do you think it is better to have more or fewer %(_animals) in the next iteration?"
 		--
@@ -298,12 +384,12 @@ GuaranteedQuestions : array
 		_climate_2 = _choices.climate[1]
 		_climate_3 = _choices.climate[2]
 		
-		"\0\b[0]\s[6]I am making changes to the over all climate of the planet. \s[0]I'm curious, which would you prefer? %(_climate_1), %(_climate_2), or %(_climate_3)?"
+		"\0\b[0]\s[6]I am making changes to the overall climate of the planet. \s[0]I'm curious, which would you prefer? %(_climate_1), %(_climate_2), or %(_climate_3)?"
 		--
 		Choices(/
-		Capitalize(_climate_1),"over all climate,%(_climate_1)",/
-		Capitalize(_climate_2),"over all climate,%(_climate_2)",/
-		Capitalize(_climate_3),"over all climate,%(_climate_3)")
+		Capitalize(_climate_1),"pick an overall climate,%(_climate_1)",/
+		Capitalize(_climate_2),"pick an overall climate,%(_climate_2)",/
+		Capitalize(_climate_3),"pick an overall climate,%(_climate_3)")
 	}
 	
 	{
@@ -362,17 +448,18 @@ GuaranteedQuestions : array
 	}
 	
 	{
-		_flowers = flowers
+		_pick = flowers
+		_flowers = _pick[1]
 		
 		"\0\b[0]\s[6]I am wondering, should I have more %(_flowers) in the next iteration, or fewer? \s[0]What do you think?"
 		--
-		Choices("More","more flowers,%(_flowers)","Fewer","fewer flowers,%(_flowers)")
+		Choices("More","more flowers,%(_pick)","Fewer","fewer flowers,%(_pick)")
 	}
 	
 	{
 		_geographical_features = geographicalfeatures
 		
-		"\0\b[0]\s[0]%(Capitalize(_geographical_features)) can add a lot of interest to the landscape, but at times I wonder if I am adding too many... Tell me, would you prefer more or fewer %(_geographical_features)?"
+		"\0\b[0]\s[0]%(Capitalize(_geographical_features[1])) can add a lot of interest to the landscape, but at times I wonder if I am adding too many... Tell me, would you prefer more or fewer %(_geographical_features[1])?"
 		--
 		Choices("More","more geographical features,%(_geographical_features)","Fewer","fewer geographical features,%(_geographical_features)")
 	}
@@ -440,7 +527,7 @@ NotGuaranteedQuestions : array
 	}
 	
 	{
-		"\0\b[0]\s[0]I've been thinking that I would like to change up the over all look of forests and other wooded areas. What do you think the average height of a tree should be?"
+		"\0\b[0]\s[0]I've been thinking that I would like to change up the overall look of forests and other wooded areas. What do you think the average height of a tree should be?"
 		--
 		Choices("10 feet","average tree height,10","100 feet","average tree height,100","1000 feet","average tree height,1000")
 	}
