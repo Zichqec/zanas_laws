@@ -41,6 +41,15 @@ birds
     "a hummingbird,hummingbirds"
     "a woodpecker,woodpeckers"
     "a cardinal,cardinals"
+    "a duck,ducks"
+    "a parakeet,parakeets"
+    "a parrot,parrots"
+    "a cuckoo,cuckoos"
+    "a peacock,peacocks"
+    "a sparrow,sparrows"
+    "a swallow,swallows"
+    "a swan,swans"
+    "an owl,owls"
 }
 
 bugs : nonoverlap
@@ -114,7 +123,7 @@ climates : nonoverlap
 }
 
 biomes : nonoverlap
-{	
+{
 	"a tropical"
 	"a subtropical"
 	"a desert"
@@ -278,7 +287,7 @@ element
 	"carbon monoxide"
 	"carbon dioxide"
 	"argon"
-	"methane "
+	"methane"
 	"nitrous oxide"
 	"chlorine"
 	"radon"
