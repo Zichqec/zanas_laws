@@ -185,6 +185,85 @@ ChatterTalk : array
 		}
 	}
 	
+	_num = CheckChoices("mermaids eat humans")
+	if _num != -1
+	{	
+		"\0\b[0]\s[7]Human-hunting mermaids are a favorite of mine, if I'm honest. \s[6]There are all kinds of secrets hidden in the deep, and it's interesting when some of them make their way to shallower waters. \n\n[half]The mermaids also come up with such interesting hunting strategies! \s[1]I suppose you have to when your prey is as intelligent as humans."
+	}
+	
+	_num = CheckChoices("mermaids eat seaweed")
+	if _num != -1
+	{	
+		"\0\b[0]\s[0]Vegetarian mermaids was an unexpected twist. \s[6]It was interesting to see them develop underwater farming.##%(br)\s[7]I've never seen kelp fields so orderly before."
+	}
+	
+	_num = CheckChoices("mermaids eat seaweed")
+	if _num != -1
+	{	
+		"\0\b[0]\s[0]Vegetarian mermaids was an unexpected twist. \s[6]It was interesting to see them develop underwater farming.##%(br)\s[7]I've never seen kelp fields so orderly before."
+	}
+	
+	_num = CheckChoices("large sun")
+	if _num != -1
+	{	
+		"\0\b[0]\s[8]It seems that making the sun so much larger caused many lifeforms to avoid sunlight altogether... \n\n[half]Humans in particular spent a lot more time indoors and in caves. \s[1]It is quite hard to work outdoors when so much of the sky can damage your eyes."
+	}
+	
+	_num = CheckChoices("names are based on smell")
+	if _num != -1
+	{	
+		"\0\b[0]\s[0]Basing names on smell ended up affecting much more of society than the ways individuals referred to each other. \n\n[half]\s[7]With noses sensitive enough to distinguish each other from billions of others, many aspects of daily life became centered around scent."
+	}
+	
+	_num = CheckChoices("names are based on interpretive dance")
+	if _num != -1
+	{	
+		"\0\b[0]\s[7]Humans certainly invented many forms of dance in the last iteration. \s[0]I suppose it was necessary, or they would have had a very limited number of names for themselves."
+	}
+	
+	_num = CheckChoices("combine two species")
+	if _num != -1
+	{	
+		_animal_1 = LastAnswers[_num][1]
+		_animal_2 = LastAnswers[_num][2]
+		
+		"\0\b[6]\s[5]%(Capitalize(_animal_1)) and %(_animal_2) certainly made for an interesting hybrid species, didn't they? \s[9]Of all the hybrids I've made, they might be one of my favorites..."
+	}
+	
+	_num = CheckChoices("add more eyes to")
+	if _num != -1
+	{
+		_animals = LastAnswers[_num][1]
+		"\0\b[6]\s[7]I think %(_animals) look better with the additional eyes we gave them!"
+	}
+	
+	_num = CheckChoices("good idea adding a giant")
+	if _num != -1
+	{
+		_animal = LastAnswers[_num][1]
+		_giant = LastAnswers[_num][2]
+		_giant = REPLACE(_giant,"a ","")
+		_giant = REPLACE(_giant,"an ","")
+		
+		"\0\b[0]\s[5]That %(_giant) %(_animal) we added certainly made things interesting. \s[6]It's always fascinating to see how humanity will respond to exceptional threats."
+	}
+	
+	_num = CheckChoices("number of moons")
+	if _num != -1
+	{
+		_moons = LastAnswers[_num][1]
+		if _moons == "two or three"
+		{
+			_moonnum = ANY(2,3)
+			_s = ""; if _moonnum == 3; _s = "s"
+			"\0\b[6]\s[0]The additional moon%(_s) we added made the tides very interesting. \s[6]I do so enjoy the intricacies of such patterns..."
+		}
+		elseif _moons == "four"
+		{
+			"\0\b[0]\s[5]All of the additional moons in the last iteration made the tides very chaotic indeed. \s[7]It was also nice to see humanity take additional interest in astronomy. \n\n[half]\s[6]I have always liked to see humanity looking towards the stars. It's captivating.##%(br)I wonder what it is like, to be so small, wondering what is beyond with no way to know for sure..."
+		}
+	}
+	
 	//——————————————— Guaranteed responses ———————————————
 	_num = CheckChoices("this or that animal")
 	if _num != -1
@@ -527,10 +606,11 @@ NotGuaranteedQuestions : array
 		_anim = _animal_7
 		_anim = REPLACE(_anim,"an ","")
 		_anim = REPLACE(_anim,"a ","")
+		_agiant = agiant
 		
-		"\0\b[0]\s[0]I was thinking about adding %(agiant) %(_anim) to make things more interesting. What do you think?"
+		"\0\b[0]\s[0]I was thinking about adding %(_agiant) %(_anim) to make things more interesting. What do you think?"
 		--
-		Choices("Good idea","good idea adding a giant,%(_animals_7)","Bad idea","bad idea adding a giant,%(_animals_7)")
+		Choices("Good idea","good idea adding a giant,%(_anim),%(_agiant)","Bad idea","bad idea adding a giant,%(_anim),%(_agiant)")
 	}
 	
 	{
