@@ -301,5 +301,5 @@ On_sakura.portalsites
 portalsites_sakura : array
 {
 	"Wiki page";		"https://ukagakadreamteam.com/wiki/ghost/zanas_laws"
-	//"Write a review!";	"TODO"
+	"Write a review!";	"https://docs.google.com/forms/d/e/1FAIpQLSde2QPkqafzleJRtbS9ZjbLf1ViQ20U2NzRH8XEUOd9l_wRVw/viewform?usp=sf_link"
 }
