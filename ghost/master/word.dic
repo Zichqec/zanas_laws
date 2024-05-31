@@ -114,7 +114,7 @@ climates : nonoverlap
 }
 
 biomes : nonoverlap
-{	
+{
 	"a tropical"
 	"a subtropical"
 	"a desert"
@@ -278,7 +278,7 @@ element
 	"carbon monoxide"
 	"carbon dioxide"
 	"argon"
-	"methane "
+	"methane"
 	"nitrous oxide"
 	"chlorine"
 	"radon"
