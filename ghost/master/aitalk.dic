@@ -793,6 +793,9 @@ OnQuestions
 			"\0\b[6]%(reaction)Interesting..."
 			"\0\b[6]%(reaction)I see. I might have suspected that."
 			"\0\b[6]%(reaction)Oh? I'm glad I asked you."
+			"\0\b[6]%(reaction)Hm... I think I like that idea."
+			"\0\b[6]%(reaction)This will take a few alterations, but nothing I can't handle."
+			"\0\b[6]%(reaction)It's like you read my mind... Not that that's possible, of course."
 		}
 	}
 	--
