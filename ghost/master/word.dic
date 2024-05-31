@@ -41,6 +41,15 @@ birds
     "a hummingbird,hummingbirds"
     "a woodpecker,woodpeckers"
     "a cardinal,cardinals"
+    "a duck,ducks"
+    "a parakeet,parakeets"
+    "a parrot,parrots"
+    "a cuckoo,cuckoos"
+    "a peacock,peacocks"
+    "a sparrow,sparrows"
+    "a swallow,swallows"
+    "a swan,swans"
+    "an owl,owls"
 }
 
 bugs : nonoverlap
