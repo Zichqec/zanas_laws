@@ -2,8 +2,8 @@ charset,UTF-8
 type,shell
 
 name,Default Shell
-craftman,Tsukinami Seika
-craftmanw,月波 清火 (Tsukinami Seika)
+craftman,Tsukinami Seika & Zichqec
+craftmanw,月波 清火 (Tsukinami Seika) & Zichqec
 craftmanurl,https://github.com/Zichqec/zanas_laws
 
 seriko.alignmenttodesktop,free
