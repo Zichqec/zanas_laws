@@ -67,7 +67,7 @@ OnNewUniverse
 		EVAL("Questions.%(_category) = ''")
 	}
 	
-	"\0\b[6]\s[25]\tSo it is said, so it shall be.\s[25]\i[202,wait]\s[25]\i[102,wait]\cOur little universe... I cannot wait to see what you will become.\w8\w8\w8\w8\c\f[align,center]\f[height,150%]\![set,balloonwait,3]Be %(Capitalize(strong)).\w8\nBe Loved.\w8%(fadeoutlong)\c\b[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]\![set,balloonwait,1]\b[0]%(fadeintext('Easy now... lay down if you need to'))... \w8\w8\w8\n\n[half]I know, the information influx is a lot for your mind. \s[1]Don't push yourself too hard. \n\n\_q\![*]\__q[OnNewUniverse.Im_Okay]I'm okay,## thank you.\__q\n\![*]\__q[OnNewUniverse.What_Was_That]What was all that?\__q"
+	"\0\b[6]\s[25]\t\*So it is said, so it shall be.\s[25]\i[202,wait]\s[25]\i[102,wait]\cOur little universe... I cannot wait to see what you will become.\w8\w8\w8\w8\c\f[align,center]\f[height,150%]\![set,balloonwait,3]Be %(Capitalize(strong)).\w8\nBe Loved.\w8%(fadeoutlong)\c\b[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]\![set,balloonwait,1]\b[0]%(fadeintext('Easy now... lay down if you need to'))... \w8\w8\w8\n\n[half]I know, the information influx is a lot for your mind. \s[1]Don't push yourself too hard. \n\n\_q\![*]\__q[OnNewUniverse.Im_Okay]I'm okay,## thank you.\__q\n\![*]\__q[OnNewUniverse.What_Was_That]What was all that?\__q"
 }
 
 OnNewUniverse.Buttons
@@ -77,23 +77,23 @@ OnNewUniverse.Buttons
 
 OnNewUniverse.Start
 {
-	"\0\b[0]\s[7]\tWonderful! I am excited to see how things will go this time, aren't you? \n\n[half]\s[0]We should see quite the change with these new parameters! \n\n\_q\![*]\__q[OnNewUniverse]Let's start.\__q\n\![*]\__q[OnNewUniverse.Questions]Actually,## I have some questions...\__q"
+	"\0\b[0]\s[7]\t\*Wonderful! I am excited to see how things will go this time, aren't you? \n\n[half]\s[0]We should see quite the change with these new parameters! \n\n\_q\![*]\__q[OnNewUniverse]Let's start.\__q\n\![*]\__q[OnNewUniverse.Questions]Actually,## I have some questions...\__q"
 }
 
 OnNewUniverse.Questions
 {
-	"\0\b[0]\s[8]\tWhat would you like to know? \n\n\_q\![*]\__q[OnNewUniverse.Questions_Go_Back]Why can't I go back?\__q\n\![*]\__q[OnNewUniverse.Questions_How_Many_Times]How many times have you done this?\__q\n\![*]\__q[OnNewUniverse.Questions_Be_Destroyed]Does the universe really have to be destroyed?\__q\n\![*]\__q[OnNewUniverse.Questions_Cancel]Can we wait a little longer?\__q\n\![*]\__q[OnNewUniverse]I'm ready to start.\__q"
+	"\0\b[0]\s[8]\t\*What would you like to know? \n\n\_q\![*]\__q[OnNewUniverse.Questions_Go_Back]Why can't I go back?\__q\n\![*]\__q[OnNewUniverse.Questions_How_Many_Times]How many times have you done this?\__q\n\![*]\__q[OnNewUniverse.Questions_Be_Destroyed]Does the universe really have to be destroyed?\__q\n\![*]\__q[OnNewUniverse.Questions_Cancel]Can we wait a little longer?\__q\n\![*]\__q[OnNewUniverse]I'm ready to start.\__q"
 }
 
 OnNewUniverse.Questions_Go_Back : all
 {
-	"\0\b[4]\s[3]\tSouls are... fragile. \n\n[half]\s[4]I could return the material that makes up your physical body to the cosmic nucleus,%(br)even recreate your form exactly as I see it now. \n\n[half]However... \n\n[half]\s[3]There is an extremely low probability that your soul, and thus the parts of your mind that make you who you are, would survive the process. \n\n[half]\s[4]You would be gone, and a new soul created in your place. One without the experience of your past lives. \n\n[half]\s[1]One that is... not you. \n\n[half]\s[8]It may be selfish, but I don't want to take that risk. \s[3]Not until you're ready to be destroyed."
+	"\0\b[4]\s[3]\t\*Souls are... fragile. \n\n[half]\s[4]I could return the material that makes up your physical body to the cosmic nucleus,%(br)even recreate your form exactly as I see it now. \n\n[half]However... \n\n[half]\s[3]There is an extremely low probability that your soul, and thus the parts of your mind that make you who you are, would survive the process. \n\n[half]\s[4]You would be gone, and a new soul created in your place. One without the experience of your past lives. \n\n[half]\s[1]One that is... not you. \n\n[half]\s[8]It may be selfish, but I don't want to take that risk. \s[3]Not until you're ready to be destroyed."
 	OnNewUniverse.Buttons
 }
 
 OnNewUniverse.Questions_How_Many_Times : all
 {
-	"\0\b[0]\s[8]\tI... honestly can say that I've never thought to count! \n\n[half]\s[0]"
+	"\0\b[0]\s[8]\t\*I... honestly can say that I've never thought to count! \n\n[half]\s[0]"
 	if TotalUniverses == 0
 	{
 		"I \f[italic,1]do\f[italic,default] know that I'll be keeping track of how many we do together"
@@ -108,7 +108,7 @@ OnNewUniverse.Questions_How_Many_Times : all
 
 OnNewUniverse.Questions_Be_Destroyed : all
 {
-	"\0\b[2]\s[3]Technically speaking, no, we do not \f[italic,1]have\f[italic,default] to destroy the current iteration. \n\n[half]\s[4]However, once it runs out of the last of its energy, everything will stop. It may not be destruction per se, but it is still the functional end of all life. \n\n[half]\s[9]We destroy it in order to give new life to the universe, and all of the beings within it, once more. \n\n[half]\s[5]It is a very important duty, %(username)."
+	"\0\b[2]\s[3]\t\*Technically speaking, no, we do not \f[italic,1]have\f[italic,default] to destroy the current iteration. \n\n[half]\s[4]However, once it runs out of the last of its energy, everything will stop. It may not be destruction per se, but it is still the functional end of all life. \n\n[half]\s[9]We destroy it in order to give new life to the universe, and all of the beings within it, once more. \n\n[half]\s[5]It is a very important duty, %(username)."
 	OnNewUniverse.Buttons
 }
 
@@ -119,12 +119,12 @@ OnNewUniverse.Questions_Cancel
 
 OnNewUniverse.Im_Okay
 {
-	"\0\b[0]\s[9]\tGood, good... You've done well, %(username). \n\n[half]\s[7]Be sure to rest if you need it. Do a bit of that... \s[8]drinking and eating business. \n\n[half]\s[5]Stretch or sleep if you need to. \n\n[half]\s[0]Then, we'll get started planning the next iteration."
+	"\0\b[0]\s[9]\t\*Good, good... You've done well, %(username). \n\n[half]\s[7]Be sure to rest if you need it. Do a bit of that... \s[8]drinking and eating business. \n\n[half]\s[5]Stretch or sleep if you need to. \n\n[half]\s[0]Then, we'll get started planning the next iteration.\x"
 }
 
 OnNewUniverse.What_Was_That
 {
-	"\0\b[2]\s[4]\tWell... I suppose it was 'everything', in a way. All of the new reality across the entirety of its timeline. \s[3]Though, how you process it is quite different from the angels... \n\n[half]\s[25]Whenever a new iteration is started, I am able to navigate all of space-time in a singular moment of infinity. You were designed to be able to percieve 4 dimensions of existance, but only interface with 3 of them. \n\n[half]\s[0]Which is to say, while you can see and experience time, you are unable to manipulate it. Your mind has to view it chronologically to understand it.\x\s[8]Even with that in mind, it's still quite a lot of information to take in at once... \s[3]Viewing an entire universe's timeline was likely too much for you to pick out more than a few broad strokes. \n\n[half]\s[5]Not to worry, though. I've made plenty of notes for us both. We'll be able to review every detail in our own time as we prepare for the next iteration."
+	"\0\b[2]\s[4]\t\*Well... I suppose it was 'everything', in a way. All of the new reality across the entirety of its timeline. \s[3]Though, how you process it is quite different from the angels... \n\n[half]\s[25]Whenever a new iteration is started, I am able to navigate all of space-time in a singular moment of infinity. You were designed to be able to percieve 4 dimensions of existance, but only interface with 3 of them. \n\n[half]\s[0]Which is to say, while you can see and experience time, you are unable to manipulate it. Your mind has to view it chronologically to understand it.\x\s[8]Even with that in mind, it's still quite a lot of information to take in at once... \s[3]Viewing an entire universe's timeline was likely too much for you to pick out more than a few broad strokes. \n\n[half]\s[5]Not to worry, though. I've made plenty of notes for us both. We'll be able to review every detail in our own time as we prepare for the next iteration.\x"
 }
 
 OnConfigMenu : all
