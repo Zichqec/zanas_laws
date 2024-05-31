@@ -514,7 +514,7 @@ GuaranteedQuestions : array
 		_climate_2 = _choices.climate[1]
 		_climate_3 = _choices.climate[2]
 		
-		"\0\b[0]\s[6]I am making changes to the overall climate of the planet. \s[0]I'm curious, which would you prefer? %(_climate_1), %(_climate_2), or %(_climate_3)?"
+		"\0\b[0]\s[6]I am making changes to the overall climate of the planet. \s[0]I'm curious, which would you prefer? %(Capitalize(_climate_1)), %(_climate_2), or %(_climate_3)?"
 		--
 		Choices(/
 		Capitalize(_climate_1),"pick an overall climate,%(_climate_1)",/
