@@ -321,7 +321,7 @@ ChatterTalk : array
 	_num = CheckChoices("pick an overall climate")
 	if _num != -1
 	{
-		_climate = LastAnswers[_num][1]
+		_climate = LastAnswers[_num]
 		
 		"\0\b[6]\s[1]Setting the primary climate to %(_climate) had a drastic influence in how the flora and fauna evolved... There's a lot to catalogue."
 	}
@@ -329,9 +329,11 @@ ChatterTalk : array
 	_num = CheckChoices("pick a biome")
 	if _num != -1
 	{
-		_biome = LastAnswers[_num][1]
+		_biome = LastAnswers[_num]
+		_biome = REPLACE(_biome,"a ","")
+		_biome = REPLACE(_biome,"an ","")
 		
-		"\0\b[0]\s[6]There were some unique developments on that %(_biome) we added. It might be worthwhile to try addimg more like it next time... \n\n[half]\s[0]Maybe we can replicate the results."
+		"\0\b[0]\s[6]There were some unique developments on that %(_biome) region we added. It might be worthwhile to try adding more like it next time... \n\n[half]\s[0]Maybe we can replicate the results."
 	}
 	
 	_num = CheckChoices("this or that celestial object")
@@ -355,7 +357,7 @@ ChatterTalk : array
 	_num = CheckChoices("more flowers")
 	if _num != -1
 	{
-		_flowers = LastAnswers[_num][1]
+		_flowers = LastAnswers[_num][2]
 		
 		"\0\b[6]\s[0]All of the %(_flowers) around... I shouldn't be surprised that humans found a way to turn them into %(bread). It was... \s[7]colorful!"
 	}
@@ -363,7 +365,7 @@ ChatterTalk : array
 	_num = CheckChoices("fewer flowers")
 	if _num != -1
 	{
-		_flowers = LastAnswers[_num][1]
+		_flowers = LastAnswers[_num][2]
 		
 		"\0\b[6]\s[8]Here's something interesting! Without %(_flowers), the language surrounding colors turned out differently in each of Earth's hemispheres."
 	}
@@ -371,7 +373,7 @@ ChatterTalk : array
 	_num = CheckChoices("more geographical features")
 	if _num != -1
 	{
-		_features = LastAnswers[_num][1]
+		_features = LastAnswers[_num][2]
 		
 		"\0\b[6]\s[5]With all of the %(_features) around, humans built their homes in some eye-catching ways this time."
 	}
@@ -379,7 +381,7 @@ ChatterTalk : array
 	_num = CheckChoices("fewer geographical features")
 	if _num != -1
 	{
-		_features = LastAnswers[_num][1]
+		_features = LastAnswers[_num][2]
 		
 		"\0\b[6]\s[8]Maps ended up a bit less varied without %(_features), but seeing the differences in how cities grew seems worth the loss."
 	}
