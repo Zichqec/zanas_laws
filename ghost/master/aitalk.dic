@@ -201,7 +201,7 @@ ChatterTalk : array
 	{
 		_climate = LastAnswers[_num][1]
 		
-		"\0\b[6]\s[0]Placeholder."
+		"\0\b[6]\s[1]Setting the primary climate to %(_climate) had a drastic influence in how the flora and fauna evolved... There's a lot to catalogue."
 	}
 	
 	_num = CheckChoices("pick a biome")
@@ -209,7 +209,7 @@ ChatterTalk : array
 	{
 		_biome = LastAnswers[_num][1]
 		
-		"\0\b[6]\s[0]Placeholder."
+		"\0\b[0]\s[6]There were some unique developments on that %(_biome) we added. It might be worthwhile to try addimg more like it next time... \n\n[half]\s[0]Maybe we can replicate the results."
 	}
 	
 	_num = CheckChoices("this or that celestial object")
@@ -218,7 +218,7 @@ ChatterTalk : array
 		_object_1 = LastAnswers[_num][1]
 		_object_2 = LastAnswers[_num][2]
 		
-		"\0\b[6]\s[0]Placeholder."
+		"\0\b[6]\s[1]I'll admit, it's a little challenging to judge how much humans enjoyed the %(_object_1)... \s[7]But there were certainly a lot of stories!"
 	}
 	
 	_num = CheckChoices("this or that bug")
@@ -227,7 +227,7 @@ ChatterTalk : array
 		_bugs_1 = LastAnswers[_num][1]
 		_bugs_2 = LastAnswers[_num][2]
 		
-		"\0\b[6]\s[0]Placeholder."
+		"\0\b[6]\s[0]There were a few humans that truly enjoyed the %(_bugs_1) we included. \s[7]It's nice to see them be appreciated."
 	}
 	
 	_num = CheckChoices("more flowers")
@@ -235,7 +235,7 @@ ChatterTalk : array
 	{
 		_flowers = LastAnswers[_num][1]
 		
-		"\0\b[6]\s[0]Placeholder."
+		"\0\b[6]\s[0]All of the %(_flowers) around... I shouldn't be surprised that humans found a way to turn them into %(bread). It was... \s[7]colorful!"
 	}
 	
 	_num = CheckChoices("fewer flowers")
@@ -243,7 +243,7 @@ ChatterTalk : array
 	{
 		_flowers = LastAnswers[_num][1]
 		
-		"\0\b[6]\s[0]Placeholder."
+		"\0\b[6]\s[8]Here's something interesting! Without %(_flowers), the language surrounding colors turned out differently in each of Earth's hemispheres."
 	}
 	
 	_num = CheckChoices("more geographical features")
@@ -251,7 +251,7 @@ ChatterTalk : array
 	{
 		_features = LastAnswers[_num][1]
 		
-		"\0\b[6]\s[0]Placeholder."
+		"\0\b[6]\s[5]With all of the %(_features) around, humans built their homes in some eye-catching ways this time."
 	}
 	
 	_num = CheckChoices("fewer geographical features")
@@ -259,7 +259,7 @@ ChatterTalk : array
 	{
 		_features = LastAnswers[_num][1]
 		
-		"\0\b[6]\s[0]Placeholder."
+		"\0\b[6]\s[8]Maps ended up a bit less varied without %(_features), but seeing the differences in how cities grew seems worth the loss."
 	}
 	
 	_num = CheckChoices("pick a cultural cornerstone")
@@ -267,7 +267,7 @@ ChatterTalk : array
 	{
 		_cornerstone = LastAnswers[_num]
 		
-		"\0\b[6]\s[0]Placeholder."
+		"\0\b[6]\s[7]The unspoken benefit of having humans base their cultures around %(_cornerstone) is seeing the numerous ways they develop it differently across the world."
 	}
 	
 	/*
