@@ -118,31 +118,47 @@ ChatterTalk : array
 	}
 	
 	//——————————————— Lore responses ———————————————
-	_num = CheckChoices("yes lore")
+	_num = CheckChoices("user afraid of change")
 	if _num != -1
 	{
-		"I am glad you like lore."
+		"\0\b[2]\s[6]The development of space travel in the previous iteration was very similar to your home iteration. \n\n[half]\s[4]Though, I'm not sure why mortals are always so fascinated by Mars... \s[3]I love Mars myself, but there are lots of other perfectly researchable planets out there. \n\n[half]\s[4]Half the time, you don't even manage to make contact with lifeforms outside of your own solar system... \n\n[half]I put so much work into all of you, it would be nice if you met more often."
+		"\0\b[0]\s[0]Believe it or not, your home iteration is actually one of the stranger ones I've tried. Of course, it's entirely normal to you, but it is quite different from what had been the norm until then."
+		"\0\b[0]\s[0]I can understand why you might not want to make the more drastic changes I proposed. It is comforting to experience iterations that are more similar to your home iteration, yes? \n\n[half]\s[6]Or, perhaps that idea simply didn't strike your fancy... I'll come up with more."
+		"\0\b[6]\s[5]I made sure that most creatures had an appropriate number of legs, just for you."
+		"\0\b[2]\s[1]There are certain stories that always end up being created in universes like these, no matter what happens. \n\n[half]I'm not sure which names you would recognize them by. Some examples are: a youth that finds themselves physically, and metaphorically, far from home; betrayal within a family and the subsequent revenge in an attempt to make things right; and, of course, the perfect example of your species that appears to set all the 'wrongs' of the world to 'right'. \n\n[half]It is amazing how many different ways humans can find to tell these stories, among others..."
+		"\0\b[0]\s[1]I think iterations like the last are the sort where I always see more depictions of heavenly beings. \n\n[half]\s[8]... I'm not certain why that is. However, it is a bit flattering..."
+		"\0\b[0]\s[4]I wonder... \s[2]If we were to create enough iterations close to your original one, \s[1]would someone else eventually find their way in here...? \n\n[half]\s[3]Another assistant would be intriguing, \s[8]but there might be other problems if we become \f[italic,1]too\f[italic,default] productive."
+		"\0\b[6]\s[6]Next time we try a universe like this, we should invert all the colors. \n\n[half]\s[1]Though, that might be hard with the sun..."
 	}
-	
-	_num = CheckChoices("no lore")
+
+	_num = CheckChoices("yes shadow biome")
 	if _num != -1
 	{
-		"I am sad you don't like lore."
+		"\0\b[0]\s[1]Humans ended up categorizing bats in the same family as Shadow creatures... It makes sense from their point of view, but it is a little funny, isn't it? \n\n[half]\s[4]Ah... It's probably cruel of me to think so.\w8%(br)\s[8]They have no way of knowing, after all."
+		"\0\b[0]\s[6]Many fruits that grow within Shadow regions are toxic to humans... \s[8]But that never stops you from finding a way to consume them. \n\n[half]The farming may be difficult, but they certainly found it valuable."
+		"\0\b[0]\s[5]The humans that permanently settled within Shadow regions evolved to have significantly improved hearing and vision to better navigate without bright lightsources. \n\n[half]\s[2]Not smell, though. I wonder why that is?"
+		"\0\b[0]\s[6]Many of the Shadow creatures that migrated out of their original habitat ended up in caves or otherwise underground... \n\n[half]\s[5]Their claws and scales make the majority of them natural at both climbing and digging."
+		"\0\b[0]\s[0]With how many Shadow creatures rely on a mucus coating to stay healthy, it was only a matter of time before they figured out how many other ways they could use secretions. \n\n[half]\s[8]From reducing friction with their environment, to creating cocoons, and even blocking enemy orifices... They can get quite creative!"
 	}
-	
-	_num = CheckChoices("fancy lore")
+
+	_num = CheckChoices("it's crab time")
 	if _num != -1
 	{
-		"what fancy lore we have!"
+		"\0\b[0]\s[8]%(username), I think we need to talk. \n\n[half]\s[1]Specifically, we need to talk about our choice to encourage convergent evolution on a wider scale. And how many crabs it has resulted in. \n\n[half]\s[4]I know crabs are one of my more potent designs, \s[3]but frankly, this has gotten ridiculous."
+		"\0\b[6]\s[4]Before the end, even humans had started evolving their own shells..."
+		"\0\b[6]\s[4]There were pet stores that sold crab beds... crab treats... crab water dishes... crab toys... crab leashes..."
+		"\0\b[6]\s[3]It's extremely impressive how many species of crab the average mortal knew in the last iteration, but I can't help but feel..."
+		"\0\b[6]\s[4]I don't like to play favorites, and yet all of my favorite insects ended up beaten out by crabs this time... Crabs are fine, but..."
+		"\0\b[6]\s[4]I'm starting to wonder if I should get a dress with a crab pattern on it..."
 	}
 	
+	/*
 	_num = CheckChoices("boring lore")
 	if _num != -1
 	{
 		"this lore is so boring."
 	}
-	
-	
+	*/
 	
 	//——————————————— Other responses ———————————————
 	_num = CheckChoices("carnivorous mold")
@@ -423,14 +439,15 @@ MonologueTalk : array
 LoreQuestions : array
 {
 	{
-		"\0\b[0]\s[0]Would you like lore or no lore?"
+		"\0\b[2]\s[25]I've been developing a new concept recently... \s[0]'Recently' being across the last few thousand iterations, of course. \s[7]%(br)I'd like to hear what you think. \n\n[half]\s[5]The idea is this: a new type of biome that I would tactically place large numbers of on Earth, to see how it interacts with the existing biomes around it. \s[0]This would be a sort of 'Shadow%(br)Biome' with creatures that thrive in the dark, and towering plants that block out most sunlight. \n\n[half]\s[5]Should we try it?"
 		--
-		Choices("I would like lore","yes lore","No lore thanks","no lore")
+		Choices("Let's try it","yes shadow biome","Maybe another time","user afraid of change")
 	}
+
 	{
-		"\0\b[0]\s[0]Would you like fancy lore or boring lore?"
+		"\0\b[0]\s[25]For the next iteration, I'd like to try increasing the average rates of convergent evolution across the planet. \n\n[half]\s[0]I'd like to see what designs we end up with when only the most practical features survive the evolutionary process. \n\n[half]\s[6]I'm sure at least one of the prominent results will be some sort of insectoid form, but we'll need to try it to be sure... \n\n[half]What do you think? Is it worth a try?"
 		--
-		Choices("Fancy lore","fancy lore","Boring lore","boring lore")
+		Choices("Let's see what happens","it's crab time","I'm not sure about this","user afraid of change")
 	}
 }
 
