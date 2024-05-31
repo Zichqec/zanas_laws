@@ -93,7 +93,16 @@ OnNewUniverse.Questions_Go_Back : all
 
 OnNewUniverse.Questions_How_Many_Times : all
 {
-	"\0\b[0]\s[8]\tI... honestly can say that I've never thought to count! \n\n[half]\s[0]I \f[italic,1]do\f[italic,default] know that we have completed the creation of %(TotalUniverses) iterations of your universe together so far."
+	"\0\b[0]\s[8]\tI... honestly can say that I've never thought to count! \n\n[half]\s[0]"
+	if TotalUniverses == 0
+	{
+		"I \f[italic,1]do\f[italic,default] know that I'll be keeping track of how many we do together"
+	}
+	else
+	{
+		_s = "s"; if TotalUniverses == 1; _s = ""
+		"I \f[italic,1]do\f[italic,default] know that we have completed the creation of %(TotalUniverses) iteration%(_s) of your universe together so far."
+	}
 	OnNewUniverse.Buttons
 }
 
