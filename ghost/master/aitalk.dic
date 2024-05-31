@@ -170,6 +170,21 @@ ChatterTalk : array
 	}
 	
 	
+	_num = CheckChoices("earth year length")
+	if _num != -1
+	{	
+		_length = LastAnswers[_num][1]
+		
+		if _length == "100"
+		{
+			"\0\b[2]\s[0]The much shorter year length had all kinds of interesting effects across the entire planet. \n\n[half]\s[6]With the seasons shortened to only a few weeks each, everything had to change in order to survive. \s[7]Plant life cycles and survival strategies, farming techniques, and so much more. \n\n[half]\s[0]It's fascinating, isn't it? Something seemingly arbitrary, like the number of days in a year, is actually profoundly impactful."
+		}
+		elseif _length == "1000"
+		{
+			"\0\b[2]\s[0]The long years certainly took their toll on lifeforms all over the planet. \s[6]Summers became truly scorching, rendering some areas completely uninhabitable. Winters were long and harsh, requiring careful planning so as not to run out of food. \n\n[half]\s[7]Nomadic lifestyles became much more prevalent, which I suppose shouldn't be all that surprising. If the winter and summer months are long and harsh, it only makes sense to stay on the move to avoid them. \n\n[half]\s[0]The seasons were almost akin to a natural disaster, albeit a predictable and regular one."
+		}
+	}
+	
 	//——————————————— Guaranteed responses ———————————————
 	_num = CheckChoices("this or that animal")
 	if _num != -1
@@ -314,7 +329,7 @@ MonologueTalk : array
 	"\0\b[6]\s[7]Language is always so interesting to watch develop. \s[6]A few carefully planted linguistic seeds grow into something unique and wonderful..."
 	"\0\b[6]\s[8]Oh my, I may need to recalibrate the gravity..."
 	"\0\b[6]\s[6]I might change the makeup of the%(br)planet's core. It could be interesting to try %(foodsource)..."
-	"\0\b[6]\s[3]%(Capitalize(worms)) are never a bad choice..."
+	"\0\b[6]\s[6]%(Capitalize(worms)) are never a bad choice..."
 	"\0\b[6]\s[7]I think this next iteration is going to be rather enjoyable."
 	"\0\b[6]\s[6]Patience, take it slow... \s[8]We don't want wobbly lines, now do we...?"
 	"\0\b[6]\s[1]Ah, right, the %(animals[1])... I still need to decide how I am handling them this time."
