@@ -36,17 +36,6 @@ OnSakuraMenu : all
 	"  "
 	"\![*]\q[Cancel,blank]"
 	
-	if SHIORI3FW.DebugMode
-	{
-		"\n\n"
-		
-		"UserAcceptedRole:  \![*]\q[(%(UserAcceptedRole)),OnDebug.UserAcceptedRole,""%(_lastgreeting)""]\n"
-		"QuestionsAsked: %(QuestionsAsked)\n"
-		"TotalUniverses: %(TotalUniverses)\n"
-		
-		"\f[color,default]"
-	}
-	
 	"\![unlock,balloonrepaint]"
 	"\_l[0,0]"
 	if SHIORI3FW.Eventid == "OnMouseDoubleClick"; "\![quicksection,false]%(SakuraMenuGreetings)"
@@ -145,7 +134,7 @@ OnConfigMenu : all
 		switch TOINT(_time[1]) == aitalkinterval
 		{
 			"\__q[OnTalkRateChange,%(_time[1])]%(_time[0])\__q"
-			"\f[italic,1]\_a[OnTalkRateChange,%(_time[1])]%(_time[0])\_a\f[italic,default]"
+			"\f[underline,1]\_a[OnTalkRateChange,%(_time[1])]%(_time[0])\_a\f[underline,default]"
 		}
 		"  "
 	}
