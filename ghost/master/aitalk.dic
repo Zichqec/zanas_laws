@@ -154,7 +154,19 @@ ChatterTalk : array
 	_num = CheckChoices("treacherous whirlpools")
 	if _num != -1
 	{	
-		"\0\b[0]\s[0]Do you remember the islands we discussed adding whirlpools around? \s[5]Well, it turns out the inhabitants escaped and ended up... \s[1]pretty much everywhere! \s[8]I don't know if I should have expected this outcome or not... "
+		"\0\b[0]\s[0]Do you remember the islands we discussed adding whirlpools around? \s[5]Well, it turns out the inhabitants escaped and ended up... \s[1]pretty much everywhere! \s[8]I don't know if I should have expected this outcome or not..."
+	}
+	
+	_num = CheckChoices("clouds are carnivorous")
+	if _num != -1
+	{	
+		"\0\b[6]\s[5]It was fascinating to see the clouds come to life, wasn't it? \s[7]It certainly posed a special challenge for all forms of aviation."
+	}
+	
+	_num = CheckChoices("humans become bug farmers")
+	if _num != -1
+	{	
+		"\0\b[6]\s[7]The change of protein source from meat to insects was quite impactful! \s[0]Humans became skilled at farming many tiny things, it was truly fascinating to see the scale of it."
 	}
 	
 	
@@ -500,6 +512,7 @@ NotGuaranteedQuestions : array
 		_anim = _animal_7
 		_anim = REPLACE(_anim,"an ","")
 		_anim = REPLACE(_anim,"a ","")
+		
 		"\0\b[0]\s[0]I was thinking about adding %(agiant) %(_anim) to make things more interesting. What do you think?"
 		--
 		Choices("Good idea","good idea adding a giant,%(_animals_7)","Bad idea","bad idea adding a giant,%(_animals_7)")
@@ -507,6 +520,7 @@ NotGuaranteedQuestions : array
 	
 	{
 		_animals_8 = Choices.Animal[7][1]
+		
 		"\0\b[0]\s[0]I think I should add more eyes to the %(_animals_8). Wouldn't that be interesting?"
 		--
 		Choices("Yes","add more eyes to,%(_animals_8)","Not really","do not add more eyes to,%(_animals_8)")
@@ -514,10 +528,12 @@ NotGuaranteedQuestions : array
 	
 	{
 		_animals_9 = Choices.Animal[8][1]
+		_animals_10 = Choices.Animal[9][1]
 		//TODO this reads weird lol
-		"\0\b[0]\s[5]I'm considering splitting %(_animals_9) into two distinct species. What do you think?"
+		
+		"\0\b[0]\s[5]I'm considering combining %(_animals_9) and %(_animals_10) into a single species. What do you think?"
 		--
-		Choices("Good idea","split into two species,%(_animals_9)","Bad idea","do not split,%(_animals_9)")
+		Choices("Good idea","combine two species,%(_animals_9),%(_animals_10)","Bad idea","do not combine two species,%(_animals_9),%(_animals_10)")
 	}
 	
 	{
@@ -539,11 +555,11 @@ NotGuaranteedQuestions : array
 	}
 	
 	{
-		_animals_10 = Choices.Animal[9][1]
+		_animals_11 = Choices.Animal[10][1]
 	
-		"\0\b[0]\s[5]I am considering the possibility of making %(_animals_10) aquatic. What do you think?"
+		"\0\b[0]\s[5]I am considering the possibility of making %(_animals_11) aquatic. What do you think?"
 		--
-		Choices("Good idea","aquatic animal,%(_animals_10)","Bad idea","no aquatic animal,%(_animals_10)")
+		Choices("Good idea","aquatic animal,%(_animals_11)","Bad idea","no aquatic animal,%(_animals_11)")
 	}
 	
 	{

@@ -22,6 +22,7 @@ OnTranslate
 		_talk = REPLACE(_talk,"? ","?\w8\w8 ")
 		_talk = REPLACE(_talk,"— ","—\w8\w8 ")
 		//_talk = REPLACE(_talk,". ",".\w8\w8 ")
+		_talk = REPLACE(_talk,"\n\n[half] ","\n\n[half]\w8\w8")
 		_talk = REPLACE(_talk,"\n\n ","\n\n\w8\w8")
 	}
 	//Simple autopause blocker per-character
@@ -194,7 +195,7 @@ OnPickChoices
 	_done = 0
 	while !_done
 	{
-		_animal_num = 11
+		_animal_num = 12
 		for _i = 0; _i < _animal_num; _i++
 		{
 			Choices.Animal[_i] = animals
@@ -300,5 +301,5 @@ On_sakura.portalsites
 portalsites_sakura : array
 {
 	"Wiki page";		"https://ukagakadreamteam.com/wiki/ghost/zanas_laws"
-	"Write a review!";	"TODO"
+	//"Write a review!";	"TODO"
 }

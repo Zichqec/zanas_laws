@@ -57,7 +57,7 @@ bugs : nonoverlap
 	"a mosquito,mosquitos"
 	"a grasshopper,grasshoppers"
 	"a flea,fleas"
-	"a leech,leeches" //ARE LEECHES BUGS??? (theyre not) (i think)
+	"a leech,leeches"
 	"a water skater,water skaters"
 	"a butterfly,butterflies"
 	"a moth,moths"
@@ -305,6 +305,7 @@ foodsource
 	"bleach"
 	"feathers"
 	"gemstones"
+	"balloons"
 }
 
 gravity
