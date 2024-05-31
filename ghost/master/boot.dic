@@ -126,7 +126,7 @@ OnVanishCancel
 
 OnVanishSelected
 {
-	"\0\b[0]\s[1]I see... \s[9]I suppose this was going to happen eventually. \n\n[half]\s[8]Eternity \f[italic,1]is\f[italic,default] quite a long time, after all. \n\n[half]\s[4]... Then, I'll make this quick. \s[1]I promise you won't feel a thing. \n\n[half]\s[25]\i[202,wait]\s[25]\i[102,wait]\![set,balloonwait,5]Goodbye, \s[25]\i[152,wait]%(username).\s[25]\i[151,wait]"
+	"\0\b[0]\s[1]I see... \s[9]I suppose this was going to happen eventually. \n\n[half]\s[8]Eternity \f[italic,1]is\f[italic,default] quite a long time, after all. \n\n[half]\s[4]... Then, I'll make this quick. \s[1]I promise you won't feel a thing. \n\n[half]\s[25]\i[202,wait]\s[25]\i[102,wait]\![set,balloonwait,5]Goodbye, \s[25]\i[152,wait]%(username).\s[25]\i[151,wait]\w8\w8\w8\w8"
 }
 
 OnVanishButtonHold
