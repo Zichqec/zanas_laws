@@ -434,7 +434,7 @@ MonologueTalk : array
 	"\0\b[6]\s[7]%(Capitalize(bugs[1])) are truly delightful creatures..."
 	"\0\b[6]\s[6]Perhaps some parasites could be introduced to control their growth..."
 	"\0\b[6]\s[7]Mustn't forget the fungi! They need a space to inhabit, too."
-	"\0\b[6]\s[6]Every kind of creature deserves time and attention so ensure it fits well into the ecosystem."
+	"\0\b[6]\s[6]Every kind of creature deserves time and attention to ensure it fits well into the ecosystem."
 	"\0\b[6]\s[7]It might be nice to do %(atheme) theme sometime."
 }
 
@@ -534,12 +534,12 @@ GuaranteedQuestions : array
 		_biome_2 = _choices.biome[1]
 		_biome_3 = _choices.biome[2]
 		
-		"\0\b[0]\s[0]I am deciding on another biome to add to one of the main continents. Tell me, do you think %(_biome_1) region, %(_biome2) region, or %(_biome_3) region would be best suited?"
+		"\0\b[0]\s[0]I am deciding on another biome to add to one of the main continents. Tell me, do you think %(_biome_1) region, %(_biome_2) region, or %(_biome_3) region would be best suited?"
 		--
 		Choices(/
-		Capitalize(_biome_1),"pick a biome,%(_biome_1)",/
-		Capitalize(_biome_2),"pick a biome,%(_biome_2)",/
-		Capitalize(_biome_3),"pick a biome,%(_biome_3)")
+		Capitalize(_biome_1) + " region","pick a biome,%(_biome_1)",/
+		Capitalize(_biome_2) + " region","pick a biome,%(_biome_2)",/
+		Capitalize(_biome_3) + " region","pick a biome,%(_biome_3)")
 	}
 	
 	{
@@ -643,7 +643,6 @@ NotGuaranteedQuestions : array
 	{
 		_animals_9 = Choices.Animal[8][1]
 		_animals_10 = Choices.Animal[9][1]
-		//TODO this reads weird lol
 		
 		"\0\b[0]\s[5]I'm considering combining %(_animals_9) and %(_animals_10) into a single species. What do you think?"
 		--
