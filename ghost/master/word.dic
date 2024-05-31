@@ -94,6 +94,12 @@ fishes
     "a neon tetra,neon tetras"
     "a pufferfish,pufferfish"
     "a trout,trouts"
+    "a sardine,sardines"
+    "a marlin,marlins"
+    "a bonito,bonitoes"
+    "a shark,sharks"
+    "a goldfish,goldfishes"
+    "a carp,carps"
 }
 
 flowers : nonoverlap
