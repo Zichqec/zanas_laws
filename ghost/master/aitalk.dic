@@ -447,9 +447,14 @@ LoreQuestions : array
 	}
 
 	{
-		"\0\b[0]\s[25]For the next iteration, I'd like to try increasing the average rates of convergent evolution across the planet. \n\n[half]\s[0]I'd like to see what designs we end up with when only the most practical features survive the evolutionary process. \n\n[half]\s[6]I'm sure at least one of the prominent results will be some sort of insectoid form, but we'll need to try it to be sure... \n\n[half]What do you think? Is it worth a try?"
+		"\0\b[2]\s[25]For the next iteration, I'd like to try increasing the average rates of convergent evolution across the planet. \n\n[half]\s[0]I'd like to see what designs we end up with when only the most practical features survive the evolutionary process. \n\n[half]\s[6]I'm sure at least one of the prominent results will be some sort of insectoid form, but we'll need to try it to be sure... \n\n[half]What do you think? Is it worth a try?"
 		--
-		Choices("Let's see what happens","it's crab time","I'm not sure about this","user afraid of change")
+		"\n\n\_q\![set,choicetimeout,60000]"
+		--
+		"\![*]\__q[OnQuestions,it's crab time]Let's see what happens\__q\n"
+		--
+		"\![*]\__q[OnQuestions,user afraid of change]I'm not sure about this\__q\n"
+		//Choices("Let's see what happens","it's crab time","I'm not sure about this","user afraid of change")
 	}
 }
 
