@@ -73,7 +73,7 @@ OnWindowStateRestore
 
 On_homeurl
 {
-	""
+	"https://raw.githubusercontent.com/Zichqec/zanas_laws/main/"
 }
 
 shrink : all
