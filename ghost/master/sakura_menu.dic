@@ -54,19 +54,6 @@ OnNewUniverse
 	AnsweredQuestions = IARRAY
 	OnPickChoices
 	
-	_categories = ("MoreOrFewer.Animals","ThisOrThat.Animals","PickOne.Animals","YesOrNo.Animals","GoodOrBad.Animals")
-	
-	foreach _categories; _category
-	{
-		if EVAL("LastQuestions.%(_category)") != ""
-		{
-			EVAL("OldQuestions.%(_category) ,= TOSTR(LastQuestions.%(_category))")
-			if ARRAYSIZE(EVAL("OldQuestions.%(_category)")) > 100; EVAL("OldQuestions.%(_category)[0] = IARRAY")
-		}
-		EVAL("LastQuestions.%(_category) = Questions.%(_category)")
-		EVAL("Questions.%(_category) = ''")
-	}
-	
 	"\0\b[6]\s[25]\t\*So it is said, so it shall be.\s[25]\i[202,wait]\s[25]\i[102,wait]\cOur little universe... I cannot wait to see what you will become.\w8\w8\w8\w8\c\f[align,center]\f[height,150%]\![set,balloonwait,3]Be %(Capitalize(strong)).\w8\nBe Loved.\w8%(fadeoutlong)\c\b[-1]\w8\w8\w8\w8\w8\w8\w8\w8\s[0]\![set,balloonwait,1]\b[0]%(fadeintext('Easy now... lay down if you need to'))... \w8\w8\w8\n\n[half]I know, the information influx is a lot for your mind. \s[1]Don't push yourself too hard. \n\n\_q\![*]\__q[OnNewUniverse.Im_Okay]I'm okay,## thank you.\__q\n\![*]\__q[OnNewUniverse.What_Was_That]What was all that?\__q"
 }
 
