@@ -23,6 +23,7 @@ OnInitialize
 	if reference0 != "reload" //To reset EXCEPT when just reloading
 	{
 		LastTalk = ""
+		AnsweredQuestions = IARRAY
 		OnPickChoices
 	}
 }
