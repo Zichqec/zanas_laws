@@ -20,6 +20,7 @@ OnFirstBoot
 
 OnInitialize
 {
+	if !ISVAR("UseSmallestBalloon"); UseSmallestBalloon = "Yes"
 	if reference0 != "reload" //To reset EXCEPT when just reloading
 	{
 		LastTalk = ""

@@ -149,6 +149,11 @@ OnConfigMenu : all
 		_ballooncolor = CurrentAngelbox[1]
 		"\![*]Balloon color: \__q[OnBalloonCustomization]%(_ballooncolor)\__q"
 	}
+	if SHIORI3FW.BalloonName != "Effortless Iridescence"
+	{
+		"\n"
+		"\![*]Use smallest balloon? \_a[OnUseSmallestBalloonToggle]%(UseSmallestBalloon)\_a"
+	}
 	
 	"\n\n"
 	"\![*]\q[Back,OnSakuraMenu]  \![*]\q[Close menu,blank]"
@@ -315,6 +320,12 @@ BalloonColors : array
 	"42,Gray Nebula"
 }
 
+OnUseSmallestBalloonToggle
+{
+	if UseSmallestBalloon != "Yes"; UseSmallestBalloon = "Yes"
+	else; UseSmallestBalloon = "No"
+	OnConfigMenu
+}
 OnDebug.UserAcceptedRole
 {
 	if UserAcceptedRole != 1; UserAcceptedRole = 1

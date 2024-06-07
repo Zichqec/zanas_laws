@@ -34,12 +34,18 @@ OnTranslate
 		_talk = REPLACE(_talk,"\0\b[0]","\0\b[%(_balloonnum)0]")
 		_talk = REPLACE(_talk,"\0\b[2]","\0\b[%(_balloonnum)2]")
 		_talk = REPLACE(_talk,"\0\b[4]","\0\b[%(_balloonnum)4]")
-		_talk = REPLACE(_talk,"\0\b[6]","\0\b[%(_balloonnum)6]")
+		if UseSmallestBalloon != "Yes"; _talk = REPLACE(_talk,"\0\b[6]","\0\b[%(_balloonnum)0]")
+		else; _talk = REPLACE(_talk,"\0\b[6]","\0\b[%(_balloonnum)6]")
 		_talk = REPLACE(_talk,"--INPUT_BALLOON","--balloon=%(_balloonnum)0")
 	}
 	else
 	{
 		_talk = REPLACE(_talk,"--INPUT_BALLOON","")
+	}
+	
+	if SHIORI3FW.BalloonName != "Effortless Iridescence" && UseSmallestBalloon != "Yes"
+	{
+		_talk = REPLACE(_talk,"\0\b[6]","\0\b[0]")
 	}
 	
 	TOSTR(_talk)
@@ -245,7 +251,7 @@ Capitalize
 Choices : all
 {
 	"\n\n\_q\![set,choicetimeout,60000]"
-	if _argc == 4
+	if _argc == 4 && SHIORI3FW.BalloonName == "Effortless Iridescence"
 	{
 		"\![*]\__q[OnQuestions,""%(_argv[1])""]%(_argv[0])\__q"
 		"%(newline)\f[align,right]"
