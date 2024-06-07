@@ -32,13 +32,13 @@ OnSakuraMenu : all
 	if LastTalk != ""; "  \![*]\__q[OnLastTalk]Repeat\__q"
 	"\n\n"
 	
-	"\![*]\__q[OnConfigMenu]Config\__q"
+	"\![*]\__q[OnConfigMenu,main menu]Config\__q"
 	"  "
-	"\![*]\q[Cancel,blank]"
+	"\![*]\q[Cancel,OnCancel]"
 	
 	"\![unlock,balloonrepaint]"
 	"\_l[0,0]"
-	if SHIORI3FW.Eventid == "OnMouseDoubleClick"; "\![quicksection,false]%(SakuraMenuGreetings)"
+	if SHIORI3FW.Eventid == "OnMouseDoubleClick"; "\![quicksection,false]\![no-autopause]%(SakuraMenuGreetings)"
 }
 
 OnLastTalk
@@ -116,7 +116,7 @@ OnNewUniverse.What_Was_That
 
 OnConfigMenu : all
 {
-	"\C\![lock,balloonrepaint]\c"
+	if reference0 != "main menu"; "\C\![lock,balloonrepaint]\c"
 	"\0\b[2]\![set,autoscroll,disable]\_q\*\f[anchorvisitedfontcolor,default.anchor]\![no-autopause]"
 	
 	"Your name:\n"
@@ -326,6 +326,12 @@ OnUseSmallestBalloonToggle
 	else; UseSmallestBalloon = "No"
 	OnConfigMenu
 }
+
+OnCancel
+{
+	"\b[-1]"
+}
+
 OnDebug.UserAcceptedRole
 {
 	if UserAcceptedRole != 1; UserAcceptedRole = 1
