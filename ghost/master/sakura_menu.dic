@@ -184,12 +184,12 @@ OnTalkRateChange
 
 OnToggleFloating
 {
-	"\C\![bind,Floating,On/Off]\![raise,OnConfigMenu]"
+	"\C\![bind,Floating,On/Off]\_l[0,0] \![raise,OnConfigMenu]"
 }
 
 OnToggleSparklies
 {
-	"\C\![bind,Sparkles,Static]\![raise,OnConfigMenu]"
+	"\C\![bind,Sparkles,Static]\_l[0,0] \![raise,OnConfigMenu]"
 }
 
 OnBalloonCustomization : all
