@@ -321,9 +321,9 @@ ChatterTalk : array
 	_num = CheckChoices("pick an overall climate")
 	if _num != -1
 	{
-		_climate = LastAnswers[_num]
+		_climate = LastAnswers[_num][1]
 		
-		"\0\b[6]\s[1]Setting the primary climate to %(_climate) had a drastic influence in how the flora and fauna evolved... There's a lot to catalogue."
+		"\0\b[6]\s[1]Making the climate more %(_climate) overall had a drastic influence in how the flora and fauna evolved... There's a lot to catalogue."
 	}
 	
 	_num = CheckChoices("pick a biome")
