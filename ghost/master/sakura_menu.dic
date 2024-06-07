@@ -152,6 +152,7 @@ OnConfigMenu : all
 	
 	"\n\n"
 	"\![*]\q[Back,OnSakuraMenu]  \![*]\q[Close menu,blank]"
+	"\n[0]\f[color,disable]\f[align,right]v%(ghostver)"
 	"\![unlock,balloonrepaint]"
 }
 

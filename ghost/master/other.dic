@@ -71,6 +71,11 @@ OnWindowStateRestore
 	OnSurfaceRestore
 }
 
+ghostver
+{
+	"1.0.1"
+}
+
 On_homeurl
 {
 	"https://raw.githubusercontent.com/Zichqec/zanas_laws/main/"
