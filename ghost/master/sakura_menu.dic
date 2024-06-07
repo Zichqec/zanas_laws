@@ -18,7 +18,7 @@ OnSakuraMenu : all
 {
 	if SHIORI3FW.Eventid != "OnMouseDoubleClick"; "\C\![lock,balloonrepaint]\c"
 	
-	"\0\b[0]\s[0]\![set,autoscroll,disable]\![close,inputbox,OnSetName]\![set,scaling,100,100]\![set,alpha,100]"
+	"\0\b[0]\![set,autoscroll,disable]\![close,inputbox,OnSetName]\![set,scaling,100,100]\![set,alpha,100]"
 	
 	"\n\n\n\_q"
 	
