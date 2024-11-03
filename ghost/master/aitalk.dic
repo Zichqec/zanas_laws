@@ -804,7 +804,7 @@ OnQuestions
 	{
 		"\x"
 		--
-		"\0\b[0]\s[6]\tThen, that should do it for now. \n\n[half]\s[5]I have an idea of how this next universe will go, \s[1]as well as what I need to adjust for it to happen. \n\n[half]\s[7]Thank you for your contribution. \s[0]Let me know when you're ready and we can %(br)\_a[OnUniverseCreation.Begin]begin\_a."
+		"\0\b[0]\s[6]\tThen, that should do it for now. \n\n[half]\s[5]I have an idea of how this next universe will go, \s[1]as well as what I need to adjust for it to happen. \n\n[half]\s[7]Thank you for your contribution. \s[0]Let me know when you're ready and we can%(br)\_a[OnUniverseCreation.Begin]begin\_a."
 		--
 		"\x"
 	}
