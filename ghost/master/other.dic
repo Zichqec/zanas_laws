@@ -79,7 +79,7 @@ OnWindowStateRestore
 
 ghostver
 {
-	"1.0.1"
+	"1.0.2"
 }
 
 On_homeurl
@@ -273,6 +273,40 @@ On_getaistateex : all
 		"%(ARRAYSIZE(ChatterTalk)),%(ARRAYSIZE(MonologueTalk)),%(ARRAYSIZE(GuaranteedQuestions)),%(ARRAYSIZE(NotGuaranteedQuestions)),%(ARRAYSIZE(LoreQuestions))"
 		C_BYTE1
 		"Chatter,Monologue,GuaranteedQ's,NotGuaranteedQ's,LoreQ's"
+	}
+}
+
+OnSpectrePlugin.ConfirmCalibration
+{
+	//Add expression names as references here in any order that should be omitted from the calibration...
+	"\![raiseplugin,Spectre,OnCustomCalibrationConfirm,angry,indignant,thinking,unamused]"
+}
+
+OnSpectrePlugin.Surface
+{
+	if reference0 == "normal"; "\s[0]"
+	elseif reference0 == "embarrassed"; "\s[1]"
+	elseif reference0 == "surprised"; "\s[2]"
+	elseif reference0 == "anxious"; "\s[3]"
+	elseif reference0 == "discouraged"; "\s[4]"
+	elseif reference0 == "smile"; "\s[7]"
+	elseif reference0 == "relieved"; "\s[6]"
+	//elseif reference0 == "angry"; "\s[21]"
+	elseif reference0 == "sweat"; "\s[8]"
+	//elseif reference0 == "indignant"; "\s[3]\i[6]"
+	//elseif reference0 == "thinking"; "\s[222]"
+	//elseif reference0 == "unamused"; "\s[220]"
+}
+
+OnSpectrePlugin.Possession
+{
+	if RAND(4) == 0
+	{
+		"\0\s[0]Hm? Are you alright? \s[1]You look like you've seen a ghost."
+		"\0\s[3]Are you feeling well, %(username)? You look a little faint."
+		"\0\s[8]Hm? Were you talking to someone?"
+		"\0\s[8]Why are you giving me that look...?"
+		"\0\s[8]%(username)...? \s[1]You looked a little lost in thought, have you had a new idea? \s[0]Make sure to write it down if so."
 	}
 }
 
